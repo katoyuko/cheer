@@ -9,6 +9,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-12">
+            <%= fa_icon("envelope") %>
             <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例: abc@mail.com", class: "form-control" %>
           </div>
@@ -18,6 +19,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-12">
+            <%= fa_icon("lock") %>
             <%= f.label :パスワード %><br />
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "半角英数字6文字以上", class: "form-control" %>
           </div>
@@ -27,6 +29,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-12">
+            <%= fa_icon("lock") %>
             <%= f.label :パスワード（確認用） %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "半角英数字6文字以上", class: "form-control" %>
           </div>
@@ -34,7 +37,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "新規登録", class:"btn btn-success col-md-4 col-md-offset-4" %>
+        <%= f.submit "新規登録", class:"btn btn-default col-md-4 col-md-offset-4 btn-ellipse" %>
       </div>
     <% end %>
 
