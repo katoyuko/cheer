@@ -7,7 +7,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-12">
-            <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
+            <%= fa_icon("envelope") %>
             <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例: abc@mail.com", class: "form-control" %>
           </div>
@@ -17,6 +17,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-12">
+            <%= fa_icon("lock") %>
             <%= f.label :パスワード %><br />
             <%= f.password_field :password, autocomplete: "current-password", placeholder: "半角英数字6文字以上", class: "form-control" %>
           </div>

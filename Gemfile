@@ -73,4 +73,5 @@ gem 'jquery-rails'
 gem 'kaminari','~> 1.1.1'
 gem 'annotate'
 gem 'rspec-rails'
+gem 'font-awesome-rails'
 
