@@ -1,0 +1,52 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+
+    attributes:
+      user:
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+
+  devise:
+    confirmations:
+      confirmed: "アカウントが確認されました。ログインしています。"
+
+    failure:
+      already_authenticated: "既にログインしています。"
+      inactive: "アカウントが有効ではありません."
+      invalid: "メールアドレスまたはパスワードが無効です。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "アカウントがロックされる前に、もう1回試すことができます。"
+      not_found_in_database: "メールアドレスまたはパスワードが無効です。"
+      timeout: "一定時間が経過したため、再度ログインが必要です"
+      unauthenticated: "ログインまたは登録が必要です。"
+      unconfirmed: "メールアドレスを確認してください。"
+
+    passwords:
+      no_token: "このページにアクセスする事が出来ません。正しいURLでアクセスしていることを確認して下さい。"
+      updated: "パスワードを変更しました。"
+      updated_not_active: "パスワードを変更しました。"
+    registrations:
+      destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
+      signed_up: "アカウントを登録しました。"
+      signed_up_but_inactive: "アカウントは登録されていますが、有効になっていないため利用できません。"
+      signed_up_but_locked: "アカウントがロックされているため利用できません。"
+      updated: "アカウントが更新されました。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+    unlocks:
+      unlocked: "アカウントのロックが解除されました。ログインしています。"
+  errors:
+    messages:
+      already_confirmed: "は既に登録済みです。ログインしてください"
+      confirmation_period_expired: "%{period}以内に確認する必要がありますので、新しくリクエストしてください。"
+      expired: "は有効期限切れです。新規登録してください。"
+      not_found: "は見つかりませんでした。"
+      not_locked: "はロックされていません。"
+      not_saved:
+        one: "エラーによりこの %{resource} を登録できません"
+        other: "%{count} 個のエラーによりこの %{resource} を登録できません"
+
