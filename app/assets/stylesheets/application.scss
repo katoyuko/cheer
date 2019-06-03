@@ -16,3 +16,30 @@
 
     @import "bootstrap-sprockets";
     @import "bootstrap";
+
+
+/* 見出し */
+h2{
+  margin: 50px 0;
+  padding: 3px  13px;
+  border-left: solid 5px #0D8059;
+}
+
+
+/* ボタン */
+.btn-ellipse{
+  border-radius: 25px;
+  border: solid 1px #13BF86;
+}
+
+.btn-ellipse:hover{
+  color: white;
+  background-color: #13BF86;
+  border: none;
+}
+
+
+/* 新規登録 ログイン */
+.login, .sign_up{
+  font-size: 12px;
+}
