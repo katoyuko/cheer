@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -23,19 +24,19 @@
 h2{
   margin: 50px 0;
   padding: 3px  13px;
-  border-left: solid 5px #76D9CD;
+  border-left: solid 5px #76d9cd;
 }
 
 
 /* ボタン */
 .btn-ellipse{
   border-radius: 25px;
-  border: solid 1px #FFD600;
+  border: solid 1px #ffd600;
 }
 
 .btn-ellipse:hover{
   color: white;
-  background-color: #FFD600;
+  background-color: #ffd600;
   border: none;
 }
 
@@ -69,7 +70,7 @@ nav li{
 }
 
 nav li:hover{
-  border-bottom: 5px solid #76D9CD;
+  border-bottom: 5px solid #76d9cd;
 }
 
 /* 新規登録 ログイン */
@@ -77,4 +78,36 @@ nav li:hover{
   font-size: 12px;
 }
 
+/* フッター */
 
+footer{
+  height: 150px;
+  width: 100%;
+  background: #76d9cd;
+  margin-top: 100px;
+}
+
+.page-top-btn{
+  padding-top: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.page-top-btn a{
+  padding: 0 10px;
+  height: 55px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #76d9cd;
+}
+
+.page-top-btn p{
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.footer-copyright{
+  padding-top: 30px;
+  color: #ffffff;
+  text-align: center;
+}
