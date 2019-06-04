@@ -43,7 +43,6 @@ h2{
 /* ヘッダー */
 
 .header-logo{
-  height:70px;
   text-align: center;
   margin-top: 30px;
 }
@@ -51,28 +50,25 @@ h2{
 nav ul{
   display: table;
   margin: 50px auto;
-  padding-bottom: 8px;
   width: 50%;
-  text-align: center;
 }
 
 nav li{
   text-align: center;
   display: table-cell;
-  min-width: 50px;
-  margin: 100px;
-  padding-bottom: 10px;
+  min-width: 50px;   /* 等間隔 */
+  padding-bottom: 7px;
 }
 
 .link{
-  display: inline;
-  width: 100%;
-  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none !important;   /* importantで下線が消える */
   color: #333333;
+  font-size: 18px;
 }
 
 nav li:hover{
-  color: #333333;
   border-bottom: 5px solid #76D9CD;
 }
 
