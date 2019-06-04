@@ -1,1 +1,57 @@
-<h2>top</h2>
+<div class="main">
+  <div class="main-visual">
+  </div>
+
+  <div class="main-favorite">
+    <h2>Favorite</h2>
+    <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
+  </div>
+
+  <div class="main-search">
+    <h2>Search</h2>
+    <p><%= fa_icon("search") %> カテゴリ別にみる</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul style= "list-style:none;" >
+            <div class="row">
+              <div class="col-md-3">
+                <li><%= link_to "# ボルダリング", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# 読書", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# 登山", "#", class:"btn btn-default btn-search btn-block" %></li>
+              </div>
+
+              <div class="col-md-3">
+                <li><%= link_to "# 語学", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# マラソン", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# 家計簿", "#", class:"btn btn-default btn-search btn-block" %></li>
+              </div>
+
+              <div class="col-md-3">
+                <li><%= link_to "# プログラミング", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# ダイエット", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# 料理", "#", class:"btn btn-default btn-search btn-block" %></li>
+              </div>
+
+              <div class="col-md-3">
+                <li><%= link_to "# DIY", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# カメラ", "#", class:"btn btn-default btn-search btn-block" %></li>
+                <li><%= link_to "# ハンドメイド", "#", class:"btn btn-default btn-search btn-block" %></li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-pickup">
+    <h2>Pick up</h2>
+    <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
+  </div>
+</div>
+
+
+
+

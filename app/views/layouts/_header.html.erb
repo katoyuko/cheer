@@ -3,8 +3,8 @@
     <%= image_tag "/images/logo.png" %>
   </div>
 
-  <nav class="collapse navbar-collapse">
-    <ul class="">
+  <nav>
+    <ul>
       <% if user_signed_in? %>
         <li><%= link_to "HOME", "#", class: "link" %></li>
         <li><%= link_to "ABOUT", "#", class: "link" %></li>
