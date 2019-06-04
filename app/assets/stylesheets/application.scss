@@ -38,7 +38,7 @@ body {
 
 /* 見出し */
 
-h2{
+h2, h4{
   padding-top: 30px;
   text-align: center;
 }
@@ -50,7 +50,7 @@ h2{
   border: solid 1px #ffd600;
 }
 
-.btn-ellipse:hover{
+.btn-ellipse:hover, how{
   color: white;
   background-color: #ffd600;
   border: none;
