@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -19,28 +20,136 @@
     @import "font-awesome";
 
 
-/* 見出し */
-h2{
-  margin: 50px 0;
-  padding: 3px  13px;
-  border-left: solid 5px #0D8059;
+/* フォント */
+
+body {
+  font-family:
+    "ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro",
+    "メイリオ",
+    Meiryo,
+    Osaka,
+    "MS PGothic",
+    sans-serif;
+  color: #4a4a4a;
+  line-height: 25px;
+  font-size: 14px;
 }
 
+/* 見出し */
+
+h2, h4{
+  padding-top: 30px;
+  text-align: center;
+}
 
 /* ボタン */
+
 .btn-ellipse{
   border-radius: 25px;
-  border: solid 1px #13BF86;
+  border: solid 1px #ffd600;
 }
 
 .btn-ellipse:hover{
   color: white;
-  background-color: #13BF86;
+  background-color: #ffd600;
   border: none;
 }
 
+.btn-search{
+  margin-top: 30px;
+  padding: 10px 0;
+  border: solid 1px #76d9cd;
+}
 
-/* 新規登録 ログイン */
-.login, .sign_up{
-  font-size: 12px;
+.btn-search:hover{
+  color: #ffffff;
+  background-color: #76d9cd;
+  border: none;
+}
+
+/* ヘッダー */
+
+.header-logo{
+  text-align: center;
+  margin-top: 30px;
+}
+
+nav ul{
+  display: table;
+  margin: 50px auto;
+  width: 50%;
+}
+
+nav li{
+  text-align: center;
+  display: table-cell;
+  min-width: 50px;   /* 等間隔 */
+  padding-bottom: 7px;
+}
+
+.link{
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none !important;   /* importantで下線が消える */
+  color: #4a4a4a;
+  font-size: 18px;
+}
+
+nav li:hover{
+  border-bottom: 5px solid #76d9cd;
+}
+
+/* TOP about*/
+
+.main-visual{
+  height: 600px;
+  width: 100%;
+  background-image: url("/images/boulder.jpg");
+  background-size: cover;
+}
+
+.main-favorite, .main-pickup, .about{
+  height: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-search{
+  height: 420px;
+  width: 100%;
+  text-align: center;
+  background: #f4efe5;
+}
+
+/* フッター */
+
+footer{
+  height: 150px;
+  width: 100%;
+  background: #76d9cd;
+  margin-top: 100px;
+}
+
+.page-top-btn{
+  padding-top: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.page-top-btn a{
+  padding: 0 9px;
+  height: 60px;
+  border-radius: 50%;
+  background: #4a4a4a;
+  color: #76d9cd;
+}
+
+.page-top-btn p{
+  font-size: 10px;
+}
+
+.footer-copyright{
+  padding-top: 30px;
+  text-align: center;
 }
