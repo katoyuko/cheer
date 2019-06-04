@@ -21,14 +21,17 @@
 
 
 /* 見出し */
+
 h2{
   margin: 50px 0;
   padding: 3px  13px;
-  border-left: solid 5px #76d9cd;
+  color: #4a4a4a;
+  text-align: center;
 }
 
 
 /* ボタン */
+
 .btn-ellipse{
   border-radius: 25px;
   border: solid 1px #ffd600;
@@ -74,8 +77,39 @@ nav li:hover{
 }
 
 /* 新規登録 ログイン */
+
 .login, .sign_up{
   font-size: 12px;
+}
+
+/* TOP */
+
+.main-visual{
+  height: 600px;
+  width: 100%;
+  background: blue;
+}
+
+.main-favorite{
+  height: 400px;
+  width: 100%;
+}
+
+.main-search{
+  height: 400px;
+  width: 100%;
+  background: #f4efe5;
+}
+
+.main-pickup{
+  height: 400px;
+  width: 100%;
+}
+
+.main-cheer{
+  height: 400px;
+  width: 100%;
+  background: #f4efe5;
 }
 
 /* フッター */
@@ -84,7 +118,6 @@ footer{
   height: 150px;
   width: 100%;
   background: #76d9cd;
-  margin-top: 100px;
 }
 
 .page-top-btn{
