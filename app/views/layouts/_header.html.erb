@@ -1,0 +1,25 @@
+<header id="header">
+  <div class="header-logo">
+    <%= image_tag "/images/logo.png" %>
+  </div>
+
+  <nav class="collapse navbar-collapse">
+    <ul class="">
+      <% if user_signed_in? %>
+        <li><%= link_to "HOME", "#", class: "link" %></li>
+        <li><%= link_to "ABOUT", "#", class: "link" %></li>
+        <li><%= link_to "ALL", "#", class: "link"  %></li>
+        <li><%= link_to "NEW POST", "#", class: "link" %></li>
+        <li><%= link_to "MYPAGE", "#", class: "link"  %></li>
+        <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "link" %></li>
+      <% else %>
+        <li><%= link_to "HOME", "#", class: "link" %></li>
+        <li><%= link_to "ABOUT", "#", class: "link" %></li>
+        <li><%= link_to "ALL", "#", class: "link"  %></li>
+        <li><%= link_to "MYPAGE", "#", class: "link"  %></li>
+        <li><%= link_to "SIGN UP", new_user_registration_path, class: "link" %></li>
+        <li><%= link_to "LOG IN", new_user_session_path, class: "link" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

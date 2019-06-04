@@ -23,24 +23,58 @@
 h2{
   margin: 50px 0;
   padding: 3px  13px;
-  border-left: solid 5px #0D8059;
+  border-left: solid 5px #76D9CD;
 }
 
 
 /* ボタン */
 .btn-ellipse{
   border-radius: 25px;
-  border: solid 1px #13BF86;
+  border: solid 1px #FFD600;
 }
 
 .btn-ellipse:hover{
   color: white;
-  background-color: #13BF86;
+  background-color: #FFD600;
   border: none;
 }
 
+
+/* ヘッダー */
+
+.header-logo{
+  text-align: center;
+  margin-top: 30px;
+}
+
+nav ul{
+  display: table;
+  margin: 50px auto;
+  width: 50%;
+}
+
+nav li{
+  text-align: center;
+  display: table-cell;
+  min-width: 50px;   /* 等間隔 */
+  padding-bottom: 7px;
+}
+
+.link{
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none !important;   /* importantで下線が消える */
+  color: #333333;
+  font-size: 18px;
+}
+
+nav li:hover{
+  border-bottom: 5px solid #76D9CD;
+}
 
 /* 新規登録 ログイン */
 .login, .sign_up{
   font-size: 12px;
 }
+
+
