@@ -41,17 +41,27 @@ h2{
 
 
 /* ヘッダー */
+
+.header-logo{
+  height:70px;
+  text-align: center;
+  margin-top: 30px;
+}
+
 nav ul{
   display: table;
-  margin: 0 auto;
+  margin: 50px auto;
   padding-bottom: 8px;
   width: 50%;
   text-align: center;
 }
 
 nav li{
+  text-align: center;
   display: table-cell;
   min-width: 50px;
+  margin: 100px;
+  padding-bottom: 10px;
 }
 
 .link{
@@ -59,7 +69,6 @@ nav li{
   width: 100%;
   text-decoration: none;
   color: #333333;
-  padding-bottom: 5px;
 }
 
 nav li:hover{
