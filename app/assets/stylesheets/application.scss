@@ -33,8 +33,9 @@ body {
     sans-serif;
   color: #4a4a4a;
   line-height: 25px;
-  font-size: 14px;
+  font-size: 16px;
 }
+
 
 /* 見出し */
 
@@ -43,11 +44,13 @@ h2, h4{
   text-align: center;
 }
 
+
 /* ボタン */
 
-.btn-ellipse{
+.btn-ellipse, .ellipse{
   border-radius: 25px;
-  border: solid 1px #ffd600;
+  border: solid 2px #ffd600;
+  padding: 10px;
 }
 
 .btn-ellipse:hover{
@@ -56,10 +59,22 @@ h2, h4{
   border: none;
 }
 
+.btn-ellipse-red{
+  border-radius: 25px;
+  border: solid 2px #ff5752;
+  padding: 10px;
+}
+
+.btn-ellipse-red:hover{
+  color: white;
+  background-color: #ff5752;
+  border: none;
+}
+
 .btn-search{
   margin-top: 30px;
   padding: 10px 0;
-  border: solid 1px #76d9cd;
+  border: solid 2px #76d9cd;
 }
 
 .btn-search:hover{
@@ -67,6 +82,7 @@ h2, h4{
   background-color: #76d9cd;
   border: none;
 }
+
 
 /* ヘッダー */
 
@@ -77,7 +93,7 @@ h2, h4{
 
 nav ul{
   display: table;
-  margin: 50px auto;
+  margin: 10px auto 0;
   width: 50%;
 }
 
@@ -97,10 +113,11 @@ nav li{
 }
 
 nav li:hover{
-  border-bottom: 5px solid #76d9cd;
+  border-bottom: 7px solid #76d9cd;
 }
 
-/* TOP about*/
+
+/* TOPページ aboutページ*/
 
 .main-visual{
   height: 600px;
@@ -122,11 +139,18 @@ nav li:hover{
   background: #f4efe5;
 }
 
-/* 新規投稿 */
+
+/* 新規投稿 投稿一覧 詳細 */
 .post{
   background: #f4efe5;
   padding: 10px 60px 30px;
 }
+
+.posts{
+  border: 2px solid #76d9cd;
+  padding: 30px;
+}
+
 
 /* フッター */
 
@@ -156,6 +180,6 @@ footer{
 }
 
 .footer-copyright{
-  padding-top: 30px;
+  padding-top: 22px;
   text-align: center;
 }
