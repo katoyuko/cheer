@@ -33,7 +33,7 @@ body {
     sans-serif;
   color: #4a4a4a;
   line-height: 25px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 
@@ -51,10 +51,11 @@ h2, h4{
   border-radius: 25px;
   border: solid 2px #ffd600;
   padding: 10px;
+  color: #4a4a4a;
 }
 
 .btn-ellipse:hover{
-  color: white;
+  color: #ffffff;
   background-color: #ffd600;
   border: none;
 }
