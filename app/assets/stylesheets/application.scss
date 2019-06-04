@@ -43,7 +43,6 @@ h2{
   text-align: center;
 }
 
-
 /* ボタン */
 
 .btn-ellipse{
@@ -57,6 +56,17 @@ h2{
   border: none;
 }
 
+.btn-search{
+  margin-top: 30px;
+  padding: 10px 0;
+  border: solid 1px #76d9cd;
+}
+
+.btn-search:hover{
+  color: #ffffff;
+  background-color: #76d9cd;
+  border: none;
+}
 
 /* ヘッダー */
 
@@ -90,12 +100,6 @@ nav li:hover{
   border-bottom: 5px solid #76d9cd;
 }
 
-/* 新規登録 ログイン */
-
-.login, .sign_up{
-  font-size: 12px;
-}
-
 /* TOP */
 
 .main-visual{
@@ -105,23 +109,17 @@ nav li:hover{
   background-size: cover;
 }
 
-.main-favorite{
+.main-favorite, .main-pickup{
   height: 600px;
   width: 100%;
   text-align: center;
 }
 
 .main-search{
-  height: 600px;
+  height: 420px;
   width: 100%;
   text-align: center;
   background: #f4efe5;
-}
-
-.main-pickup{
-  height: 600px;
-  width: 100%;
-  text-align: center;
 }
 
 /* フッター */
