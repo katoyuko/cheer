@@ -44,6 +44,10 @@ h2, h4{
   text-align: center;
 }
 
+.small-title{
+  text-align: center;
+}
+
 
 /* ボタン */
 
@@ -128,6 +132,21 @@ nav li.active{
   text-decoration: none !important;   /* importantで下線が消える */
   color: #4a4a4a;
   font-size: 17px;
+}
+
+
+/* ログイン 新規登録 */
+.sign{
+  margin-top: 60px;
+}
+
+.sign-content{
+  margin: 25px;
+}
+
+.sign_up a, .login a{
+  color: #4a4a4a;
+  font-size: 12px;
 }
 
 
