@@ -1,24 +1,24 @@
 <header id="header">
   <div class="header-logo">
-    <%= image_tag "/images/cheerlogo.png" %>
+    <%= image_tag "/images/logo.png", class: "logo" %>
   </div>
 
   <nav>
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to "HOME", root_path, class: "link" %></li>
-        <li><%= link_to "ABOUT", about_path, class: "link" %></li>
-        <li><%= link_to "ALL POSTS", posts_path, class: "link"  %></li>
-        <li><%= link_to "NEW POST", new_post_path, class: "link" %></li>
-        <li><%= link_to "MYPAGE", "#", class: "link"  %></li>
-        <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "link" %></li>
+        <li><%= link_to "Home", root_path, class: "link" %></li>
+        <li><%= link_to "About", about_path, class: "link" %></li>
+        <li><%= link_to "All posts", posts_path, class: "link"  %></li>
+        <li><%= link_to "New post", new_post_path, class: "link" %></li>
+        <li><%= link_to "Mypage", "#", class: "link"  %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link" %></li>
       <% else %>
-        <li><%= link_to "HOME", root_path, class: "link" %></li>
-        <li><%= link_to "ABOUT", about_path, class: "link" %></li>
-        <li><%= link_to "ALL POSTS", posts_path, class: "link"  %></li>
-        <li><%= link_to "MYPAGE", "#", class: "link"  %></li>
-        <li><%= link_to "SIGN UP", new_user_registration_path, class: "link" %></li>
-        <li><%= link_to "LOG IN", new_user_session_path, class: "link" %></li>
+        <li><%= link_to "Home", root_path, class: "link" %></li>
+        <li><%= link_to "About", about_path, class: "link" %></li>
+        <li><%= link_to "All posts", posts_path, class: "link"  %></li>
+        <li><%= link_to "Mypage", "#", class: "link"  %></li>
+        <li><%= link_to "Sign up", new_user_registration_path, class: "link" %></li>
+        <li><%= link_to "Log in", new_user_session_path, class: "link" %></li>
       <% end %>
     </ul>
   </nav>

@@ -33,7 +33,7 @@ body {
     sans-serif;
   color: #4a4a4a;
   line-height: 25px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 
@@ -51,10 +51,11 @@ h2, h4{
   border-radius: 25px;
   border: solid 2px #ffd600;
   padding: 10px;
+  color: #4a4a4a;
 }
 
 .btn-ellipse:hover{
-  color: white;
+  color: #ffffff;
   background-color: #ffd600;
   border: none;
 }
@@ -63,6 +64,7 @@ h2, h4{
   border-radius: 25px;
   border: solid 2px #ff5752;
   padding: 10px;
+  color: #4a4a4a;
 }
 
 .btn-ellipse-red:hover{
@@ -88,7 +90,12 @@ h2, h4{
 
 .header-logo{
   text-align: center;
-  margin-top: 30px;
+  margin: 20px;
+}
+
+.logo{
+  height: 180px;
+  width: 210px;
 }
 
 nav ul{
@@ -182,4 +189,5 @@ footer{
 .footer-copyright{
   padding-top: 22px;
   text-align: center;
+  font-size: 12px;
 }
