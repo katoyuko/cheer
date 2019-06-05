@@ -12,7 +12,35 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+
+// ナビゲーションバー current pageにactive付与
+
+$(function(){
+  $('nav li a').each(function(){
+    var $href = $(this).attr('href');
+    if(location.href.match($href)) {
+      $(this).parent('li').addClass('active');
+    } else {
+      $(this).parent('li').removeClass('active');
+    }
+  });
+});
+
+
+// フッター
+
+$(function() {
+  var pagetop = $('.pagetop');
+  pagetop.click(function () {
+    $('html').animate({ scrollTop: 0 }, 800);
+  });
+});
+
+

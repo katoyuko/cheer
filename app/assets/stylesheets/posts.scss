@@ -1,3 +1,39 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* TOPページ aboutページ*/
+
+.main-visual{
+  height: 600px;
+  width: 100%;
+  background-image: url("/images/boulder.jpg");
+  background-size: cover;
+}
+
+.main-favorite, .main-pickup, .about{
+  height: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-search{
+  height: 420px;
+  width: 100%;
+  text-align: center;
+  background: #f4efe5;
+}
+
+
+/* 新規投稿 投稿一覧 詳細 */
+.post{
+  background: #f4efe5;
+  padding: 10px 60px 30px;
+}
+
+.posts{
+  border: 2px solid #76d9cd;
+  padding: 30px;
+}
+

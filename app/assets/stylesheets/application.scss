@@ -88,74 +88,46 @@ h2, h4{
 
 /* ヘッダー */
 
+header {
+  height: 130px;
+}
+
 .header-logo{
-  text-align: center;
-  margin: 20px;
+  position: absolute;
+  left: 100px;
 }
 
 .logo{
-  height: 180px;
-  width: 210px;
+  height: 130px;
+  width: 160px;
 }
 
 nav ul{
   display: table;
-  margin: 10px auto 0;
   width: 50%;
+  margin-left: 600px;
+  padding-top: 70px;
 }
 
 nav li{
   text-align: center;
-  display: table-cell;
-  min-width: 50px;   /* 等間隔 */
+  display: table-cell;  /* 横並び */
   padding-bottom: 7px;
-}
-
-.link{
-  display: inline-block;
-  padding: 10px;
-  text-decoration: none !important;   /* importantで下線が消える */
-  color: #4a4a4a;
-  font-size: 18px;
 }
 
 nav li:hover{
   border-bottom: 7px solid #76d9cd;
 }
 
-
-/* TOPページ aboutページ*/
-
-.main-visual{
-  height: 600px;
-  width: 100%;
-  background-image: url("/images/boulder.jpg");
-  background-size: cover;
+nav li.active{
+  border-bottom: 7px solid #76d9cd;
 }
 
-.main-favorite, .main-pickup, .about{
-  height: 600px;
-  width: 100%;
-  text-align: center;
-}
-
-.main-search{
-  height: 420px;
-  width: 100%;
-  text-align: center;
-  background: #f4efe5;
-}
-
-
-/* 新規投稿 投稿一覧 詳細 */
-.post{
-  background: #f4efe5;
-  padding: 10px 60px 30px;
-}
-
-.posts{
-  border: 2px solid #76d9cd;
-  padding: 30px;
+.link{
+  display: inline-block;
+  text-decoration: none !important;   /* importantで下線が消える */
+  color: #4a4a4a;
+  font-size: 17px;
 }
 
 
@@ -169,21 +141,12 @@ footer{
 }
 
 .page-top-btn{
-  padding-top: 20px;
-  font-size: 30px;
   text-align: center;
 }
 
-.page-top-btn a{
-  padding: 0 9px;
-  height: 60px;
-  border-radius: 50%;
-  background: #4a4a4a;
-  color: #76d9cd;
-}
-
-.page-top-btn p{
-  font-size: 10px;
+.pagetop{
+  height: 90px;
+  width: 90px;
 }
 
 .footer-copyright{
@@ -191,3 +154,4 @@ footer{
   text-align: center;
   font-size: 12px;
 }
+
