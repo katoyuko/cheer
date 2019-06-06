@@ -75,3 +75,6 @@ gem 'kaminari','~> 1.1.1'
 gem 'annotate'
 gem 'font-awesome-rails'
 
+gem "jquery-turbolinks"
+gem "select2-rails"
+

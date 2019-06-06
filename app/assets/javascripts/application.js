@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 
+//= require select2
+//= require jquery.turbolinks
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
@@ -63,4 +66,12 @@ $(function() {
   });
 });
 
+
+
+$(function(){
+  $('.js-searchable').select2({
+    theme: "bootstrap",
+    width: "resolve"
+  });
+});
 

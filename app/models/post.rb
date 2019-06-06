@@ -5,5 +5,5 @@ class Post < ApplicationRecord
 
   attachment :image
 
-  validates :title, presence: true
+  validates :post_content, presence: true
 end

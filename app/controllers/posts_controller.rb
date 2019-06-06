@@ -12,14 +12,20 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+
+    @post_category = PostCategory.find(params[:post_category_id])
+    @post.post_category_id = @post_category.id
+    @post.user_id = current_user.id
+
     if @post.save
-      redirect_to post_path, notice: "投稿完了！"
+      redirect_to posts_path, notice: "投稿完了！"
     else
       render :new
     end
   end
 
   def index
+    @posts = Post.all
   end
 
   def show
