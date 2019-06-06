@@ -22,7 +22,6 @@
 
 
 // ナビゲーションバー current pageにactive付与
-
 $(function(){
   $('nav li a').each(function(){
     var $href = $(this).attr('href');
@@ -38,36 +37,25 @@ $(function(){
 
 //Skipprの初期化
 $(function() {
-    $("#mainimage").skippr();
+  $("#mainimage").skippr();
 });
 
 // Skipprオプション記載
 $("#mainimage").skippr({
-    // スライドショーの変化 ("fade" or "slide")
-    transition : 'fade',
-    // 変化に係る時間(ミリ秒)
-    speed : 1000,
-    // easingの種類 動作パターン
-    easing : 'easeOutQuart',
-    // ナビゲーションの形("block" or "bubble")
-    navType : 'bubble',
-    // 子要素の種類("div" or "img")
-    childrenElementType : 'div',
-    // ナビゲーション矢印の表示(trueで表示)
-    arrows : false,
-    // スライドショーの自動再生(trueで自動再生)
-    autoPlay : true,
-    // 自動再生時のスライド切替間隔(ミリ秒)
-    autoPlayDuration : 5000,
-    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
-    keyboardOnAlways : true,
-    // 一枚目のスライド表示時に戻る矢印を表示するかどうか(trueで表示)
-    hidePrevious : true
+  transition : 'fade',  // スライドショーの変化
+  speed : 2000,
+  easing : 'easeOutQuart',
+  navType : 'bubble',  // "block" or "bubble"
+  childrenElementType : 'div',  // "div" or "img"
+  arrows : false,  // trueで表示
+  autoPlay : true,  // trueで自動再生
+  autoPlayDuration : 5000,
+  keyboardOnAlways : true,  // trueで有効
+  hidePrevious : true  // 一枚目のスライド表示時に戻る矢印を表示する場合true
 });
 
 
 // フッター
-
 $(function() {
   var pagetop = $('.pagetop');
   pagetop.click(function () {
