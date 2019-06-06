@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# coding: utf-8
+
+
+# 投稿カテゴリ
+
+require "csv"
+
+CSV.foreach('db/category.csv', headers: true) do |row|
+  PostCategory.create(category: row["category"])
+end
