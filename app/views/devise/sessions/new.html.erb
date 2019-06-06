@@ -1,10 +1,11 @@
-<div class="row">
+<div class="row sign">
   <div class="col-md-4 col-md-offset-4">
 
-    <h2>ログイン</h2>
+    <h2>Log in</h2>
+    <p class="small-title">ログイン</p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
+      <div class="form-group sign-content">
         <div class="row">
           <div class="col-md-12">
             <%= fa_icon("envelope") %>
@@ -14,7 +15,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group sign-content">
         <div class="row">
           <div class="col-md-12">
             <%= fa_icon("lock") %>
@@ -25,7 +26,7 @@
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-group">
+        <div class="form-group sign-content">
           <%= f.check_box :remember_me %>
           <%= f.label :メールアドレスとパスワードを記憶する %>
         </div>
@@ -33,14 +34,14 @@
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 sign-content">
           <%= f.submit "ログイン", class:"btn col-md-4 col-md-offset-4 btn-ellipse" %>
         </div>
       </div>
     <% end %>
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 sign-content">
           <%= render "devise/shared/links" %>
         </div>
       </div>
