@@ -6,8 +6,9 @@ ja:
     attributes:
       user:
         name: "名前"
+        email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "パスワード確認"
+        password_confirmation: "パスワード（確認用）"
 
   devise:
     confirmations:
@@ -35,8 +36,8 @@ ja:
       signed_up_but_locked: "アカウントがロックされているため利用できません。"
       updated: "アカウントが更新されました。"
     sessions:
-      signed_in: "ログインしました。"
-      signed_out: "ログアウトしました。"
+      signed_in: "＼Welcome／"
+      signed_out: "ログアウトしました！"
     unlocks:
       unlocked: "アカウントのロックが解除されました。ログインしています。"
   errors:

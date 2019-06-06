@@ -44,6 +44,10 @@ h2, h4{
   text-align: center;
 }
 
+.small-title{
+  text-align: center;
+}
+
 
 /* ボタン */
 
@@ -51,7 +55,9 @@ h2, h4{
   border-radius: 25px;
   border: solid 2px #ffd600;
   padding: 10px;
-  color: #4a4a4a;
+  color: #ffd600;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
 }
 
 .btn-ellipse:hover{
@@ -76,7 +82,9 @@ h2, h4{
 .btn-search{
   margin-top: 30px;
   padding: 10px 0;
-  border: solid 2px #76d9cd;
+  border: solid 1px #76d9cd;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
 }
 
 .btn-search:hover{
@@ -86,104 +94,125 @@ h2, h4{
 }
 
 
+/* フラッシュメッセージ */
+  /* border-radius: 3em .7em 2em .7em/.7em 2em .7em 3em; */
+
+.flash_message{
+  position: relative;
+  font-size: 13px;
+  padding: 7px 0;
+  border: 1px solid #76d9cd;
+  border-radius: 6em .7em 2em .7em/.7em 2em .7em 3em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #76d9cd;
+}
+
+.flash_message::before,  /* 選択した要素の直前に内容を挿入 */
+.flash_message::after{  /* 要素の直後に内容を挿入 */
+  position: absolute;
+  content: "";  /* 吹き出しの三角部分のためのcontent */
+  top: 100%;  /* contentの挿入部分はtopから100%の箇所 */
+  left: 30px;  /* contentの挿入部分はleftから30pxの箇所 */
+  border: 7px solid transparent;  /* 吹き出しの三角部分用にflash_message borderを透明に*/
+}
+
+.flash_message::before{
+  border-top: 10px solid #76d9cd;  /* 吹き出しの三角部分 */
+}
+
+.flash_message::after{
+  margin-top: -2px;
+  border-top: 10px solid #ffffff;  /* 吹き出しの三角部分の内側 設定しないと::beforeと同じ色 */
+}
+
+
+/* エラーメッセージ */
+
+#error_explanation{
+  font-size: 12px;
+  color: #ff5752;
+}
+
+
 /* ヘッダー */
 
+header{
+  height: 130px;
+}
+
 .header-logo{
-  text-align: center;
-  margin: 20px;
+  position: absolute;
+  left: 100px;
 }
 
 .logo{
-  height: 180px;
-  width: 210px;
+  height: 130px;
+  width: 160px;
 }
 
 nav ul{
   display: table;
-  margin: 10px auto 0;
   width: 50%;
+  margin-left: 600px;
+  padding-top: 70px;
 }
 
 nav li{
   text-align: center;
-  display: table-cell;
-  min-width: 50px;   /* 等間隔 */
-  padding-bottom: 7px;
+  display: table-cell;  /* 横並び */
+  padding-bottom: 5px;
+}
+
+nav li:hover{
+  border-bottom: 5px solid #76d9cd;
+}
+
+nav li.active{
+  border-bottom: 5px solid #76d9cd;
 }
 
 .link{
   display: inline-block;
-  padding: 10px;
   text-decoration: none !important;   /* importantで下線が消える */
   color: #4a4a4a;
-  font-size: 18px;
-}
-
-nav li:hover{
-  border-bottom: 7px solid #76d9cd;
+  font-size: 17px;
 }
 
 
-/* TOPページ aboutページ*/
-
-.main-visual{
-  height: 600px;
-  width: 100%;
-  background-image: url("/images/boulder.jpg");
-  background-size: cover;
+/* ログイン 新規登録 */
+.sign{
+  margin-top: 60px;
 }
 
-.main-favorite, .main-pickup, .about{
-  height: 600px;
-  width: 100%;
-  text-align: center;
+.sign-content{
+  margin: 25px;
 }
 
-.main-search{
-  height: 420px;
-  width: 100%;
-  text-align: center;
-  background: #f4efe5;
-}
-
-
-/* 新規投稿 投稿一覧 詳細 */
-.post{
-  background: #f4efe5;
-  padding: 10px 60px 30px;
-}
-
-.posts{
-  border: 2px solid #76d9cd;
-  padding: 30px;
+.sign_up a, .login a{
+  color: #4a4a4a;
+  font-size: 12px;
 }
 
 
 /* フッター */
 
-footer{
-  height: 150px;
-  width: 100%;
-  background: #76d9cd;
-  margin-top: 100px;
-}
 
 .page-top-btn{
-  padding-top: 20px;
-  font-size: 30px;
+  margin-top: 100px;
   text-align: center;
 }
 
-.page-top-btn a{
-  padding: 0 9px;
-  height: 60px;
-  border-radius: 50%;
-  background: #4a4a4a;
-  color: #76d9cd;
+.pagetop{
+  height: 90px;
+  width: 90px;
 }
 
-.page-top-btn p{
-  font-size: 10px;
+footer{
+  height: 70px;
+  width: 100%;
+  color: #ffffff;
+  background: #4a4a4a;
 }
 
 .footer-copyright{
@@ -191,3 +220,7 @@ footer{
   text-align: center;
   font-size: 12px;
 }
+
+
+
+

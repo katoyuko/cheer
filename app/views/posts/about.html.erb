@@ -1,4 +1,13 @@
 <div class="main-visual">
+  <div id="mainimage">
+    <div style="background-image: url(/images/camera.jpeg)"></div>
+    <div style="background-image: url(/images/boulder.jpg)"></div>
+    <div style="background-image: url(/images/reading.jpg)"></div>
+    <div style="background-image: url(/images/jog.jpeg)"></div>
+    <div style="background-image: url(/images/learning.jpg)"></div>
+    <div style="background-image: url(/images/diy.jpeg)"></div>
+    <div style="background-image: url(/images/programing.jpeg)"></div>
+  </div>
 </div>
 
 <div class="about">
@@ -12,29 +21,37 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12" >
-        <h2>How to</h2>
+      <div class="col-md-3 col-md-offset-1 how">
+        <%= image_tag "/images/cheer.png", class: "how-img" %>
+        <p>
+          投稿の‘cheer’ ボタンを押して<br>応援することができます。
+        </p>
+        <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-ellipse" %></p>
+      </div>
 
-            <h4> #1 </h4>
-            <p>
-              小さなことでも、大きなことでも今頑張っていること、熱中していることを発信することができます。<br>
-              目標達成までの過程や頑張った結果を発信することができます。
-            </p>
+      <div class="col-md-3 how">
+        <%= image_tag "/images/post.png", class: "how-img" %>
+        <p>
+          小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
+          また、目標達成までの過程や頑張った結果を発信することができます。
+        </p>
+        <%= link_to "> New post", new_post_path, class: "btn btn-block btn-ellipse" %>
+      </div>
 
-            <h4> #2 </h4>
-            <p>
-              投稿の‘cheer’ ボタンを押して応援することができます。
-            </p>
 
-            <h4> #3 </h4>
-            <p>
-              これから何かに挑戦したいと思っていたら...<br>
-              HOMEページの「ホットなカテゴリ」から今話題のものを閲覧することができます。<br>
-              やりたいことがみつかったら、チャレンジしてみましょう！
-            </p>
+      <div class="col-md-3 how">
+        <%= image_tag "/images/search.png", class: "how-img" %>
+        <p>
+          これから何かに挑戦したいと思っていたら...
+          Homeページの「ホットなカテゴリ」から今話題のものを閲覧することができます。
+          やりたいことがみつかったら、チャレンジしてみましょう！
+        </p>
+        <div class="button">
+          <div class="eff"></div>
+            <%= link_to "> Home", root_path, class: "btn btn-block btn-ellipse" %>
+        </div>
 
       </div>
     </div>
-
   </div>
 </div>
