@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 post">
+    <div class="col-md-6 col-md-offset-3 post-main">
       <h2>New post</h2>
       <p class="small-title">新規投稿</p>
 
@@ -15,7 +15,7 @@
 
           <div class="form-group">
             <label for="control-label">写真</label>
-            <%= f.attachment_field :image, size: "250x200", class: "btn btn-default" %>
+            <%= f.attachment_field :image, class: "btn btn-default" %>
              <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
           </div>
 
