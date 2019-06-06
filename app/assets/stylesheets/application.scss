@@ -94,9 +94,42 @@ h2, h4{
 }
 
 
+/* フラッシュメッセージ */
+  /* border-radius: 3em .7em 2em .7em/.7em 2em .7em 3em; */
+
+.flash_message{
+  position: relative;
+  font-size: 13px;
+  padding: 7px 0;
+  border: 1px solid #76d9cd;
+  border-radius: 6em .7em 2em .7em/.7em 2em .7em 3em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #76d9cd;
+}
+
+.flash_message::before,  /* 選択した要素の直前に内容を挿入 */
+.flash_message::after{  /* 要素の直後に内容を挿入 */
+  position: absolute;
+  content: "";  /* 吹き出しの三角部分のためのcontent */
+  top: 100%;  /* contentの挿入部分はtopから100%の箇所 */
+  left: 30px;  /* contentの挿入部分はleftから30pxの箇所 */
+  border: 7px solid transparent;  /* 吹き出しの三角部分用にflash_message borderを透明に*/
+}
+
+.flash_message::before{
+  border-top: 10px solid #76d9cd;  /* 吹き出しの三角部分 */
+}
+
+.flash_message::after{
+  margin-top: -2px;
+  border-top: 10px solid #ffffff;  /* 吹き出しの三角部分の内側 設定しないと::beforeと同じ色 */
+}
+
+
 /* ヘッダー */
 
-header {
+header{
   height: 130px;
 }
 

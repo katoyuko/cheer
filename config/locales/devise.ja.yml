@@ -35,8 +35,8 @@ ja:
       signed_up_but_locked: "アカウントがロックされているため利用できません。"
       updated: "アカウントが更新されました。"
     sessions:
-      signed_in: "ログインしました。"
-      signed_out: "ログアウトしました。"
+      signed_in: "＼Welcome／"
+      signed_out: "ログアウトしました！"
     unlocks:
       unlocked: "アカウントのロックが解除されました。ログインしています。"
   errors:
