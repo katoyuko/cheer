@@ -14,7 +14,9 @@
             <p class="post-show-content"><%= @post.post_content%></p>
 
             <p class="post-cheer"><i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
-            <p class="post-comment"><i class="fa fa-comment"></i> 0 comment</p>
+            <p class="post-comment">
+              <i class="fa fa-comment"></i> <%= @post.post_comment.count %>comment
+            </p>
 
             <p class="post-show-content">
               <%= @post.created_at %><br>
@@ -33,6 +35,32 @@
           </section>
         </div>
       </div>
+
+      <%= form_for[@post, @post_comment] do |f| %>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.text_area :comment, rows: "5", class: "form-control", placeholder: "コメント入力" %>
+          </div>
+        </div>
+        <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+      <% end %>
+
+      <ul>
+        <% @post.post_comments.each do |post_comment| %>
+          <li class="comment">
+            <div class="comment-user">
+              <%= post_comment.user.name %>
+            </div>
+            <div class="comment-date">
+              <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+            </div>
+            <div class="comment-text">
+              <%= post_comment.comment %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
     </div>
   </div>
 </div>
