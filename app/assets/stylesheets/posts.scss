@@ -42,8 +42,7 @@
 
 .post-main{
   background: #f4efe5;
-  padding: 10px 60px 30px;
-  margin-top: 60px;
+  padding-bottom: 20px;
 }
 
 
@@ -64,8 +63,21 @@
 }
 
 .post-content{
-  font-size: 13px;
+  font-size: 14px;
 }
+
+.post-arrow{
+  font-size: 20px;
+  color: #76d9cd;
+  text-decoration: none;
+}
+
+.post-user{
+  border-top: solid 1px #76d9cd;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
 
 /* 投稿詳細 */
 
@@ -74,9 +86,10 @@
 }
 
 .post-cheer{
-  border-top: solid 1px #76d9cd;
+  border-top: solid 1px #ffd600;
 }
 
 .post-comment{
-  border-bottom: solid 1px #76d9cd;
+  border-bottom: solid 1px #ffd600;
 }
+

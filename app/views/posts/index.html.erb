@@ -1,3 +1,5 @@
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -12,10 +14,15 @@
                 <%= attachment_image_tag post, :image, size: "220x190", format: "png" %>
                 <label class="post-category"><span># </span><%= post.post_category.category %></label>
                 <p class="post-content"><%= post.post_content %></p>
+                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
 
-                <label><i class="fa fa-comment"></i> 0 comment<br>
-                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</label>
-                <p class="post-content">posted by <%= post.user.name %></p>
+                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
+                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+
+                <p class="post-user">
+                  <%= post.created_at %><br>posted by <%= post.user.name %>
+                </p>
+
               </section>
             </div>
           </div>

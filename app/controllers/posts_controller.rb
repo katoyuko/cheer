@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to posts_path, notice: "投稿完了！"
+      redirect_to posts_path, notice: "投稿しました！"
     else
       render :new
     end
@@ -33,12 +33,24 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update_attributes(post_params)
+      redirect_to posts_path, notice: "更新しました！"
+    else
+      render :edit
+    end
+
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "削除しました！"
   end
 
   private

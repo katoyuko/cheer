@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -60,12 +60,16 @@ h2, h4{
   color: #ffd600;
   transition: all 0.6s ease 0s;
   cursor: pointer;
+  display: inline-block;
+  text-decoration: none !important;
 }
 
 .btn-ellipse:hover{
   color: #ffffff;
   background-color: #ffd600;
   border: none;
+  display: inline-block;
+  text-decoration: none !important;
 }
 
 .btn-ellipse-red{
