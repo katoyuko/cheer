@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'post_comments/create'
   root "posts#top"
   get "/about" => "posts#about"
 
