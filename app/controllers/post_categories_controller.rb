@@ -6,7 +6,8 @@ class PostCategoriesController < ApplicationController
   end
 
   def show
-    @post_categories = PostCategory.all
+    @post_category = PostCategory.find(params[:id])
+    @posts = @post_category.posts.all
   end
 
 private
