@@ -12,7 +12,7 @@
             <div class="form-group">
               <label for="control-label">写真</label><br>
               <%= attachment_image_tag @post, :image, size: "520x430", format: 'jpg' %>
-              <%= f.attachment_field :image, class: "btn btn-default" %>
+              <%= f.attachment_field :image, class: "btn btn-default form-control" %>
                <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
             </div>
 

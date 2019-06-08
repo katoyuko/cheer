@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  attachment :user_image
+
 end

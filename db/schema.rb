@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_061258) do
+ActiveRecord::Schema.define(version: 2019_06_08_074959) do
 
   create_table "post_categories", force: :cascade do |t|
     t.string "category"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_061258) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "introduction"
+    t.text "user_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
