@@ -51,7 +51,7 @@
         <p class="mypage">その他設定</p>
 
         <p>退会の手続き</p>
-        <%= link_to "退会する", "#", method: :delete, data: {confirm: "退会する場合、全てのデータが削除されます。本当によろしいですか？"}, class: "btn col-md-2 col-md-offset-5 btn-ellipse-red" %>
+        <%= link_to "退会する", user_path(@user), method: :delete, data: {confirm: "退会する場合、全てのデータが削除されます。本当によろしいですか？"}, class: "btn col-md-2 col-md-offset-5 btn-ellipse-red" %>
       </div>
 
   </div>
