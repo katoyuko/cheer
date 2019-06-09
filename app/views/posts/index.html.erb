@@ -16,8 +16,10 @@
                 <p class="post-content"><%= post.post_content %></p>
                 <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
 
-                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
-                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+                <p class="post-content">
+                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id) %><br>
+                  <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer
+                </p>
 
                 <p class="post-user">
                   <%= post.created_at %><br>posted by <%= post.user.name %>

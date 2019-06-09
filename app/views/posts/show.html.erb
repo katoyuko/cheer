@@ -14,10 +14,12 @@
             <p class="post-show-content"><%= @post.post_content%></p>
 
             <p class="post-cheer"><i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
-            <p class="post-comment"><i class="fa fa-comment"></i> 0 comment</p>
+            <p class="post-comment">
+              <i class="fa fa-comment"></i> <%= @post.post_comments.count %> comment
+            </p>
 
             <p class="post-show-content">
-              <%= @post.created_at %><br>
+              <%= @post.created_at.strftime('%Y/%m/%d') %><br>
               posted by <%= @post.user.name %>
            </p>
 
@@ -29,10 +31,58 @@
                </div>
              </div>
             <% end %>
-
           </section>
         </div>
       </div>
+
+      <div class="col-md-6 col-md-offset-3 comment-form">
+        <%= form_for [@post, @post_comment] do |f| %>
+          <%= f.text_area :comment, rows: "2", class: "form-control", placeholder: "コメント入力" %>
+          <%= f.submit "送信", class: "btn pull-right" %>
+        <% end %>
+      </div>
+
+        <% if @post_comment.errors.any? %>
+          <ul id="error_explanation">
+            <% @post_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="comment">
+          <% @post.post_comments.each do |post_comment| %>
+            <li>
+              <div class="comment-text">
+                <%= post_comment.comment %>
+              </div>
+            </li>
+
+            <li>
+              <div class="col-md-12">
+                <p class="commented pull-right">
+                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                  commented by <%= post_comment.user.name %>
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <% if post_comment.user == current_user %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="commented pull-right">
+                      <%= link_to "削除", post_post_comments_path(post_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
     </div>
   </div>
 </div>
