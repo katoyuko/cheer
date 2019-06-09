@@ -62,8 +62,9 @@
   margin: 10px 0;
 }
 
-.post-content{
+.post-content, .post_cheer{
   font-size: 14px;
+  color: #4a4a4a;
 }
 
 .post-arrow{
@@ -115,6 +116,18 @@
 .commented{
   font-size: 12px;
   color: #76d9cd;
+}
+
+
+/* post_cheer機能 */
+
+.post_cheer{
+  list-style: none;
+  color: #4a4a4a;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 

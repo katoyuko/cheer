@@ -14,17 +14,21 @@
             <p class="post-show-content"><%= @post.post_content%></p>
 
             <% if @post.post_cheered_by?(current_user) %>
-              <li>
+              <li class="post_cheer">
                 <%= link_to post_post_cheers_path(@post), method: :delete do %>
-                  <i class="fa fa-flag" aria-hidden="true" style="color: #ff5752;"></i>
-                  <%= @post.post_cheers.count %> cheer
+                  <p class="post_cheer">
+                    <i class="fa fa-flag" aria-hidden="true" style="color: #ff5752;"></i>
+                    <%= @post.post_cheers.count %> cheer
+                  </p>
                 <% end %>
               </li>
             <% else %>
-              <li>
+              <li class="post_cheer">
                 <%= link_to post_post_cheers_path(@post), method: :post do %>
-                  <i class="fa fa-flag-o" aria-hidden="true"></i>
-                  <%= @post.post_cheers.count %> cheer
+                  <p class="post_cheer">
+                    <i class="fa fa-flag-o" aria-hidden="true"></i>
+                    <%= @post.post_cheers.count %> cheer
+                  </p>
                 <% end %>
               </li>
             <% end %>
