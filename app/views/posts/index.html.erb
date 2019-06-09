@@ -17,8 +17,11 @@
                 <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
 
                 <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id) %><br>
-                  <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer
+                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %><br>
+                </p>
+
+                <p class="post_cheer">
+                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
                 </p>
 
                 <p class="post-user">
