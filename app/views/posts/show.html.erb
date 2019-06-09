@@ -31,7 +31,6 @@
                </div>
              </div>
             <% end %>
-
           </section>
         </div>
       </div>
@@ -43,13 +42,13 @@
         <% end %>
       </div>
 
-<% if @post_comment.errors.any? %>
-  <ul id="error_explanation">
-    <% @post_comment.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+        <% if @post_comment.errors.any? %>
+          <ul id="error_explanation">
+            <% @post_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
       <div class="col-md-6 col-md-offset-3">
         <ul class="comment">
@@ -67,6 +66,18 @@
                   commented by <%= post_comment.user.name %>
                 </p>
               </div>
+            </li>
+
+            <li>
+              <% if post_comment.user == current_user %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="commented pull-right">
+                      <%= link_to "削除", post_post_comments_path(post_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
             </li>
           <% end %>
         </ul>
