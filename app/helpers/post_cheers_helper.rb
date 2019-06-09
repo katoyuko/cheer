@@ -1,0 +1,2 @@
+module PostCheersHelper
+end
