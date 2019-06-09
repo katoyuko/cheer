@@ -15,7 +15,7 @@
 
             <p class="post-cheer"><i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
             <p class="post-comment">
-              <i class="fa fa-comment"></i> <%= @post.post_comment.count %>comment
+              <i class="fa fa-comment"></i> <%= @post.post_comments.count %>comment
             </p>
 
             <p class="post-show-content">
@@ -36,30 +36,34 @@
         </div>
       </div>
 
-      <%= form_for[@post, @post_comment] do |f| %>
-        <div class="row">
-          <div class="col-md-12">
-            <%= f.text_area :comment, rows: "5", class: "form-control", placeholder: "コメント入力" %>
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for [@post, @post_comment] do |f| %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.text_area :comment, rows: "2", class: "form-control", placeholder: "コメント入力" %>
+            </div>
           </div>
-        </div>
-        <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-      <% end %>
-
-      <ul>
-        <% @post.post_comments.each do |post_comment| %>
-          <li class="comment">
-            <div class="comment-user">
-              <%= post_comment.user.name %>
-            </div>
-            <div class="comment-date">
-              <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-            </div>
-            <div class="comment-text">
-              <%= post_comment.comment %>
-            </div>
-          </li>
+          <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
         <% end %>
-      </ul>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3">
+        <ul>
+          <% @post.post_comments.each do |post_comment| %>
+            <li class="comment">
+              <div class="comment-text">
+                <%= post_comment.comment %>
+              </div>
+              <div class="comment-date">
+                <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              </div>
+              <div class="comment-user">
+                <p>commented by <%= post_comment.user.name %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
     </div>
   </div>
