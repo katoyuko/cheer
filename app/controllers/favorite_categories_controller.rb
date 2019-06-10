@@ -8,10 +8,9 @@ class FavoriteCategoriesController < ApplicationController
   end
 
   def destroy
-    post_category = PostCategory.find(params[:post_category_id])
-    favorite_category = current_user.favorite_categories.find_by(post_category_id: post_category.id)
+    favorite_category = FavoriteCategory.find(params[:id])
     favorite_category.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user), notice: "削除しました！"
   end
 
   private
