@@ -55,19 +55,41 @@
         </div>
       </div>
 
-      <div class="col-md-12 main-favorite">
-        <h2>Favorite</h2>
-        <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
-      </div>
+      <% if current_user == @user %>
+        <div class="col-md-10 col-md-offset-1 main-favorite">
+          <h2>Favorite</h2>
+          <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
 
-      <div class="form col-md-4 col-md-offset-4">
-        <%= form_with model: @post, url: "#", local: true do |f| %>
-          <div class="form-group">
-            <label for="control-label">お気に入りを追加</label>
-            <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "js-searchable form-control", name: "post_category_id"} %>
-          </div>
-        <% end %>
-      </div>
+          <% @favorite_categories.each do |fovorite_category| %>
+            <div class="col-md-3">
+              <div class="col-md-12 post-index">
+                <section>
+                  <%= attachment_image_tag fovorite_category.post_category, :category_image, size: "170x140", format: "png" %>
+                  <p><span># </span>
+                    <%= link_to fovorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
+                  </p>
+                </section>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
+        <div class="form col-md-4 col-md-offset-4">
+          <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
+            <div class="form-group">
+              <label for="control-label">お気に入りを追加</label>
+              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "js-searchable form-control", name: "post_category_id"} %>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <%= f.submit "追加", class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+
+      <% end %>
   </div>
 </div>
