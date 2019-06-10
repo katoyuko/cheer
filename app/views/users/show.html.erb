@@ -60,6 +60,18 @@
         <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
       </div>
 
+      <% @favorite_categories.each do |fovorite_category| %>
+        <div class="col-md-3">
+          <div class="col-md-12 post-index">
+            <section>
+              <%= attachment_image_tag fovorite_category, :category_image, size: "220x190", format: "png" %>
+              <li><%= link_to "fovorite_category.post_category.category", "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %></li>
+            </section>
+          </div>
+        </div>
+      <% end %>
+
+
       <div class="form col-md-4 col-md-offset-4">
         <%= form_with model: @post, url: "#", local: true do |f| %>
           <div class="form-group">
