@@ -2,10 +2,16 @@ ja:
   activerecord:
     models:
       user: "ユーザー"
+      admin: "管理者"
 
     attributes:
       user:
         name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
+
+      admin:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード（確認用）"
