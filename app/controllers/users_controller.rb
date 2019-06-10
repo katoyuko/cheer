@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order.per(8)
+
+    # お気に入りカテゴリ追加
+    @favorite_category = current_user.favorite_categories.new
+    # お気に入りカテゴリ一覧
+    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
   end
 
   def edit
