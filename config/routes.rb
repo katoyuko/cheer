@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get "/about" => "posts#about"
     resources :posts, only: [:index, :show, :destroy]
     resources :users, only: [:index, :show, :destroy]
-    resources :post_categories, only: [:index, :show, :destroy]
+    resources :post_categories, only: [:index, :show, :create, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
