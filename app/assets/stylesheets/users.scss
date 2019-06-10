@@ -6,8 +6,38 @@
 /* マイページ */
 
 .mypage {
-  padding: 0.5em 1em;
-  margin: 2em 0;
+  padding: 8px 16px;
+  margin: 30px 0;
   color: #4a4a4a;
   background: #f4efe5;
+}
+
+.mypage-data{
+  width: 100%;
+  height: 490px;
+  margin-bottom: 20px;
+}
+
+.user-image-box{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;   /* 300×300以上は切り取り */
+  border-radius: 300px;
+}
+
+.user-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 画像の中心 */
+  border-radius: 120px;
+}
+
+.user-image-btn{
+  margin-top: 20px;
+}
+
+.mypage-data-btn{
+  margin-bottom: 20px;
 }

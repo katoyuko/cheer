@@ -39,14 +39,98 @@
 
 
 /* 新規投稿 投稿一覧 詳細 */
-.post{
+
+.post-main{
   background: #f4efe5;
-  padding: 10px 60px 30px;
-  margin-top: 60px;
+  padding-bottom: 20px;
 }
 
-.posts{
-  border: 2px solid #76d9cd;
-  padding: 30px;
+
+/* 投稿一覧 */
+
+.post-index{
+  border: 1px solid #76d9cd;
+  padding: 15px;
+  margin: 30px 0;
 }
+
+.post-category{
+  border-radius: 25px;
+  border: solid 1px #ffd600;
+  padding: 3px 10px;
+  color: #ffd600;
+  margin: 10px 0;
+}
+
+.post-content, .post_cheer{
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.post-arrow{
+  font-size: 20px;
+  color: #76d9cd;
+  text-decoration: none;
+}
+
+.post-user{
+  border-top: solid 1px #76d9cd;
+  border-bottom: solid 1px #76d9cd;
+  padding: 10px 0;
+  font-size: 12px;
+}
+
+
+/* 投稿詳細 */
+
+.post-show-content, .post-cheer, .post-comment{
+  font-size: 14px;
+}
+
+.post-cheer{
+  border-top: solid 1px #ffd600;
+}
+
+.post-show-user{
+  border-bottom: solid 1px #ffd600;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+
+/* コメント機能 */
+
+.comment{
+  margin-top: 10px;
+  list-style: none;
+}
+
+.comment-form{
+  margin-top: 20px;
+}
+
+.comment-text{
+  border: solid 1px #76d9cd;
+  border-radius: 10px;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.commented{
+  font-size: 12px;
+  color: #76d9cd;
+}
+
+
+/* post_cheer機能 */
+
+.post_cheer{
+  list-style: none;
+  color: #4a4a4a;
+}
+
+a{
+  text-decoration: none !important;
+}
+
 

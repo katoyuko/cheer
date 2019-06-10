@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2># <%= @post_category.category %></h2>
+
+        <% @posts.each do |category_post| %>
+          <div class="col-md-3">
+            <div class="col-md-12 post-index">
+              <section>
+
+                <%= attachment_image_tag category_post, :image, size: "220x190", format: "png" %>
+
+                <p class="post-content"><%= category_post.post_content %></p>
+                <p class="post-arrow"><%= link_to "→", post_path(category_post.id) %></p>
+
+                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
+                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+
+                <p class="post-user">
+                  <%= category_post.created_at %><br>posted by <%= category_post.user.name %>
+                </p>
+
+              </section>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>

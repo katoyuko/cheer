@@ -1,30 +1,58 @@
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
-    <h2>Mypage</h2>
-    <p class="small-title">マイページ</p>
 
       <div class="col-md-10 col-md-offset-1">
         <p class="mypage">基本情報</p>
       </div>
       <div class="mypage-data">
-        <div class="col-md-5 col-md-offset-1">
-          <div class="image">
-            <p>写真</p>
+        <div class="col-md-4 col-md-offset-2">
+          <p>写真</p>
+          <div class="user-image-box">
+            <%= attachment_image_tag @user, :user_image, format: 'jpg', class: "user-image" %>
           </div>
         </div>
-        <div class="col-md-5">
-          <p>名前</p>
-          <p>メールアドレス</p>
-          <p>自己紹介</p>
+        <div class="col-md-4">
+          <p>名前: <%= @user.name %></p>
+          <p>メールアドレス: <%= @user.email %></p>
+          <p>自己紹介: <%= @user.introduction %></p>
         </div>
       </div>
 
-      <div class="col-md-4 col-md-offset-4">
-        <%= link_to "編集 / その他設定", "#", class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-      </div>
+      <% if current_user == @user %>
+        <div class="col-md-4 col-md-offset-4 mypage-data-btn">
+          <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+        </div>
+      <% end %>
 
       <div class="col-md-10 col-md-offset-1">
         <p class="mypage">投稿</p>
+        <% @posts.each do |post| %>
+          <div class="col-md-3">
+            <div class="col-md-12 post-index">
+              <section>
+
+                <%= attachment_image_tag post, :image, size: "170x140", format: "png" %>
+                <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                <p class="post-content"><%= post.post_content %></p>
+                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
+
+                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
+                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+
+                <p class="post-user"><%= post.created_at %></p>
+
+              </section>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row paginate">
+        <div class="col-md-4 col-md-offset-4">
+          <%= paginate @posts, class: "paginate" %>
+        </div>
       </div>
 
       <div class="col-md-12 main-favorite">

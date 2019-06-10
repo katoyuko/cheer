@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
+ *= require select2
  *= require font-awesome
  *= require_tree .
  *= require_self
@@ -58,12 +60,16 @@ h2, h4{
   color: #ffd600;
   transition: all 0.6s ease 0s;
   cursor: pointer;
+  display: inline-block;
+  text-decoration: none !important;
 }
 
 .btn-ellipse:hover{
   color: #ffffff;
   background-color: #ffd600;
   border: none;
+  display: inline-block;
+  text-decoration: none !important;
 }
 
 .btn-ellipse-red{
@@ -221,6 +227,12 @@ footer{
   font-size: 12px;
 }
 
+
+/* ページャー */
+
+.paginate{
+  text-align: center;
+}
 
 
 

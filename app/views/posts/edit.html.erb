@@ -1,40 +1,43 @@
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 post">
+    <div class="col-md-6 col-md-offset-3 post-main">
       <h2>Edit post</h2>
       <p class="small-title">投稿編集</p>
 
-      <div class="form">
-        <%= form_with model: @post, url: posts_path, local: true do |f| %>
+        <div class="form">
+          <%= form_for(@post) do |f| %>
 
-          <div class="form-group">
-            <label for="control-label">写真</label>
-             <!-- f.attachment_field :image, class: "btn btn-default btn-ellipse" -->
-             <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
-          </div>
-
-          <div class="form-group">
-            <label for="control-label">カテゴリ</label>
-            <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "js-searchable form-control", name: "post_category_id"} %>
-          </div>
-
-          <div class="form-group">
-            <label for="control-label">頑張りつぶやき</label>
-            <%= f.text_area :post_content, rows:10, maxlength:140, class: "form-control" %>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 col-md-offset-2">
-              <%= f.submit "更新", class: "btn col-md-2 btn-block btn-ellipse" %>
+            <div class="form-group">
+              <label for="control-label">写真</label><br>
+              <%= attachment_image_tag @post, :image, size: "520x430", format: 'jpg' %>
+              <%= f.attachment_field :image, class: "btn btn-default form-control" %>
+               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
             </div>
 
-            <div class="col-md-4">
-              <%= f.submit "削除", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn col-md-2 btn-block btn-ellipse-red" %>
+            <div class="form-group">
+              <label for="control-label">カテゴリ</label>
+              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: @post.post_category.category, class: "js-searchable form-control", name: "post_category_id"} %>
             </div>
-          </div>
 
-        <% end %>
-      </div>
+            <div class="form-group">
+              <label for="control-label">頑張りつぶやき</label>
+              <%= f.text_area :post_content, rows:10, maxlength:140, class: "form-control" %>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 col-md-offset-2">
+                <%= f.submit "更新", class: "btn col-md-2 btn-block btn-ellipse" %>
+              </div>
+
+              <div class="col-md-4">
+                <%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn col-md-2 btn-block btn-ellipse-red" %>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
 
     </div>
   </div>

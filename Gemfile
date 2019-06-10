@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -72,6 +73,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.1.1'
 gem 'annotate'
-gem 'rspec-rails'
 gem 'font-awesome-rails'
+
+gem "jquery-turbolinks"
+gem "select2-rails"
 
