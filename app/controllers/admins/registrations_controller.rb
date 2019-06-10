@@ -12,7 +12,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   # 管理者新規登録後、Topページへ遷移
    def after_sign_up_path_for(resource)
-      root_path
+      admins_root_path
    end
 
   # before_action :configure_sign_up_params, only: [:create]

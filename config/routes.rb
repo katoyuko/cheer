@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
+    root "posts#top"
+    get "/about" => "posts#about"
     resources :posts, only: [:index, :show, :destroy]
     resources :users, only: [:index, :destroy]
     resources :post_categories, only: [:index, :show, :destroy]
