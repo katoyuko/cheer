@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
 
   def top
+    # お気に入りカテゴリ一覧
+    @user = current_user
+    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
   end
 
   def about
