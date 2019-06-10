@@ -2,6 +2,9 @@
 
 class Admins::RegistrationsController < Devise::RegistrationsController
 
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
   # 管理者ログイン後に、他の管理者の登録可能にする
   prepend_before_action :require_no_authentication, :only => [ :cancel]
   prepend_before_action :authenticate_scope!, :only => [:new, :create]

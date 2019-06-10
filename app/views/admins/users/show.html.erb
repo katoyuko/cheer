@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-10 col-md-offset-1">
+        <p class="mypage">基本情報</p>
+      </div>
+      <div class="mypage-data">
+        <div class="col-md-4 col-md-offset-2">
+          <p>写真</p>
+          <div class="user-image-box">
+            <%= attachment_image_tag @user, :user_image, format: 'jpg', class: "user-image" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p>名前: <%= @user.name %></p>
+          <p>メールアドレス: <%= @user.email %></p>
+          <p>自己紹介: <%= @user.introduction %></p>
+        </div>
+      </div>
+
+      <div class="col-md-10 col-md-offset-1">
+        <p class="mypage">投稿</p>
+        <% @posts.each do |post| %>
+          <div class="col-md-3">
+            <div class="col-md-12 post-index">
+              <section>
+
+                <%= attachment_image_tag post, :image, size: "170x140", format: "png" %>
+                <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                <p class="post-content"><%= post.post_content %></p>
+                <p class="post-arrow"><%= link_to "→", admins_post_path(post.id) %></p>
+
+                <p class="post-content">
+                  <i class="fa fa-comment"></i> <%= post.post_comments.count %> comment
+                </p>
+                <p class="post_cheer">
+                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
+                </p>
+
+                <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+
+              </section>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row paginate">
+        <div class="col-md-4 col-md-offset-4">
+          <%= paginate @posts, class: "paginate" %>
+        </div>
+      </div>
+
+      <div class="col-md-10 col-md-offset-1 main-favorite">
+        <h2>Favorite</h2>
+        <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
+
+        <% @favorite_categories.each do |favorite_category| %>
+          <div class="col-md-3">
+            <div class="col-md-12 post-index">
+              <section>
+                <%= attachment_image_tag favorite_category.post_category, :category_image, size: "170x140", format: "png" %>
+                <p><span># </span>
+                  <%= favorite_category.post_category.category %>
+                </p>
+              </section>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+  </div>
+</div>

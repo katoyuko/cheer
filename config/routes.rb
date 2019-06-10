@@ -3,11 +3,7 @@ Rails.application.routes.draw do
   root "posts#top"
   get "/about" => "posts#about"
 
-  devise_for :users, controllers: {
-    sessions: "users/sessions",
-    passwords: "users/passwords",
-    registrations: "users/registrations"
-  }
+  devise_for :users
 
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
@@ -29,7 +25,7 @@ Rails.application.routes.draw do
     root "posts#top"
     get "/about" => "posts#about"
     resources :posts, only: [:index, :show, :destroy]
-    resources :users, only: [:index, :destroy]
+    resources :users, only: [:index, :show, :destroy]
     resources :post_categories, only: [:index, :show, :destroy]
   end
 

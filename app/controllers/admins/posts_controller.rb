@@ -1,5 +1,8 @@
 class Admins::PostsController < ApplicationController
 
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
   def top
   end
 
