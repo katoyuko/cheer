@@ -16,16 +16,16 @@
                 <p class="post-content"><%= post.post_content %></p>
                 <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
 
+                <p class="post-user">
+                  <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
+                </p>
+
                 <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %><br>
+                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
                 </p>
 
                 <p class="post_cheer">
                   <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
-                </p>
-
-                <p class="post-user">
-                  <%= post.created_at %><br>posted by <%= post.user.name %>
                 </p>
 
               </section>
