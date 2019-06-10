@@ -1,0 +1,26 @@
+<!-- 管理者用 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cheer for admin</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= render "layouts/adminheader" %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>

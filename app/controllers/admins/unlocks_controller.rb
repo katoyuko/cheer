@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admins::UnlocksController < Devise::UnlocksController
+
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
   # GET /resource/unlock/new
   # def new
   #   super

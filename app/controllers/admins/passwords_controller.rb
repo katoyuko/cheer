@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admins::PasswordsController < Devise::PasswordsController
+
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
   # GET /resource/password/new
   # def new
   #   super

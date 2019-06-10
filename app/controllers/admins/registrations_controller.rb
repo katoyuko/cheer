@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 class Admins::RegistrationsController < Devise::RegistrationsController
+
+  # 管理者ログイン後、他の管理者の登録を可能にする
+  prepend_before_action :require_no_authentication, :only => [ :cancel]
+  prepend_before_action :authenticate_scope!, :only => [:new, :create]
+
+
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
+  # 管理者新規登録後、Topページへ遷移
+   def after_sign_up_path_for(resource)
+      root_path
+   end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Admins::ConfirmationsController < Devise::ConfirmationsController
+
+  # 管理者用レイアウトをviewに返す
+  layout "admin"
+
   # GET /resource/confirmation/new
   # def new
   #   super
