@@ -75,7 +75,8 @@
 
 .post-user{
   border-top: solid 1px #76d9cd;
-  padding-top: 10px;
+  border-bottom: solid 1px #76d9cd;
+  padding: 10px 0;
   font-size: 12px;
 }
 
@@ -90,8 +91,10 @@
   border-top: solid 1px #ffd600;
 }
 
-.post-comment{
+.post-show-user{
   border-bottom: solid 1px #ffd600;
+  padding-top: 10px;
+  font-size: 13px;
 }
 
 
