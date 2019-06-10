@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "posts#top"
   get "/about" => "posts#about"
 
+  devise_for :admins
   devise_for :users
   resources :users, only: [:show, :edit, :update, :destroy]
 
