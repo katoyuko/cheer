@@ -11,10 +11,10 @@
                 <%= attachment_image_tag category_post, :image, size: "220x190", format: "png" %>
 
                 <p class="post-content"><%= category_post.post_content %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(category_post.id) %></p>
+                <p class="post-arrow"><%= link_to "→", admins_post_path(category_post.id) %></p>
 
                 <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>
+                  <i class="fa fa-comment"></i> <%= link_to "#{category_post.post_comments.count} comment", admins_post_path(category_post), class: "post-content" %>
                 </p>
 
                 <p class="post_cheer">
@@ -22,13 +22,19 @@
                 </p>
 
                 <p class="post-user">
-                  <%= category_post.created_at %><br>posted by <%= category_post.user.name %>
+                  <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= category_post.user.name %>
                 </p>
 
               </section>
             </div>
           </div>
         <% end %>
+
+        <div class="col-md-12">
+          <div class="col-md-2 col-md-offset-5 category-btn">
+            <%= link_to "戻る", admins_root_path, class: "btn btn-block btn-ellipse" %>
+          </div>
+        </div>
 
     </div>
   </div>
