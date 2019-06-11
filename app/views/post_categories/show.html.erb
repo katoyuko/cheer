@@ -5,13 +5,19 @@
 
         <% @posts.each do |category_post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 post-index-category">
               <section>
 
                 <%= attachment_image_tag category_post, :image, size: "220x190", format: "png" %>
 
-                <p class="post-content"><%= category_post.post_content.truncate(70) %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(category_post.id) %></p>
+                <div class="post-content-body-category">
+                  <p class="post-content"><%= category_post.post_content.truncate(70) %></p>
+                  <p class="pull-right post-arrow"><%= link_to "→", post_path(category_post.id) %></p>
+                </div>
+
+                <p class="post-user">
+                  <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= category_post.user.name %>
+                </p>
 
                 <p class="post-content">
                   <i class="fa fa-comment"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>
@@ -19,10 +25,6 @@
 
                 <p class="post_cheer">
                   <i class="fa fa-flag"></i> <%= category_post.post_cheers.count %> cheer
-                </p>
-
-                <p class="post-user">
-                  <%= category_post.created_at %><br>posted by <%= category_post.user.name %>
                 </p>
 
               </section>
