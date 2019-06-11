@@ -79,8 +79,10 @@
               <div class="col-md-12 post-index-favorite">
                 <section>
                   <%= attachment_image_tag favorite_category.post_category, :category_image, size: "170x140", format: "png" %>
-                  <p><span># </span>
-                    <%= link_to favorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
+                  <p class="btn btn-default btn-search btn-block">
+                    <%= link_to post_category_path(favorite_category.post_category.id) do %>
+                      # <%= favorite_category.post_category.category %>
+                    <% end %>
                   </p>
                 </section>
               </div>
