@@ -8,19 +8,18 @@
   <nav>
     <ul>
       <% if admin_signed_in? %>
-        <p>For Admin</p>
         <li><%= link_to "Home", admins_root_path, class: "link" %></li>
         <li><%= link_to "About", admins_about_path, class: "link" %></li>
-        <li><%= link_to "All posts", admins_posts_path, class: "link" %></li>
-        <li><%= link_to "All users", admins_users_path, class: "link" %></li>
+        <li><%= link_to "Posts", admins_posts_path, class: "link" %></li>
+        <li><%= link_to "Users", admins_users_path, class: "link" %></li>
         <li><%= link_to "Category", admins_post_categories_path, class: "link" %></li>
         <li><%= link_to "New admin", new_admin_registration_path, class: "link" %></li>
         <li><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "link" %></li>
       <% else %>
-        <p>For Admin</p>
+        <p class="admin"><%= fa_icon("circle") %> For admins <%= fa_icon("circle") %></p>
         <li><%= link_to "Home", admins_root_path, class: "link" %></li>
         <li><%= link_to "About", admins_about_path, class: "link" %></li>
-        <li><%= link_to "Log in", new_user_session_path, class: "link" %></li>
+        <li><%= link_to "Log in", new_admin_session_path, class: "link" %></li>
       <% end %>
     </ul>
   </nav>

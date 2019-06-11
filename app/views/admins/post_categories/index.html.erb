@@ -6,6 +6,7 @@
       <h2>Category</h2>
       <p class="small-title">カテゴリ一覧</p>
 
+        <div class="category-body">
           <div class="col-xs-3 col-md-offset-2">
             <% if @post_category.errors.any? %>
               <ul id="error_explanation">
@@ -17,13 +18,13 @@
 
             <div class="category">
               <%= form_for(@post_category, url: admins_post_categories_path) do |f| %>
-                <label>カテゴリ登録</label>
+                <label class="category-label">カテゴリ登録</label>
                 <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
 
-                <label>写真</label>
+                <label class="category-label">写真</label>
                 <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
 
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 category-btn">
                   <%= f.submit "登録", class: "btn btn-block btn-ellipse" %>
                 </div>
               <% end %>
@@ -54,7 +55,7 @@
               </tbody>
             </table>
           </div>
-
+        </div>
 
     </div>
   </div>
