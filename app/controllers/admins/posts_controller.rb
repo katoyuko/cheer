@@ -1,5 +1,7 @@
 class Admins::PostsController < ApplicationController
 
+  before_action :authenticate_admin!
+
   # 管理者用レイアウトをviewに返す
   layout "admin"
 

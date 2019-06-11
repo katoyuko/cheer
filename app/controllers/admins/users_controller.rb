@@ -1,10 +1,15 @@
 class Admins::UsersController < ApplicationController
 
+  before_action :authenticate_admin!
+
   # 管理者用レイアウトをviewに返す
   layout "admin"
 
   def index
-    @users = User.page(params[:page]).reverse_order.per(30)
+    # (params[:q])に検索パラメーターが入り、Userテーブルを検索する@qオブジェクトを生成
+    @search = User.ransack(params[:q])
+    # 検索結果を表示
+    @results = @search.result.page(params[:page]).reverse_order.per(30)
   end
 
   def show
