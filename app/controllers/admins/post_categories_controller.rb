@@ -23,6 +23,19 @@ class Admins::PostCategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @post_category = PostCategory.find(params[:id])
+  end
+
+  def update
+    @post_category = PostCategory.find(params[:id])
+    if @post_category.update_attributes(post_category_params)
+      redirect_to admins_post_categories_path, notice: "更新しました！"
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @post_category = PostCategory.find(params[:id])
     @post_category.destroy
