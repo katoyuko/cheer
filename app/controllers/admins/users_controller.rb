@@ -5,6 +5,11 @@ class Admins::UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).reverse_order.per(30)
+
+    # (params[:q])に検索パラメーターが入り、Userテーブルを検索する@qオブジェクトを生成
+    @search_user = User.ransack(params[:q])
+    # 検索結果を表示
+    @results_user = @search_user.result.page(params[:page]).reverse_order.per(30)
   end
 
   def show
