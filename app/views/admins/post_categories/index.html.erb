@@ -1,3 +1,5 @@
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -13,10 +15,10 @@
               </ul>
             <% end %>
 
-            <div class="form">
-              <%= form_with model: @post_category, url: admins_post_categories_path, local: true do |f| %>
+            <div class="new-category">
+              <%= form_for(@post_category, url: admins_post_categories_path) do |f| %>
                 <label>カテゴリ登録</label>
-                <%= f.text_field :post_category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
+                <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
 
                 <label>写真</label>
                 <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
@@ -42,7 +44,7 @@
                 <% @post_categories.each do |post_category| %>
                   <tr>
                     <td><%= post_category.id %></td>
-                    <td><%= attachment_image_tag post_category, :category_image, :fill, 50, 50, format: 'jpeg'%></td>
+                    <td><%= attachment_image_tag post_category, :category_image, :fill, 70, 70, format: 'jpeg'%></td>
                     <td><%= post_category.category %></td>
                     <td><%= link_to "削除", admins_post_category_path(post_category.id), class: "btn btn-ellipse-red", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
                   </tr>

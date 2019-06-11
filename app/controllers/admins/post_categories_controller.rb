@@ -24,13 +24,16 @@ class Admins::PostCategoriesController < ApplicationController
   end
 
   def destroy
+    @post_category = PostCategory.find(params[:id])
+    @post_category.destroy
+    redirect_to admins_post_categories_path, notice: "削除しました！"
   end
 
 
 private
 
   def post_category_params
-    params.require(:post_category).permit(:category, :category_image_id)
+    params.require(:post_category).permit(:category, :category_image)
   end
 
 end
