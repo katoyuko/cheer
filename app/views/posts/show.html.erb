@@ -4,7 +4,7 @@
       <h2>Post</h2>
       <p class="small-title">投稿</p>
 
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3 post-show-body">
         <div class="col-md-12">
           <section>
             <%= attachment_image_tag @post, :image, size: "520x430", format: "jpg" %>
@@ -41,13 +41,6 @@
               <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
             </p>
 
-            <% if @post.user.id == current_user.id %>
-              <div class="row">
-                <div class="col-md-4 col-md-offset-4 btn-link">
-                 <p class="btn col-md-2 btn-block btn-ellipse"><%= link_to "編集 ", edit_post_path(@post.id) %></p>
-               </div>
-             </div>
-            <% end %>
           </section>
         </div>
       </div>
@@ -99,6 +92,14 @@
           <% end %>
         </ul>
       </div>
+
+      <% if @post.user.id == current_user.id %>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-5 btn-link">
+           <p class="btn col-md-2 btn-block btn-ellipse"><%= link_to "編集 ", edit_post_path(@post.id) %></p>
+         </div>
+       </div>
+      <% end %>
 
     </div>
   </div>

@@ -87,6 +87,10 @@
 
 /* 投稿詳細 */
 
+.post-show-body{
+  margin-top: 30px;
+}
+
 .post-show-content, .post-cheer, .post-comment{
   font-size: 14px;
 }
@@ -96,9 +100,13 @@
 }
 
 .post-show-user{
-  border-bottom: solid 1px #ffd600;
+  border-bottom: solid 1px #e3e3e3;
   padding-top: 10px;
   font-size: 13px;
+}
+
+.btn-ellipse a{
+  color: #ffd600;
 }
 
 
