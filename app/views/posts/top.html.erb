@@ -65,10 +65,10 @@
       <% if current_user == @user %>
         <% @favorite_categories.each do |fovorite_category| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 post-index-favorite">
               <section>
-                <%= attachment_image_tag fovorite_category.post_category, :category_image, size: "170x140", format: "png" %>
-                <p><span># </span>
+                <%= attachment_image_tag fovorite_category.post_category, :category_image, size: "220x160", format: "png" %>
+                <p>
                   <%= link_to fovorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
                 </p>
               </section>

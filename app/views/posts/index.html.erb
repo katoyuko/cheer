@@ -12,9 +12,13 @@
               <section>
 
                 <%= attachment_image_tag post, :image, size: "220x190", format: "png" %>
-                <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
+
+                <div class="post-content-body">
+                  <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                  <!-- 投稿内容は70文字以上は省略 -->
+                  <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                  <p class="pull-right post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                </div>
 
                 <p class="post-user">
                   <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
