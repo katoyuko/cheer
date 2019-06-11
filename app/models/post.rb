@@ -9,7 +9,6 @@ class Post < ApplicationRecord
 
   validates :post_category_id, presence: true
   validates :post_content, presence: true
-             # length: { maximam: 150 }
 
   # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す
   def post_cheered_by?(user)

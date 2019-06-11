@@ -8,15 +8,22 @@
       </div>
       <div class="mypage-data">
         <div class="col-md-4 col-md-offset-2">
-          <p>写真</p>
+          <label>写真</label>
           <div class="user-image-box">
             <%= attachment_image_tag @user, :user_image, format: 'jpg', class: "user-image" %>
           </div>
         </div>
         <div class="col-md-4">
-          <p>名前: <%= @user.name %></p>
-          <p>メールアドレス: <%= @user.email %></p>
-          <p>自己紹介: <%= @user.introduction %></p>
+          <section>
+            <div>
+              <label>名前</label>
+              <p><%= @user.name %></p>
+              <label>メールアドレス</label>
+              <p><%= @user.email %></p>
+              <label>自己紹介</label>
+              <p><%= @user.introduction %></p>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -30,18 +37,25 @@
         <p class="mypage">投稿</p>
         <% @posts.each do |post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 post-index-maypage">
               <section>
 
                 <%= attachment_image_tag post, :image, size: "170x140", format: "png" %>
-                <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                <div class="post-content-body-mypage">
+                  <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                  <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                  <p class="pull-right post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                </div>
 
-                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
-                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+                <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
 
-                <p class="post-user"><%= post.created_at %></p>
+                <p class="post-content">
+                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
+                </p>
+
+                <p class="post_cheer">
+                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
+                </p>
 
               </section>
             </div>
