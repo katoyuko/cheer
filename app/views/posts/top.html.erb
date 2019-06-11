@@ -1,4 +1,4 @@
-<%= render 'layouts/flash' %>
+<%= render "layouts/flash" %>
 
 <div class="main">
   <div class="main-visual">
@@ -16,6 +16,10 @@
   <div class="main-pickup">
     <h2>Pick up</h2>
     <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
+
+    <div class="col-md-10 col-md-offset-1 hot-category">
+      <%= render "layouts/hot_category" %>
+    </div>
   </div>
 
   <div class="main-search">
@@ -61,15 +65,17 @@
     <h2>Favorite</h2>
     <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
 
-    <div class="col-md-10 col-md-offset-1 main-favorite">
+    <div class="col-md-10 col-md-offset-1 favorite">
       <% if current_user == @user %>
         <% @favorite_categories.each do |fovorite_category| %>
           <div class="col-md-3">
             <div class="col-md-12 post-index-favorite">
               <section>
                 <%= attachment_image_tag fovorite_category.post_category, :category_image, size: "220x160", format: "png" %>
-                <p>
-                  <%= link_to fovorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
+                <p class="btn btn-default btn-search btn-block">
+                  <%= link_to post_category_path(fovorite_category.post_category.id) do %>
+                    # <%= fovorite_category.post_category.category %>
+                  <% end %>
                 </p>
               </section>
             </div>

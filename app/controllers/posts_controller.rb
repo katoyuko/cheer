@@ -4,6 +4,10 @@ class PostsController < ApplicationController
     # お気に入りカテゴリ一覧
     @user = current_user
     @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+
+    post_category_count = PostCategory.joins(:posts).where(created_at: 1.weeks.ago..Time.now).group(:post_category_id).count
+    post_category_ids = Hash[post_category_count.sort_by{ |_, v| -v }].keys
+    @post_category_ranks = PostCategory.where(id: post_category_ids).sort_by{|o| post_category_ids.index(o.id)}[0..3]
   end
 
   def about
