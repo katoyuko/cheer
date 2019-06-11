@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Edit category</h2>
+      <p class="small-title">カテゴリ編集</p>
+
+        <div class="category-body">
+          <div class="col-xs-4 col-md-offset-4">
+            <% if @post_category.errors.any? %>
+              <ul id="error_explanation">
+                <% @post_category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+
+            <%= form_for(@post_category, url: admins_post_category_path) do |f| %>
+            <div class="category">
+                <label class="category-label">カテゴリ</label>
+                <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
+
+                <label class="category-label">写真</label>
+                <%= attachment_image_tag @post_category, :category_image, size: "380x300", format: 'jpg' %>
+                <div class="category-image-form">
+                  <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-md-offset-5 category-btn">
+          <%= f.submit "更新", class: "btn btn-block btn-ellipse" %>
+          <%= link_to "キャンセル", admins_post_categories_path, class: "btn btn-block btn-ellipse" %>
+        </div>
+            <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<%= render "layouts/flash" %>
+
+<div class="row sign">
+  <div class="col-md-4 col-md-offset-4">
+
+    <h2>Log in</h2>
+    <p class="small-title">ログイン</p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "admins/shared/error_messages", resource: resource %>
+      <div class="form-group sign-content">
+        <div class="row">
+          <div class="col-md-12">
+            <%= fa_icon("envelope") %>
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例: abc@mail.com", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group sign-content">
+        <div class="row">
+          <div class="col-md-12">
+            <%= fa_icon("lock") %>
+            <%= f.label :パスワード %><br />
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "半角英数字6文字以上", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group sign-content">
+          <%= f.check_box :remember_me %>
+          <%= f.label :メールアドレスとパスワードを記憶する %>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-12 sign-content">
+          <%= f.submit "ログイン", class:"btn col-md-4 col-md-offset-4 btn-ellipse" %>
+        </div>
+      </div>
+    <% end %>
+
+      <div class="row">
+        <div class="col-md-12 sign-content">
+          <%= render "admins/shared/links" %>
+        </div>
+      </div>
+
+  </div>
+</div>

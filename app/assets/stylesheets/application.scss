@@ -83,6 +83,8 @@ h2, h4{
   color: white;
   background-color: #ff5752;
   border: none;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
 }
 
 .btn-search{
@@ -182,6 +184,11 @@ nav li.active{
   display: inline-block;
   text-decoration: none !important;   /* importantで下線が消える */
   color: #4a4a4a;
+  font-size: 17px;
+}
+
+.admin{
+  color: #76d9cd;
   font-size: 17px;
 }
 
