@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>category</h2>
+      <h2>Category</h2>
       <p class="small-title">カテゴリ一覧</p>
 
           <div class="col-xs-3 col-md-offset-2">
@@ -15,7 +15,7 @@
               </ul>
             <% end %>
 
-            <div class="new-category">
+            <div class="category">
               <%= form_for(@post_category, url: admins_post_categories_path) do |f| %>
                 <label>カテゴリ登録</label>
                 <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
@@ -38,6 +38,7 @@
                   <th>画像</th>
                   <th>カテゴリ</th>
                   <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -46,6 +47,7 @@
                     <td><%= post_category.id %></td>
                     <td><%= attachment_image_tag post_category, :category_image, :fill, 70, 70, format: 'jpeg'%></td>
                     <td><%= post_category.category %></td>
+                    <td><%= link_to "編集", edit_admins_post_category_path(post_category.id), class: "btn btn-ellipse" %></td>
                     <td><%= link_to "削除", admins_post_category_path(post_category.id), class: "btn btn-ellipse-red", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
                   </tr>
                 <% end %>
