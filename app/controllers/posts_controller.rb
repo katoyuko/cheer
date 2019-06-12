@@ -1,13 +1,19 @@
 class PostsController < ApplicationController
 
-  def top
-    # お気に入りカテゴリ一覧
-    @user = current_user
-    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  def top
+    # 投稿数多い順でカテゴリを表示
+    # post_categoriesとpostsを内部統合 一週間単位でcount
     post_category_count = PostCategory.joins(:posts).where(created_at: 1.weeks.ago..Time.now).group(:post_category_id).count
+    # 配列をハッシュに変換 要素の順番を並び替え ハッシュのキーを取得
     post_category_ids = Hash[post_category_count.sort_by{ |_, v| -v }].keys
     @post_category_ranks = PostCategory.where(id: post_category_ids).sort_by{|o| post_category_ids.index(o.id)}[0..3]
+
+    # お気に入りカテゴリ一覧
+    if @user = current_user
+      @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+    end
   end
 
   def about
