@@ -1,6 +1,8 @@
 class PostCheer < ApplicationRecord
 
   belongs_to :user
-  belongs_to :post
+
+  # cheerの数をcheer_countカラムに入れる
+  belongs_to :post, counter_cache: :cheer_count
 
 end
