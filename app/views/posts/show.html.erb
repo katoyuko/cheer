@@ -17,25 +17,9 @@
               <%= @post.created_at.strftime('%Y/%m/%d') %> posted by <%= @post.user.name %>
             </p>
 
-            <% if @post.post_cheered_by?(current_user) %>
-              <li class="post_cheer">
-                <%= link_to post_post_cheers_path(@post), method: :delete do %>
-                  <p class="post_cheer">
-                    <i class="fa fa-flag" aria-hidden="true" style="color: #ff5752;"></i>
-                    <%= @post.post_cheers.count %> cheer
-                  </p>
-                <% end %>
-              </li>
-            <% else %>
-              <li class="post_cheer">
-                <%= link_to post_post_cheers_path(@post), method: :post do %>
-                  <p class="post_cheer">
-                    <i class="fa fa-flag-o" aria-hidden="true"></i>
-                    <%= @post.post_cheers.count %> cheer
-                  </p>
-                <% end %>
-              </li>
-            <% end %>
+
+                <%= render "posts/post_cheer" %>
+
 
             <p class="post-comment">
               <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment

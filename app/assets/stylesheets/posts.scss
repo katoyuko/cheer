@@ -18,8 +18,14 @@
   margin-top: 50px;
 }
 
-.main-favorite, .main-pickup{
+.main-pickup{
   height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-favorite{
+  height: 650px;
   width: 100%;
   text-align: center;
 }
@@ -121,6 +127,10 @@
 
 .btn-ellipse a{
   color: #ffd600;
+}
+
+.btn-ellipse:hover a{
+  color: #ffffff;
 }
 
 

@@ -1,24 +1,32 @@
 <% if user_signed_in? %>
 
-  <% if post.cheer_user(current_user.id) %>
-    <%= link_to post_post_cheers_path(cheer, post_id: post.id), method: :delete, id: "cheer-button", remote: true do %>
-      <i class="fa fa-flag" aria-hidden="true" style="color: #ff5752;"></i>
-      <span>
-        <%= post.cheer_count %>
-      </span>
+    <% if @post.post_cheered_by?(current_user) %>
+      <li class="post_cheer">
+        <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :delete, remote: true do %>
+          <p class="post_cheer">
+            <i class="fa fa-flag" id="<%= @post.id %>"></i>
+            <%= @post.cheer_count %> cheer
+          </p>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="post_cheer">
+        <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+        <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :post, remote: true do %>
+          <p class="post_cheer">
+            <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+            <%= @post.cheer_count %> cheer
+          </p>
+        <% end %>
+      </li>
     <% end %>
-  <% else %>
-    <%= link_to post_post_cheers_path(post), id: "cheer-button", remote: true do %>
-      <i class="fa fa-flag-o" aria-hidden="true"></i>
-      <span>
-        <%= post.cheer_count %>
-      </span>
-    <% end %>
-  <% end %>
 
 <% else %>
-  <%= fa_icon("flag-o") %>
-  <span>
-    <%= post.cheer_count %>
-  </span>
+  <li class="post_cheer">
+    <p class="post_cheer">
+      <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+      <%= @post.cheer_count %> cheer
+    </p>
+  </li>
+
 <% end %>

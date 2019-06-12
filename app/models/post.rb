@@ -5,17 +5,12 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :post_cheers, dependent: :destroy
 
-  # 投稿にcheerしているか確認するメソッド
-  def cheer_user(user_id)
-    cheers.find_by(user_id: user_id)
-  end
-
   attachment :image
 
   validates :post_category_id, presence: true
   validates :post_content, presence: true
 
-  # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す
+  # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す 投稿にcheerしているか確認
   def post_cheered_by?(user)
     post_cheers.where(user_id: user.id).exists?
   end
