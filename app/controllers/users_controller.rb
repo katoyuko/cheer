@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order.per(8)
 
     # お気に入りカテゴリ追加
-    @favorite_category = current_user.favorite_categories.new
+    @favorite_category = FavoriteCategory.new
     # お気に入りカテゴリ一覧
     @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
   end

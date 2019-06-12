@@ -1,5 +1,7 @@
 class FavoriteCategoriesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     post_category = PostCategory.find(params[:post_category_id])
     favorite_category = current_user.favorite_categories.new(post_category_id: post_category.id)

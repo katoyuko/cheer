@@ -1,5 +1,7 @@
 class PostCheersController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     post = Post.find(params[:post_id])
     post_cheer = current_user.post_cheers.new(post_id: post.id)

@@ -10,11 +10,21 @@
   width: 100%;
 }
 
-.hot-category, .favorite{
+.hot-category, .favorite, .favorite-btn{
   margin-top: 30px;
 }
 
-.main-favorite, .main-pickup, .about{
+.favorite-login{
+  margin-top: 50px;
+}
+
+.main-favorite, .main-pickup{
+  height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.about{
   height: 600px;
   width: 100%;
   text-align: center;
