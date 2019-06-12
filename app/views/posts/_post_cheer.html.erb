@@ -1,4 +1,29 @@
+<script type="text/javascript">
+$(function() {
 
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", "#cheer-button", function(event) {
+    if($('.post_cheer i').hasClass('fa-flag-o')){
+      let currentNo = $('#cheer_count').html()
+      $('#cheer_count').html(Number(currentNo) + 1)
+    } else {
+      let currentNo = $('#vcheer_count').html()
+      $('#cheer_count').html(Number(currentNo) - 1)
+    }
+
+    // 追加のパラメータ(event.detail) fa-flagクラスを持っていたら
+    if ($('#' + event.detail[0]).hasClass('fa-flag')) {
+    // fa-flagクラスを消しfa-flag-oクラスを返す
+      $('#' + event.detail[0]).removeClass('fa-flag').addClass('fa-flag-o');
+
+    } else {
+    // fa-flag-oクラスを消しfa-flagクラスを返す(cheer済.赤くなる)
+  $('#' + event.detail[0]).removeClass('fa-flag-o').addClass('fa-flag');
+
+    }
+  })
+})
+</script>
 
 <% if user_signed_in? %>
 
