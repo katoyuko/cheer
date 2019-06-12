@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :post_category
   has_many :post_comments, dependent: :destroy
   has_many :post_cheers, dependent: :destroy
+  has_many :post_cheering_users, through: :post_cheers, source: :user
 
   attachment :image
 
