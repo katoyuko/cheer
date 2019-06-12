@@ -73,19 +73,5 @@ $(document).ready(function(){
 });
 
 
-// cheer
 
-$(function() {
-  // イベント名 ajax:success レスポンスが成功時、発火
-  $(document).on("ajax:success", "#cheer-button", function(event) {
-    // 追加のパラメータ(event.detail) fa-flagクラスを持っていたら
-    if ($('#' + event.detail[0]).hasClass('fa-flag')) {
-    // fa-flagクラスを消しfa-flag-oクラスを返す
-      $('#' + event.detail[0]).removeClass('fa-flag').addClass('fa-flag-o');
-    } else {
-    // fa-flag-oクラスを消しfa-flagクラスを返す(cheer済)
-  $('#' + event.detail[0]).removeClass('fa-flag-o').addClass('fa-flag');
-    }
-  })
-})
 

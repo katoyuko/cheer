@@ -7,7 +7,7 @@ class PostCheersController < ApplicationController
     post = Post.find(params[:post_id])
     post_cheer = current_user.post_cheers.new(post_id: post.id)
     post_cheer.save
-    # 非同期通信 レスポンスとして投稿した値をrenderを使ってjson形式で返す
+    # post.idが呼び出された際に、post.idの値をjson形式で返す (レスポンスを出力するrenderを使う)
     render :json => post.id
 
     # cheerの合計数を表示
