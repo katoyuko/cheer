@@ -10,8 +10,12 @@
   width: 100%;
 }
 
-.hot-category, .favorite, .favorite-btn{
+.hot-category{
   margin-top: 30px;
+}
+
+.favorite, .favorite-btn{
+  margin-top: 20px;
 }
 
 .favorite-login{
@@ -25,7 +29,7 @@
 }
 
 .main-favorite{
-  height: 650px;
+  height: 570px;
   width: 100%;
   text-align: center;
 }
