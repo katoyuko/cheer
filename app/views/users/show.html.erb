@@ -97,7 +97,7 @@
           <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
             <div class="form-group">
               <label for="control-label">お気に入りを追加</label>
-              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "js-searchable form-control", name: "post_category_id"} %>
+              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "form-control", name: "post_category_id"} %>
             </div>
 
             <div class="row">

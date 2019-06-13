@@ -16,7 +16,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require select2
 //= require bootstrap-sprockets
 //= require jquery.jscroll.min.js
 //= require_tree .
@@ -64,14 +63,6 @@ $(function() {
   });
 });
 
-
-
-$(document).ready(function(){
-  $('.js-searchable').select2({
-    theme: "bootstrap",
-    width: "resolve"
-  });
-});
 
 
 

@@ -18,7 +18,7 @@
 
             <div class="form-group">
               <label for="control-label">カテゴリ</label>
-              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: @post.post_category.category, class: "js-searchable form-control", name: "post_category_id"} %>
+              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: @post.post_category.category, class: "form-control", name: "post_category_id"} %>
             </div>
 
             <div class="form-group">
