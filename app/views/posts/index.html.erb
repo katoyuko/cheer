@@ -21,7 +21,18 @@
                 <div class= "caption">
                   <div class="post-content-body">
                     <div class="post-content-body-top">
-                      <label class="post-category"><span># </span><%= post.post_category.category %></label>
+
+
+
+                <label class="btn btn-ellipse">
+                  <%= link_to post_category_path(post.post_category.id) do %>
+                    # <%= post.post_category.category %>
+                  <% end %>
+                </label>
+
+
+
+
                       <!-- 投稿内容は70文字以上は省略 -->
                       <p class="post-content"><%= post.post_content.truncate(70) %></p>
                     </div>
