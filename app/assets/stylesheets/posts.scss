@@ -73,35 +73,45 @@
 
 .post-index{
   margin: 30px 0;
-  height: 520px;
 }
 
 .post-content-body{
-  height: 190px;
+  height: 165px;
+}
+
+.post-content-body-top{
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+.post-content-body-bottom{
+  padding: 0 20px;
 }
 
 .post-category{
   border-radius: 25px;
   border: solid 1px #ffd600;
-  padding: 3px 10px;
+  padding: 7px 12px;
   color: #ffd600;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
 .post-content, .post_cheer{
+  padding-top: 10px;
+  list-style: none;
   font-size: 13px;
   color: #4a4a4a;
 }
 
 .post-arrow a{
-  font-size: 27px;
-  color: #76d9cd;
+  font-size: 17px;
+  color: #4a4a4a;
   text-decoration: none;
 }
 
 .post-user{
-  border-top: solid 1px #76d9cd;
-  border-bottom: solid 1px #76d9cd;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
   padding: 10px 0;
   font-size: 12px;
 }
@@ -160,12 +170,7 @@
 }
 
 
-/* post_cheer機能 */
-
-.post_cheer{
-  list-style: none;
-  color: #4a4a4a;
-}
+/* post cheer機能 */
 
 a{
   text-decoration: none !important;

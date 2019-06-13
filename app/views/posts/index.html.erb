@@ -16,14 +16,18 @@
             <div class="col-md-12 thumbnail post-index">
               <section>
 
-                <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", class: "img-responsive img-rounded" %>
+                <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", class: "img-responsive" %>
 
                 <div class= "caption">
                   <div class="post-content-body">
-                    <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                    <!-- 投稿内容は70文字以上は省略 -->
-                    <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                    <p class="pull-right post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                    <div class="post-content-body-top">
+                      <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                      <!-- 投稿内容は70文字以上は省略 -->
+                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    </div>
+                    <div class="row post-content-body-bottom">
+                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(post.id) %></p>
+                    </div>
                   </div>
 
                   <p class="post-user">
@@ -31,10 +35,7 @@
                   </p>
 
                   <p class="post-content">
-                    <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
-                  </p>
-
-                  <p class="post_cheer">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
                     <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
                   </p>
                 </div>
