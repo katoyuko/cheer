@@ -37,25 +37,29 @@
         <p class="mypage">投稿</p>
         <% @posts.each do |post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index-maypage">
+            <div class="col-md-12 thumbnail post-index-maypage">
               <section>
 
-                <%= attachment_image_tag post, :image, size: "170x140", format: "png" %>
-                <div class="post-content-body-mypage">
-                  <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                  <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                  <p class="pull-right post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                <%= attachment_image_tag post, :image, :fill, 1000, 1000, format: "png", class: "img-responsive" %>
+
+                <div class= "caption">
+                  <div class="post-content-body-mypage">
+                    <div class="post-content-body-mypage-top">
+                      <label class="post-category"><span># </span><%= post.post_category.category %></label>
+                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    </div>
+                    <div class="post-content-body-mypage-bottom">
+                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(post.id) %></p>
+                    </div>
+                  </div>
+
+                  <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+
+                  <p class="post-content">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
+                    <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
+                  </p>
                 </div>
-
-                <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-
-                <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
-                </p>
-
-                <p class="post_cheer">
-                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
-                </p>
 
               </section>
             </div>
@@ -70,13 +74,12 @@
       </div>
 
       <% if current_user == @user %>
-        <div class="col-md-10 col-md-offset-1 main-favorite">
-          <h2>Favorite</h2>
-          <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
+        <div class="col-md-10 col-md-offset-1">
+          <p class="mypage">お気に入りしたカテゴリ</p>
 
           <% @favorite_categories.each do |favorite_category| %>
             <div class="col-md-3">
-              <div class="col-md-12 post-index-favorite">
+              <div class="col-md-12 post-index-favorite-mypage">
                 <section>
                   <%= attachment_image_tag favorite_category.post_category, :category_image, size: "170x140", format: "png" %>
                   <p class="btn btn-default btn-search btn-block">
@@ -93,7 +96,7 @@
           <% end %>
         </div>
 
-        <div class="form col-md-4 col-md-offset-4">
+        <div class="form col-md-4 col-md-offset-4 mypage-form">
           <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
             <div class="form-group">
               <label for="control-label">お気に入りを追加</label>
