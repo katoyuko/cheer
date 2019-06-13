@@ -43,11 +43,11 @@ $(function() {
 
 // Skipprオプション記載
 $("#mainimage").skippr({
-  transition : 'fade',  // スライドショーの変化
+  transition : "fade",  // スライドショーの変化
   speed : 2000,
-  easing : 'easeOutQuart',
-  navType : 'bubble',  // "block" or "bubble"
-  childrenElementType : 'div',  // "div" or "img"
+  easing : "easeOutQuart",
+  navType : "bubble",  // "block" or "bubble"
+  childrenElementType : "div",  // "div" or "img"
   arrows : false,  // trueで表示
   autoPlay : true,  // trueで自動再生
   autoPlayDuration : 5000,
@@ -58,9 +58,9 @@ $("#mainimage").skippr({
 
 // フッター
 $(function() {
-  var pagetop = $('.pagetop');
+  var pagetop = $(".pagetop");
   pagetop.click(function () {
-    $('html').animate({ scrollTop: 0 }, 800);
+    $("html").animate({ scrollTop: 0 }, 800);
   });
 });
 
@@ -74,17 +74,4 @@ $(document).ready(function(){
 });
 
 
-
-// スクロール
-
-$(window).on('scroll', function() {
-    scrollHeight = $(document).height();
-    scrollPosition = $(window).height() + $(window).scrollTop();
-    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.04) {
-  $('.jscroll').jscroll({
-    contentSelector: '.posts-list',
-    nextSelector: 'span.next a'
-    });
-  }
-});
 
