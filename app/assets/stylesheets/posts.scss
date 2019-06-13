@@ -97,7 +97,6 @@
 }
 
 .post-content, .post_cheer{
-  padding-top: 10px;
   list-style: none;
   font-size: 13px;
   color: #4a4a4a;
@@ -123,17 +122,14 @@
   margin-top: 30px;
 }
 
-.post-show-content, .post-cheer, .post-comment{
+.post-show-content, .post-comment{
   font-size: 14px;
 }
 
-.post-cheer{
-  border-top: solid 1px #ffd600;
-}
-
 .post-show-user{
-  border-bottom: solid 1px #e3e3e3;
-  padding-top: 10px;
+  border-bottom: solid 1px #ddd;
+  border-top: solid 1px #ddd;
+  padding: 10px 0;
   font-size: 13px;
 }
 

@@ -7,7 +7,7 @@
       <div class="col-md-6 col-md-offset-3 post-show-body">
         <div class="col-md-12">
           <section>
-            <%= attachment_image_tag @post, :image, size: "520x430", format: "jpg" %>
+            <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
             <label class="post-category"><span># </span><%= @post.post_category.category %></label>
 
@@ -17,11 +17,20 @@
               <%= @post.created_at.strftime('%Y/%m/%d') %> posted by <%= @post.user.name %>
             </p>
 
-            <%= render "posts/post_cheer" %>
+            <div class="post-show-content">
+              <p>
+                <%= render "posts/post_cheer" %>
 
-            <p class="post-comment">
-              <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
-            </p>
+                <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
+              </p>
+            </div>
+
+
+
+
+
+
+
 
           </section>
         </div>
