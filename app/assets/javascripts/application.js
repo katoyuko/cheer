@@ -75,4 +75,16 @@ $(document).ready(function(){
 
 
 
+// スクロール
+
+$(window).on('scroll', function() {
+    scrollHeight = $(document).height();
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.04) {
+  $('.jscroll').jscroll({
+    contentSelector: '.posts-list',
+    nextSelector: 'span.next a'
+    });
+  }
+});
 
