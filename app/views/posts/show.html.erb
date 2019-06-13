@@ -9,9 +9,14 @@
           <section>
             <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
-            <label class="post-category"><span># </span><%= @post.post_category.category %></label>
 
-            <p class="post-show-content"><%= @post.post_content%></p>
+            <label class="btn btn-ellipse post-category">
+              <%= link_to post_category_path(@post.post_category.id) do %>
+                # <%= @post.post_category.category %>
+              <% end %>
+            </label>
+
+            <p class="post-show-content-text"><%= @post.post_content%></p>
 
             <p class="post-show-user">
               <%= @post.created_at.strftime('%Y/%m/%d') %> posted by <%= @post.user.name %>
@@ -24,13 +29,6 @@
                 <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
               </p>
             </div>
-
-
-
-
-
-
-
 
           </section>
         </div>
