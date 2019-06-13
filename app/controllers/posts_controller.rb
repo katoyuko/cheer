@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.page(params[:page]).reverse_order.per(4)
+    @posts = Post.page(params[:page]).reverse_order.per(12)
   end
 
 
