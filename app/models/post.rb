@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :post_category_id, presence: true
   validates :post_content, presence: true
 
-  # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す
+  # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す 投稿にcheerしているか確認
   def post_cheered_by?(user)
     post_cheers.where(user_id: user.id).exists?
   end

@@ -10,16 +10,26 @@
   width: 100%;
 }
 
-.hot-category, .favorite, .favorite-btn{
+.hot-category{
   margin-top: 30px;
+}
+
+.favorite, .favorite-btn{
+  margin-top: 20px;
 }
 
 .favorite-login{
   margin-top: 50px;
 }
 
-.main-favorite, .main-pickup{
+.main-pickup{
   height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-favorite{
+  height: 570px;
   width: 100%;
   text-align: center;
 }
@@ -121,6 +131,10 @@
 
 .btn-ellipse a{
   color: #ffd600;
+}
+
+.btn-ellipse:hover a{
+  color: #ffffff;
 }
 
 
