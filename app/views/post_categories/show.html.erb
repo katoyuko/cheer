@@ -1,9 +1,12 @@
+<!-- jscroll -->
+<%= render "layouts/scroll" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h2># <%= @post_category.category %></h2>
 
-
+      <div class="posts-list jscroll">
         <% @posts.each do |category_post| %>
           <div class="col-md-3">
             <div class="col-md-12 thumbnail post-index">
@@ -35,6 +38,7 @@
             </div>
           </div>
         <% end %>
+        <%= paginate @posts %>
       </div>
 
     </div>
