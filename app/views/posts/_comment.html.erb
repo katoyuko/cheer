@@ -1,0 +1,64 @@
+<!-- ツールチップ -->
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
+<!-- コメント入力フォーム -->
+<div class="col-md-6 col-md-offset-3 comment-form">
+  <%= form_for [@post, @post_comment] do |f| %>
+    <%= f.text_area :comment, rows: "2", class: "form-control", placeholder: "コメント入力" %>
+    <p class="pull-right" id="sending">
+      <%= f.submit "送信", class: "btn" %>
+      <%= fa_icon("paper-plane") %>
+    </p>
+  <% end %>
+</div>
+
+  <% if @post_comment.errors.any? %>
+    <ul id="error_explanation">
+      <% @post_comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+<!-- コメント表示 -->
+<div class="col-md-6 col-md-offset-3">
+  <ul id="comment-box">
+    <% @post.post_comments.each do |post_comment| %>
+      <li>
+        <div class="comment-user">
+          <%= link_to user_path(@post.user.id) do %>
+            <div class="col-md-1 postuser-image-box">
+              <%= attachment_image_tag post_comment.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+            </div>
+            <%= post_comment.user.name %>
+          <% end %>
+        </div>
+      </li>
+
+      <li>
+        <div class="comment-text">
+          <%= post_comment.comment %>
+        </div>
+      </li>
+
+      <li>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="commented pull-right">
+              <%= post_comment.created_at.strftime("%Y/%m/%d") %>&nbsp;&nbsp;
+              <% if post_comment.user == current_user %>
+              <%= link_to "×", post_post_comments_path(post_comment.post.id), title: "コメントを削除", "data-toggle": "tooltip", "data-placement": "bottom", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-comment" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -10,7 +10,7 @@
       <h2>All posts</h2>
       <p class="small-title">投稿一覧</p>
 
-      <div class="posts-list jscroll">
+      <div class="posts-list jscroll" id="index-scroll">
         <% @posts.each do |post| %>
           <div class="col-md-3">
             <div class="col-md-12 thumbnail post-index">
@@ -28,7 +28,7 @@
                         <% end %>
                       </p>
 
-                      <!-- 投稿内容は70文字以上は省略 -->
+                      <!-- 投稿内容 70文字以上は省略 -->
                       <p class="post-content"><%= post.post_content.truncate(70) %></p>
                     </div>
                     <div class="row post-content-body-bottom">
@@ -37,7 +37,7 @@
                   </div>
 
                   <p class="post-user">
-                    <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
+                    <%= post.created_at.strftime('%Y/%m/%d') %><br><%= link_to "posted by #{post.user.name}", user_path(post.user.id) %>
                   </p>
 
                   <p class="post-content">
@@ -50,7 +50,10 @@
             </div>
           </div>
         <% end %>
-        <%= paginate @posts %>
+        <!-- 無限スクロール -->
+        <div id="post_index_paginate">
+          <%= paginate @posts %>
+        </div>
       </div>
 
     </div>

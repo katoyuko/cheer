@@ -1,3 +1,6 @@
+<!-- flash message -->
+<%= render "layouts/flash" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -7,16 +10,6 @@
       <div class="col-md-6 col-md-offset-3 post-show-body">
         <div class="col-md-12">
           <section>
-
-          <div>
-            <div class="col-md-1 postuser-image-box">
-              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
-            </div>
-            <p>posted by <%= @post.user.name %></p>
-          </div>
-
-
-
 
             <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
@@ -31,12 +24,15 @@
 
           <div class="post-show-user">
             <p>
-              <%= @post.created_at.strftime('%Y/%m/%d') %>
+              <%= @post.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp; posted by
             </p>
-            <div class="col-md-1 postuser-image-box">
-              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
-            </div>
-            <p><%= link_to "posted by #{@post.user.name}", user_path(@post.user.id) %></p>
+
+            <%= link_to user_path(@post.user.id) do %>
+              <div class="col-md-1 postuser-image-box">
+                <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+              </div>
+              <%= @post.user.name %>
+            <% end %>
           </div>
 
             <div class="post-show-content">
@@ -51,58 +47,23 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-md-offset-3 comment-form">
-        <%= form_for [@post, @post_comment] do |f| %>
-          <%= f.text_area :comment, rows: "2", class: "form-control", placeholder: "コメント入力" %>
-          <%= f.submit "送信", class: "btn pull-right" %>
-        <% end %>
-      </div>
+      <!-- コメント機能 -->
+      <%= render "posts/comment" %>
 
-        <% if @post_comment.errors.any? %>
-          <ul id="error_explanation">
-            <% @post_comment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
-        <% end %>
-
-      <div class="col-md-6 col-md-offset-3">
-        <ul class="comment">
-          <% @post.post_comments.each do |post_comment| %>
-            <li>
-              <div class="comment-text">
-                <%= post_comment.comment %>
-              </div>
-            </li>
-
-            <li>
-              <div class="col-md-12">
-                <p class="commented pull-right">
-                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp;
-                  commented by <%= post_comment.user.name %>
-                </p>
-              </div>
-            </li>
-
-            <li>
-              <% if post_comment.user == current_user %>
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="commented pull-right">
-                      <%= link_to "削除", post_post_comments_path(post_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
-                    </p>
-                  </div>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5 btn-link">
+         <p class="btn btn-block btn-ellipse-green">
+           <%= link_to "戻る ", :back %>
+         </p>
+       </div>
+     </div>
 
       <% if @post.user.id == current_user.id %>
         <div class="row">
           <div class="col-md-2 col-md-offset-5 btn-link">
-           <p class="btn col-md-2 btn-block btn-ellipse"><%= link_to "編集 ", edit_post_path(@post.id) %></p>
+           <p class="btn btn-block btn-ellipse">
+             <%= link_to "編集 ", edit_post_path(@post.id) %>
+           </p>
          </div>
        </div>
       <% end %>

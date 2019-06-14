@@ -8,16 +8,20 @@ class PostCommentsController < ApplicationController
     comment.post_id = post.id
 
     if comment.save
-      redirect_to post_path(post)
+      redirect_to post_path(post), notice: "コメントしました！"
     else
       render "posts/show"
     end
   end
 
   def destroy
-    comment = PostComment.find(params[:id])
-    comment.destroy
-    redirect_to posts_path(post)
+    post = Post.find(params[:post_id])
+    post_comment = PostComment.find_by(post_id: post.id)
+    if post_comment.destroy
+      redirect_to post_path(post), notice: "削除しました！"
+    else
+      render "posts/show"
+    end
   end
 
   private

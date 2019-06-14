@@ -14,8 +14,8 @@
   margin-top: 30px;
 }
 
-.favorite, .favorite-btn{
-  margin-top: 20px;
+.favorite{
+  margin-top: 5px;
 }
 
 .favorite-login{
@@ -141,7 +141,7 @@
 .post-show-user{
   border-bottom: solid 1px #ddd;
   border-top: solid 1px #ddd;
-  padding: 10px 0;
+  padding: 10px 0 20px;
   font-size: 13px;
 }
 
@@ -170,7 +170,6 @@
 }
 
 
-
 /* 投稿編集 */
 
 .edit-body, .edit-img{
@@ -182,34 +181,24 @@
 }
 
 
-/* コメント機能 */
-
-.comment{
-  margin-top: 10px;
-  list-style: none;
-}
-
-.comment-form{
-  margin-top: 20px;
-}
-
-.comment-text{
-  border: solid 1px #76d9cd;
-  border-radius: 10px;
-  padding-left: 30px;
-  font-size: 14px;
-}
-
-.commented{
-  font-size: 12px;
-  color: #76d9cd;
-}
-
-
-/* post cheer機能 */
+/* link機能 */
 
 a{
   text-decoration: none !important;
+  color: #4a4a4a;
 }
 
+.post-show-user a,
+.post-user a,
+.comment-user a{
+  color: #4a4a4a;
+}
+
+.post-show-user a:hover,
+.post-user a:hover,
+.post-content a:hover,
+.post-arrow a:hover,
+.comment-user a:hover{
+  color: #76d9cd;
+}
 
