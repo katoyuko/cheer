@@ -34,28 +34,6 @@ $(function(){
 });
 
 
-
-//Skipprの初期化
-$(function() {
-  $("#mainimage").skippr();
-});
-
-// Skipprオプション記載
-$("#mainimage").skippr({
-  transition : "fade",  // スライドショーの変化
-  speed : 2000,
-  easing : "easeOutQuart",
-  navType : "bubble",  // "block" or "bubble"
-  childrenElementType : "div",  // "div" or "img"
-  arrows : false,  // trueで表示
-  autoPlay : true,  // trueで自動再生
-  autoPlayDuration : 5000,
-  keyboardOnAlways : true,  // trueで有効
-  hidePrevious : true  // 一枚目のスライド表示時に戻る矢印を表示する場合true
-});
-
-
-
 // フッター
 $(function() {
   var pagetop = $(".pagetop");
@@ -63,7 +41,3 @@ $(function() {
     $("html").animate({ scrollTop: 0 }, 800);
   });
 });
-
-
-
-
