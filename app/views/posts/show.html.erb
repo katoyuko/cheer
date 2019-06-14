@@ -7,6 +7,17 @@
       <div class="col-md-6 col-md-offset-3 post-show-body">
         <div class="col-md-12">
           <section>
+
+          <div>
+            <div class="col-md-1 postuser-image-box">
+              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+            </div>
+            <p>posted by <%= @post.user.name %></p>
+          </div>
+
+
+
+
             <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
 
@@ -18,9 +29,15 @@
 
             <p class="post-show-content-text"><%= @post.post_content%></p>
 
-            <p class="post-show-user">
-              <%= @post.created_at.strftime('%Y/%m/%d') %> posted by <%= @post.user.name %>
+          <div class="post-show-user">
+            <p>
+              <%= @post.created_at.strftime('%Y/%m/%d') %>
             </p>
+            <div class="col-md-1 postuser-image-box">
+              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+            </div>
+            <p>posted by <%= @post.user.name %></p>
+          </div>
 
             <div class="post-show-content">
               <p>
@@ -61,7 +78,7 @@
             <li>
               <div class="col-md-12">
                 <p class="commented pull-right">
-                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp;
                   commented by <%= post_comment.user.name %>
                 </p>
               </div>
