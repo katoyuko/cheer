@@ -55,6 +55,7 @@ $("#mainimage").skippr({
 });
 
 
+
 // フッター
 $(function() {
   var pagetop = $(".pagetop");

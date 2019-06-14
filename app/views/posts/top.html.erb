@@ -1,17 +1,40 @@
+<script type="text/javascript">
+  var swiper;
+  $(window).load(function() {
+    swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true, // 最後のスライドまで到達ら続けてスライド
+    speed: 1000, // スライドが切り替わるトランジション時間(ミリ秒)。
+    direction: 'horizontal',
+    effect: 'slide',
+
+      autoplay: {
+        delay: 3000, // スライドが切り替わるまでの表示時間(ミリ秒)
+        stopOnLast: false, // 最後のスライドまで表示されたら自動再生を中止するか
+      },
+    });
+  });
+</script>
+
 <%= render "layouts/flash" %>
 
 <div class="main">
-  <div class="main-visual">
-    <div id="mainimage">
-      <div style="background-image: url(/images/camera.jpeg)"></div>
-      <div style="background-image: url(/images/boulder.jpg)"></div>
-      <div style="background-image: url(/images/reading.jpg)"></div>
-      <div style="background-image: url(/images/learning.jpg)"></div>
-      <div style="background-image: url(/images/jog.jpeg)"></div>
-      <div style="background-image: url(/images/diy.jpeg)"></div>
-      <div style="background-image: url(/images/programing.jpeg)"></div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url(/images/camera.jpeg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/boulder.jpg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/reading.jpg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/learning.jpg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/jog.jpeg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/diy.jpeg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/programing.jpeg)"></div>
     </div>
   </div>
+
+<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js" %>
 
   <div class="main-pickup">
     <h2>Pick up</h2>
