@@ -8,15 +8,22 @@
       </div>
       <div class="mypage-data">
         <div class="col-md-4 col-md-offset-2">
-          <p>写真</p>
+          <label>写真</label>
           <div class="user-image-box">
-            <%= attachment_image_tag @user, :user_image, format: 'jpg', class: "user-image" %>
+            <%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: "jpg", class: "img-responsive user-image" %>
           </div>
         </div>
         <div class="col-md-4">
-          <p>名前: <%= @user.name %></p>
-          <p>メールアドレス: <%= @user.email %></p>
-          <p>自己紹介: <%= @user.introduction %></p>
+          <section>
+            <div>
+              <label>名前</label>
+              <p><%= @user.name %></p>
+              <label>メールアドレス</label>
+              <p><%= @user.email %></p>
+              <label>自己紹介</label>
+              <p><%= @user.introduction %></p>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -30,18 +37,35 @@
         <p class="mypage">投稿</p>
         <% @posts.each do |post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 thumbnail post-index-maypage">
               <section>
 
-                <%= attachment_image_tag post, :image, size: "170x140", format: "png" %>
-                <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                <%= attachment_image_tag post, :image, :fill, 1000, 1000, format: "png", class: "img-responsive" %>
 
-                <p class="post-content"><i class="fa fa-comment"></i> 0 comment<br>
-                <i class="fa fa-flag" style="color: #ff5752;"></i> 3 cheer</p>
+                <div class= "caption">
+                  <div class="post-content-body-mypage">
+                    <div class="post-content-body-mypage-top">
 
-                <p class="post-user"><%= post.created_at %></p>
+                      <label class="btn btn-ellipse">
+                        <%= link_to post_category_path(post.post_category.id) do %>
+                          # <%= post.post_category.category %>
+                        <% end %>
+                      </label>
+
+                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    </div>
+                    <div class="post-content-body-mypage-bottom">
+                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(post.id) %></p>
+                    </div>
+                  </div>
+
+                  <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+
+                  <p class="post-content">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
+                    <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
+                  </p>
+                </div>
 
               </section>
             </div>
@@ -56,17 +80,18 @@
       </div>
 
       <% if current_user == @user %>
-        <div class="col-md-10 col-md-offset-1 main-favorite">
-          <h2>Favorite</h2>
-          <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
+        <div class="col-md-10 col-md-offset-1">
+          <p class="mypage">お気に入りしたカテゴリ</p>
 
           <% @favorite_categories.each do |favorite_category| %>
             <div class="col-md-3">
-              <div class="col-md-12 post-index">
+              <div class="col-md-12 post-index-favorite-mypage">
                 <section>
-                  <%= attachment_image_tag favorite_category.post_category, :category_image, size: "170x140", format: "png" %>
-                  <p><span># </span>
-                    <%= link_to favorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
+                  <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 180, 140, format: "png", class: "img-responsive" %>
+                  <p class="btn btn-default btn-search btn-block">
+                    <%= link_to post_category_path(favorite_category.post_category.id) do %>
+                      # <%= favorite_category.post_category.category %>
+                    <% end %>
                   </p>
                 </section>
               </div>
@@ -77,11 +102,11 @@
           <% end %>
         </div>
 
-        <div class="form col-md-4 col-md-offset-4">
+        <div class="form col-md-4 col-md-offset-4 mypage-form">
           <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
             <div class="form-group">
               <label for="control-label">お気に入りを追加</label>
-              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "js-searchable form-control", name: "post_category_id"} %>
+              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "form-control", name: "post_category_id"} %>
             </div>
 
             <div class="row">

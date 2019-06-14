@@ -76,5 +76,5 @@ gem 'annotate'
 gem 'font-awesome-rails'
 
 gem "jquery-turbolinks"
-gem "select2-rails"
 
+gem "ransack"

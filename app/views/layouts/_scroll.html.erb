@@ -1,0 +1,20 @@
+<script type="text/javascript">
+
+// スクロールしたとき
+$(window).on("scroll", function() {
+    // 要素の高さを取得
+    scrollHeight = $(document).height();
+    // 現在の表示位置の高さ
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+  // スクロールの位置が下部5%の範囲に来たら、.jscrollを呼び出し
+  $(".jscroll").jscroll({
+    // .posts-listをDOMに追加
+    contentSelector: ".posts-list",
+    // next pageを読み込むために、読み込まれた最後のリンクを指定
+    nextSelector: "span.next:last a"
+    });
+  }
+});
+
+</script>

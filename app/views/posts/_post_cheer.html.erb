@@ -1,0 +1,61 @@
+<script type="text/javascript">
+$(function() {
+
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", "#cheer-button", function(event) {
+
+    if($('.post_cheer i').hasClass('fa-flag-o')){
+      let currentNo = $('#cheer_count').html()
+      // Numberで数値型に変更
+      $('#cheer_count').html(Number(currentNo) + 1)
+    } else {
+      let currentNo = $('#vcheer_count').html()
+      $('#cheer_count').html(Number(currentNo) - 1)
+    }
+
+    // 追加のパラメータ(event.detail) fa-flagクラスを持っていたら
+    if ($('#' + event.detail[0]).hasClass('fa-flag')) {
+      // cheerを外す
+      $('#' + event.detail[0]).removeClass('fa-flag').addClass('fa-flag-o');
+    } else {
+  // cheer済、赤くなる
+  $('#' + event.detail[0]).removeClass('fa-flag-o').addClass('fa-flag');
+
+    }
+  })
+})
+</script>
+
+<% if user_signed_in? %>
+
+    <% if @post.post_cheered_by?(current_user) %>
+      <li class="post_cheer">
+        <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :delete, remote: true do %>
+          <p class="post_cheer">
+            <i class="fa fa-flag" id="<%= @post.id %>"></i>
+            <span id="cheer_count"><%= @post.cheer_count %></span>cheer
+          </p>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="post_cheer">
+        <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+        <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :post, remote: true do %>
+          <p class="post_cheer">
+            <!-- idを指定することでjson形式で返される -->
+            <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+            <span id="cheer_count"><%= @post.cheer_count %></span> cheer
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+
+<% else %>
+  <li class="post_cheer">
+    <p class="post_cheer">
+      <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+      <%= @post.cheer_count %> cheer
+    </p>
+  </li>
+
+<% end %>

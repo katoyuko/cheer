@@ -13,15 +13,12 @@
 //= require rails-ujs
 //= require activestorage
 
-//= require select2
-//= require jquery.turbolinks
-
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery.jscroll.min.js
 //= require_tree .
-
-
 
 
 // ナビゲーションバー current pageにactive付与
@@ -45,11 +42,11 @@ $(function() {
 
 // Skipprオプション記載
 $("#mainimage").skippr({
-  transition : 'fade',  // スライドショーの変化
+  transition : "fade",  // スライドショーの変化
   speed : 2000,
-  easing : 'easeOutQuart',
-  navType : 'bubble',  // "block" or "bubble"
-  childrenElementType : 'div',  // "div" or "img"
+  easing : "easeOutQuart",
+  navType : "bubble",  // "block" or "bubble"
+  childrenElementType : "div",  // "div" or "img"
   arrows : false,  // trueで表示
   autoPlay : true,  // trueで自動再生
   autoPlayDuration : 5000,
@@ -60,18 +57,12 @@ $("#mainimage").skippr({
 
 // フッター
 $(function() {
-  var pagetop = $('.pagetop');
+  var pagetop = $(".pagetop");
   pagetop.click(function () {
-    $('html').animate({ scrollTop: 0 }, 800);
+    $("html").animate({ scrollTop: 0 }, 800);
   });
 });
 
 
 
-$(function(){
-  $('.js-searchable').select2({
-    theme: "bootstrap",
-    width: "resolve"
-  });
-});
 

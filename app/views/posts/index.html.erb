@@ -1,3 +1,7 @@
+<!-- jscroll -->
+<%= render "layouts/scroll" %>
+
+<!-- flash message -->
 <%= render "layouts/flash" %>
 
 <div class="container">
@@ -6,32 +10,48 @@
       <h2>All posts</h2>
       <p class="small-title">投稿一覧</p>
 
+      <div class="posts-list jscroll">
         <% @posts.each do |post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 thumbnail post-index">
               <section>
 
-                <%= attachment_image_tag post, :image, size: "220x190", format: "png" %>
-                <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content %></p>
-                <p class="post-arrow"><%= link_to "→", post_path(post.id) %></p>
+                <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", class: "img-responsive" %>
 
-                <p class="post-user">
-                  <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
-                </p>
+                <div class= "caption">
+                  <div class="post-content-body">
+                    <div class="post-content-body-top">
 
-                <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
-                </p>
+                      <p class="btn btn-ellipse">
+                        <%= link_to post_category_path(post.post_category.id) do %>
+                          # <%= post.post_category.category %>
+                        <% end %>
+                      </p>
 
-                <p class="post_cheer">
-                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
-                </p>
+                      <!-- 投稿内容は70文字以上は省略 -->
+                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    </div>
+                    <div class="row post-content-body-bottom">
+                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(post.id) %></p>
+                    </div>
+                  </div>
+
+                  <p class="post-user">
+                    <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
+                  </p>
+
+                  <p class="post-content">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
+                    <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
+                  </p>
+                </div>
 
               </section>
             </div>
           </div>
         <% end %>
+        <%= paginate @posts %>
+      </div>
 
     </div>
   </div>

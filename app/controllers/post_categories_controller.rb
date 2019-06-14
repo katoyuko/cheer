@@ -2,7 +2,7 @@ class PostCategoriesController < ApplicationController
 
   def show
     @post_category = PostCategory.find(params[:id])
-    @posts = @post_category.posts.all
+    @posts = @post_category.posts.page(params[:page]).reverse_order.per(12)
   end
 
 private

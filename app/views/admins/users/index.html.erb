@@ -6,6 +6,8 @@
       <h2>All users</h2>
       <p class="small-title">ユーザー一覧</p>
 
+      <%= render "layouts/search" %>
+
       <div class="row user-body">
         <div class="col-md-10 col-md-offset-1">
           <table class="table table-hover" id="table">
@@ -20,7 +22,7 @@
               </tr>
             </thead>
 
-            <% @users.each do |user| %>
+            <% @results.each do |user| %>
             <tbody>
               <tr>
                 <td><%= user.id %></td>
@@ -38,7 +40,7 @@
       </div>
 
       <div class="col-md-4 col-md-offset-4">
-        <%= paginate @users, class: "paginate" %>
+        <%= paginate @results, class: "paginate" %>
       </div>
 
     </div>

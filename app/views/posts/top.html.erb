@@ -1,4 +1,4 @@
-<%= render 'layouts/flash' %>
+<%= render "layouts/flash" %>
 
 <div class="main">
   <div class="main-visual">
@@ -16,6 +16,10 @@
   <div class="main-pickup">
     <h2>Pick up</h2>
     <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
+
+    <div class="col-md-10 col-md-offset-1 hot-category">
+      <%= render "layouts/hot_category" %>
+    </div>
   </div>
 
   <div class="main-search">
@@ -61,20 +65,35 @@
     <h2>Favorite</h2>
     <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
 
-    <div class="col-md-10 col-md-offset-1 main-favorite">
-      <% if current_user == @user %>
-        <% @favorite_categories.each do |fovorite_category| %>
+    <div class="col-md-10 col-md-offset-1 favorite">
+      <% if user_signed_in? %>
+        <% @favorite_categories.each do |favorite_category| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 post-index-favorite">
               <section>
-                <%= attachment_image_tag fovorite_category.post_category, :category_image, size: "170x140", format: "png" %>
-                <p><span># </span>
-                  <%= link_to fovorite_category.post_category.category, "post_category_path(favorite_category)", class:"btn btn-default btn-search btn-block" %>
+                <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
+                <p class="btn btn-default btn-search btn-block">
+                  <%= link_to post_category_path(favorite_category.post_category.id) do %>
+                    # <%= favorite_category.post_category.category %>
+                  <% end %>
                 </p>
               </section>
             </div>
           </div>
         <% end %>
+        <div class="col-md-6 col-md-offset-3 favorite-btn">
+          <%= link_to "マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+        </div>
+      <% else %>
+        <div class="favorite-login">
+          <p>＼ ログインするとお気に入りしたカテゴリを閲覧できます ／</p>
+          <div class="col-md-4 col-md-offset-4 favorite-btn">
+          <%= link_to "新規登録する", new_user_registration_path, class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+          </div>
+          <div class="col-md-4 col-md-offset-4 favorite-btn">
+          <%= link_to "ログインする", new_user_session_path, class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+          </div>
+         </div>
       <% end %>
     </div>
   </div>

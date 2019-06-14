@@ -13,7 +13,7 @@
 
                 <%= attachment_image_tag post, :image, size: "220x190", format: "png" %>
                 <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content %></p>
+                <p class="post-content"><%= post.post_content.truncate(70) %></p>
                 <p class="post-arrow"><%= link_to "→", admins_post_path(post.id) %></p>
 
                 <p class="post-user">

@@ -10,7 +10,31 @@
   width: 100%;
 }
 
-.main-favorite, .main-pickup, .about{
+.hot-category{
+  margin-top: 30px;
+}
+
+.favorite, .favorite-btn{
+  margin-top: 20px;
+}
+
+.favorite-login{
+  margin-top: 50px;
+}
+
+.main-pickup{
+  height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-favorite{
+  height: 570px;
+  width: 100%;
+  text-align: center;
+}
+
+.about{
   height: 600px;
   width: 100%;
   text-align: center;
@@ -41,41 +65,59 @@
 /* 新規投稿 投稿一覧 詳細 */
 
 .post-main{
-  background: #f4efe5;
-  padding-bottom: 20px;
+  margin: 20px 0;
 }
 
 
 /* 投稿一覧 */
 
 .post-index{
-  border: 1px solid #76d9cd;
-  padding: 15px;
   margin: 30px 0;
 }
 
-.post-category{
-  border-radius: 25px;
-  border: solid 1px #ffd600;
-  padding: 3px 10px;
-  color: #ffd600;
-  margin: 10px 0;
+.post-content-body{
+  height: 165px;
 }
 
-.post-content, .post_cheer{
-  font-size: 14px;
+.post-content-body-top{
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+.post-content-body-bottom{
+  padding: 0 20px;
+}
+
+.post-category{
+  margin-top: 10px;
+  border-radius: 25px;
+  border: solid 1px #ffd600;
+  padding: 7px 12px;
+  color: #ffd600;
+}
+
+.post-content{
+  padding-top: 10px;
+  list-style: none;
+  font-size: 13px;
   color: #4a4a4a;
 }
 
-.post-arrow{
-  font-size: 20px;
-  color: #76d9cd;
+.post_cheer{
+  list-style: none;
+  font-size: 13px;
+  color: #4a4a4a;
+}
+
+.post-arrow a{
+  font-size: 16px;
+  color: #4a4a4a;
   text-decoration: none;
 }
 
 .post-user{
-  border-top: solid 1px #76d9cd;
-  border-bottom: solid 1px #76d9cd;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
   padding: 10px 0;
   font-size: 12px;
 }
@@ -83,18 +125,60 @@
 
 /* 投稿詳細 */
 
-.post-show-content, .post-cheer, .post-comment{
+.post-show-body{
+  margin-top: 30px;
+}
+
+.post-show-content-text{
+  padding: 10px 0;
   font-size: 14px;
 }
 
-.post-cheer{
-  border-top: solid 1px #ffd600;
+.post-show-content{
+  font-size: 13px;
 }
 
 .post-show-user{
-  border-bottom: solid 1px #ffd600;
-  padding-top: 10px;
+  border-bottom: solid 1px #ddd;
+  border-top: solid 1px #ddd;
+  padding: 10px 0;
   font-size: 13px;
+}
+
+.btn-ellipse a{
+  color: #ffd600;
+}
+
+.btn-ellipse:hover a{
+  color: #ffffff;
+}
+
+.postuser-image-box{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  overflow: hidden;   /* 30×30以上は切り取り */
+  border-radius: 30px;
+}
+
+.postuser-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 画像の中心 */
+  border-radius: 120px;
+}
+
+
+
+/* 投稿編集 */
+
+.edit-body, .edit-img{
+  margin-top: 25px;
+}
+
+.edit-delete-btn{
+  margin-top: 60px;
 }
 
 
@@ -122,12 +206,7 @@
 }
 
 
-/* post_cheer機能 */
-
-.post_cheer{
-  list-style: none;
-  color: #4a4a4a;
-}
+/* post cheer機能 */
 
 a{
   text-decoration: none !important;

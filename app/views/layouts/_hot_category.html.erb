@@ -1,0 +1,14 @@
+<% @post_category_ranks.each do |post_category| %>
+  <div class="col-md-3">
+    <div class="col-md-12 post-index-favorite">
+      <section>
+        <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
+        <p class="btn btn-default btn-search btn-block">
+          <%= link_to post_category_path(post_category.id) do %>
+            # <%= post_category.category %>
+          <% end %>
+        </p>
+      </section>
+    </div>
+  </div>
+<% end %>

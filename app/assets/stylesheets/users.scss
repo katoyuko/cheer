@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 /* マイページ */
 
 .mypage {
@@ -17,6 +18,7 @@
   height: 490px;
   margin-bottom: 20px;
 }
+
 
 .user-image-box{
   width: 300px;
@@ -40,4 +42,39 @@
 
 .mypage-data-btn{
   margin-bottom: 20px;
+}
+
+.search{
+  margin: 20px 0;
+}
+
+.post-index-maypage{
+  margin: 30px 0;
+}
+
+.post-content-body-mypage{
+  height: 190px;
+}
+
+.post-content-body-mypage-top{
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.post-index-favorite{
+  border: 1px solid #76d9cd;
+  padding: 15px;
+  margin: 30px 0;
+  height: 270px;
+}
+
+.post-index-favorite-mypage{
+  border: 1px solid #76d9cd;
+  padding: 15px;
+  margin: 30px 0;
+  height: 245px;
+}
+
+.mypage-form{
+  margin-top: 50px;
 }

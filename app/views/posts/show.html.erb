@@ -4,50 +4,49 @@
       <h2>Post</h2>
       <p class="small-title">投稿</p>
 
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3 post-show-body">
         <div class="col-md-12">
           <section>
-            <%= attachment_image_tag @post, :image, size: "520x430", format: "jpg" %>
+
+          <div>
+            <div class="col-md-1 postuser-image-box">
+              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+            </div>
+            <p>posted by <%= @post.user.name %></p>
+          </div>
+
+
+
+
+            <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
-            <label class="post-category"><span># </span><%= @post.post_category.category %></label>
 
-            <p class="post-show-content"><%= @post.post_content%></p>
+            <label class="btn btn-ellipse post-category">
+              <%= link_to post_category_path(@post.post_category.id) do %>
+                # <%= @post.post_category.category %>
+              <% end %>
+            </label>
 
-            <p class="post-show-user">
-              <%= @post.created_at.strftime('%Y/%m/%d') %> posted by <%= @post.user.name %>
+            <p class="post-show-content-text"><%= @post.post_content%></p>
+
+          <div class="post-show-user">
+            <p>
+              <%= @post.created_at.strftime('%Y/%m/%d') %>
             </p>
+            <div class="col-md-1 postuser-image-box">
+              <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+            </div>
+            <p><%= link_to "posted by #{@post.user.name}", user_path(@post.user.id) %></p>
+          </div>
 
-            <% if @post.post_cheered_by?(current_user) %>
-              <li class="post_cheer">
-                <%= link_to post_post_cheers_path(@post), method: :delete do %>
-                  <p class="post_cheer">
-                    <i class="fa fa-flag" aria-hidden="true" style="color: #ff5752;"></i>
-                    <%= @post.post_cheers.count %> cheer
-                  </p>
-                <% end %>
-              </li>
-            <% else %>
-              <li class="post_cheer">
-                <%= link_to post_post_cheers_path(@post), method: :post do %>
-                  <p class="post_cheer">
-                    <i class="fa fa-flag-o" aria-hidden="true"></i>
-                    <%= @post.post_cheers.count %> cheer
-                  </p>
-                <% end %>
-              </li>
-            <% end %>
+            <div class="post-show-content">
+              <p>
+                <%= render "posts/post_cheer" %>
 
-            <p class="post-comment">
-              <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
-            </p>
+                <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
+              </p>
+            </div>
 
-            <% if @post.user.id == current_user.id %>
-              <div class="row">
-                <div class="col-md-4 col-md-offset-4 btn-link">
-                 <p class="btn col-md-2 btn-block btn-ellipse"><%= link_to "編集 ", edit_post_path(@post.id) %></p>
-               </div>
-             </div>
-            <% end %>
           </section>
         </div>
       </div>
@@ -79,7 +78,7 @@
             <li>
               <div class="col-md-12">
                 <p class="commented pull-right">
-                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+                  <%= post_comment.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp;
                   commented by <%= post_comment.user.name %>
                 </p>
               </div>
@@ -99,6 +98,14 @@
           <% end %>
         </ul>
       </div>
+
+      <% if @post.user.id == current_user.id %>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-5 btn-link">
+           <p class="btn col-md-2 btn-block btn-ellipse"><%= link_to "編集 ", edit_post_path(@post.id) %></p>
+         </div>
+       </div>
+      <% end %>
 
     </div>
   </div>
