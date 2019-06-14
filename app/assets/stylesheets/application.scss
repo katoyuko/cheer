@@ -66,9 +66,9 @@ h2, h4{
 .btn-ellipse:hover{
   color: #ffffff;
   background-color: #ffd600;
-  border: none;
   display: inline-block;
   text-decoration: none !important;
+  border: solid 2px #ffd600;
 }
 
 .btn-ellipse-red{
@@ -81,7 +81,7 @@ h2, h4{
 .btn-ellipse-red:hover{
   color: white;
   background-color: #ff5752;
-  border: none;
+  border: solid 2px #ff5752;
   transition: all 0.6s ease 0s;
   cursor: pointer;
 }
@@ -97,7 +97,7 @@ h2, h4{
 .btn-search:hover{
   color: #ffffff;
   background-color: #76d9cd;
-  border: none;
+  border: solid 1px #76d9cd;
 }
 
 .btn-search a{
@@ -114,7 +114,7 @@ h2, h4{
 
 
 /* フラッシュメッセージ */
-  /* border-radius: 3em .7em 2em .7em/.7em 2em .7em 3em; */
+
 
 .flash_message{
   position: relative;
