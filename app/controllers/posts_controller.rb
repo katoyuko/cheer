@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update_attributes(post_params)
-      redirect_to post_path(@post), notice: "更新しました！"
+      redirect_to posts_path, notice: "更新しました！"
     else
       render :edit
     end

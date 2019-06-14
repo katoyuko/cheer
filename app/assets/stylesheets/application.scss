@@ -21,6 +21,8 @@
     @import "font-awesome";
 
 
+
+
 /* フォント */
 
 body {
@@ -50,7 +52,7 @@ h2, h4{
 }
 
 
-/* ボタン */
+/* 黄色ボタン */
 
 .btn-ellipse, .ellipse{
   border-radius: 25px;
@@ -64,12 +66,15 @@ h2, h4{
 }
 
 .btn-ellipse:hover{
-  color: #ffffff;
+  color: #fff;
   background-color: #ffd600;
   display: inline-block;
   text-decoration: none !important;
   border: solid 2px #ffd600;
 }
+
+
+/* 赤色ボタン */
 
 .btn-ellipse-red{
   border-radius: 25px;
@@ -79,11 +84,34 @@ h2, h4{
 }
 
 .btn-ellipse-red:hover{
-  color: white;
+  color: #fff;
   background-color: #ff5752;
   border: solid 2px #ff5752;
   transition: all 0.6s ease 0s;
   cursor: pointer;
+}
+
+
+/* 緑色ボタン */
+
+.btn-ellipse-green{
+  border-radius: 25px;
+  border: solid 2px #76d9cd;
+  padding: 9px 16px;
+  color: #76d9cd;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none !important;
+  margin-bottom: 10px;
+}
+
+.btn-ellipse-green:hover{
+  color: #fff;
+  background-color: #76d9cd;
+  display: inline-block;
+  text-decoration: none !important;
+  border: solid 2px #76d9cd;
 }
 
 .btn-search{
@@ -100,21 +128,50 @@ h2, h4{
   border: solid 1px #76d9cd;
 }
 
-.btn-search a{
+.btn-search a, .btn-ellipse-green a{
   color: #76d9cd;
 }
 
-.btn-search:hover a{
+.btn-search:hover a, .btn-ellipse-green:hover a{
   color: #ffffff;
 }
+
+
+/* cheer flagボタン */
 
 .fa-flag{
   color: #ff5752;
 }
 
 
-/* フラッシュメッセージ */
+/* コメント削除ボタン */
 
+.btn-ellipse-comment{
+  border-radius: 30px;
+  color: #ff5752;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-ellipse-comment:hover{
+  color: #fff;
+  background-color: #ff5752;
+  margin-right: 5px;
+}
+
+.tooltip .tooltip-inner{
+  background-color: #fff;
+  color: #ff5752;
+  border: 1px solid #ff5752;
+}
+
+.tooltip-arrow{
+  border: #fff;
+  }
+
+
+/* フラッシュメッセージ */
 
 .flash_message{
   position: relative;
@@ -205,6 +262,7 @@ nav li.active{
 
 
 /* ログイン 新規登録 */
+
 .sign{
   margin-top: 60px;
 }
