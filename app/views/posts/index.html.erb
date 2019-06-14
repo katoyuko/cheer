@@ -10,7 +10,7 @@
       <h2>All posts</h2>
       <p class="small-title">投稿一覧</p>
 
-      <div class="posts-list jscroll">
+      <div class="posts-list jscroll" id="index-scroll">
         <% @posts.each do |post| %>
           <div class="col-md-3">
             <div class="col-md-12 thumbnail post-index">
@@ -50,7 +50,9 @@
             </div>
           </div>
         <% end %>
-        <%= paginate @posts %>
+        <div id="post_index_paginate">
+          <%= paginate @posts %>
+        </div>
       </div>
 
     </div>

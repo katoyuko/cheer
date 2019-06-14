@@ -252,7 +252,23 @@ footer{
   text-align: center;
 }
 
-
-nav.pagination{
+#post_index_paginate .pagination{
   display: none;
+}
+
+#current_page .pagination{
+  color: #4a4a4a;
+  font-size: 17px;
+}
+
+.paginate a{
+  color: #ddd;
+}
+
+.paginate a:hover{
+  color: #4a4a4a;
+}
+
+#index-scroll small{
+  color: #76d9cd;
 }
