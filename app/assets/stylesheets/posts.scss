@@ -141,7 +141,7 @@
 .post-show-user{
   border-bottom: solid 1px #ddd;
   border-top: solid 1px #ddd;
-  padding: 10px 0;
+  padding: 10px 0 20px;
   font-size: 13px;
 }
 
@@ -206,10 +206,18 @@
 }
 
 
-/* post cheer機能 */
+/* link機能 */
 
 a{
   text-decoration: none !important;
+  color: #4a4a4a;
 }
 
+.post-show-user a, .post-user a{
+  color: #4a4a4a;
+}
+
+.post-show-user a:hover, .post-user a:hover, .post-content a:hover, .post-arrow a:hover{
+  color: #76d9cd;
+}
 

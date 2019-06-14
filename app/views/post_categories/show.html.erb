@@ -25,7 +25,7 @@
                   </div>
 
                   <p class="post-user">
-                    <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= category_post.user.name %>
+                    <%= category_post.created_at.strftime('%Y/%m/%d') %><br><%= link_to "posted by #{category_post.user.name}", user_path(category_post.user.id) %>
                   </p>
 
                   <p class="post-content">
