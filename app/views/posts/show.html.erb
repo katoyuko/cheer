@@ -36,7 +36,7 @@
             <div class="col-md-1 postuser-image-box">
               <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
             </div>
-            <p>posted by <%= @post.user.name %></p>
+            <p><%= link_to "posted by #{@post.user.name}", user_path(@post.user.id) %></p>
           </div>
 
             <div class="post-show-content">
