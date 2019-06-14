@@ -28,7 +28,7 @@
                         <% end %>
                       </p>
 
-                      <!-- 投稿内容は70文字以上は省略 -->
+                      <!-- 投稿内容 70文字以上は省略 -->
                       <p class="post-content"><%= post.post_content.truncate(70) %></p>
                     </div>
                     <div class="row post-content-body-bottom">
@@ -50,6 +50,7 @@
             </div>
           </div>
         <% end %>
+        <!-- 無限スクロール -->
         <div id="post_index_paginate">
           <%= paginate @posts %>
         </div>
