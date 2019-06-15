@@ -1,11 +1,4 @@
-<script type="text/javascript">
-  $(function(){
-   $("#input-text").on("keyup", function() {
-     let countNum = String($(this).val().length);
-     $("#counter").text(countNum + "/140");
-   });
-  });
-</script>
+<%= render "layouts/text_count" %>
 
 <%= render "layouts/flash" %>
 
