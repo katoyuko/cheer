@@ -3,12 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/* TOPページ aboutページ*/
+
+/* swiper */
 
 .swiper-container{
   height: 600px;
   width: 100%;
 }
+
+.swiper-slide{
+  padding: 500px 60px 0 0;
+  text-align: right;
+  color: #fff;
+  font-size: 35px;
+}
+
+
+/* TOPページ aboutページ*/
 
 .hot-category{
   margin-top: 30px;
