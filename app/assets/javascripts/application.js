@@ -21,10 +21,6 @@
 //= require_tree .
 
 
-
-
-
-
 // フッター
 $(function() {
   var pagetop = $(".pagetop");

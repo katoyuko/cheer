@@ -182,6 +182,7 @@ h2, h4{
   margin-bottom: 20px;
   text-align: center;
   color: #76d9cd;
+  display: none;
 }
 
 .flash_message::before,  /* 選択した要素の直前に内容を挿入 */

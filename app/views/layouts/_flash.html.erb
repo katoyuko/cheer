@@ -1,5 +1,15 @@
-<!-- フラッシュメッセージパーシャル -->
+<script type="text/javascript">
+$(function() {
+  $('.flash_message').fadeIn(2000);
+  $('.flash_message').fadeOut(3000);
 
+  if ($('.flash_message').html() !== '') {
+    $('.flash_message').css('display', 'block');
+  }
+});
+</script>
+
+<!-- フラッシュメッセージパーシャル -->
 <div class="row">
   <div class="col-md-2 col-md-offset-1">
     <p class="flash_message"><%= flash[:notice] %></p>
