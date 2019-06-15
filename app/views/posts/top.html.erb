@@ -2,19 +2,19 @@
   var swiper;
   $(window).load(function() {
     swiper = new Swiper('.swiper-container', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
     },
-    loop: true, // 最後のスライドまで到達ら続けてスライド
-    speed: 1000, // スライドが切り替わるトランジション時間(ミリ秒)。
-    direction: 'horizontal',
-    effect: 'slide',
+    loop: true, // 最後のスライドに到達後も続けてスライド
+    speed: 2000, // スライドが切り替わる時間
 
-      autoplay: {
-        delay: 3000, // スライドが切り替わるまでの表示時間(ミリ秒)
-        stopOnLast: false, // 最後のスライドまで表示されたら自動再生を中止するか
-      },
+
+    autoplay: {
+      delay: 3000, // スライドの表示時間
+      stopOnLast: false, // 最後のスライドまで表示されたら自動再生を中止するか
+    },
+
     });
   });
 </script>
@@ -24,14 +24,30 @@
 <div class="main">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image: url(/images/camera.jpeg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/boulder.jpg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/reading.jpg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/learning.jpg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/jog.jpeg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/diy.jpeg)"></div>
-      <div class="swiper-slide" style="background-image: url(/images/programing.jpeg)"></div>
+      <div class="swiper-slide" style="background-image: url(/images/camera.jpeg)">
+        <div class="swiper-slide-content swiper-slide-content-1"># カメラ勉強中</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/boulder.jpg)">
+        <div class="swiper-slide-content swiper-slide-content-2"># ボルダリング初心者</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/reading.jpg)">
+        <div class="swiper-slide-content swiper-slide-content-3"># 読書挑戦中</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/learning.jpg)">
+        <div class="swiper-slide-content swiper-slide-content-4"># 語学勉強中</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/jog.jpeg)">
+        <div class="swiper-slide-content swiper-slide-content-5"># ランニング奮闘中</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/diy.jpeg)">
+        <div class="swiper-slide-content swiper-slide-content-6"># DIY挑戦中</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url(/images/programing.jpeg)">
+        <div class="swiper-slide-content swiper-slide-content-7"># プログラミング初心者</div>
+      </div>
     </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 
 
