@@ -19,4 +19,3 @@
 //= require bootstrap-sprockets
 //= require jquery.jscroll.min.js
 //= require_tree .
-

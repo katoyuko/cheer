@@ -1,3 +1,12 @@
+<script type="text/javascript">
+  $(function(){
+   $("#input-text").on("keyup", function() {
+     let countNum = String($(this).val().length);
+     $("#counter").text(countNum + "/140");
+   });
+  });
+</script>
+
 <%= render "layouts/flash" %>
 
 <div class="container">
@@ -23,10 +32,11 @@
 
             <div class="form-group">
               <label for="control-label">頑張りつぶやき</label>
-              <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control" %>
+              <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control", id: "input-text" %>
+              <p class="pull-right" id="counter">0/140</p>
             </div>
 
-            <div class="row">
+            <div class="row post-show-btn">
               <div class="col-md-4 col-md-offset-2">
                 <%= link_to "キャンセル", post_path(@post), class: "btn btn-block btn-ellipse" %>
               </div>
