@@ -20,11 +20,3 @@
 //= require jquery.jscroll.min.js
 //= require_tree .
 
-
-// フッター
-$(function() {
-  var pagetop = $(".pagetop");
-  pagetop.click(function () {
-    $("html").animate({ scrollTop: 0 }, 800);
-  });
-});
