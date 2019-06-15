@@ -10,7 +10,24 @@ $(function(){
     }
   });
 });
+
+// ヘッダー固定
+$(function() {
+  var headerHeight = $('header').height(),
+      top = 0;
+  $(window).on('load scroll', function() {
+    var scrollHeight = $(this).scrollTop();
+    if ( scrollHeight > top && scrollHeight > headerHeight ) {
+      $('header').css('top', '-130px');  // ヘッダー非表示
+    } else {
+      $('header').css('top', '0');  // ヘッダー表示
+    }
+    top = scrollHeight;
+  });
+});
+
 </script>
+
 
 
 <!-- ユーザー用ヘッダー -->

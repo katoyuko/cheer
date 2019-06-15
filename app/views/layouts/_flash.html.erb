@@ -1,13 +1,17 @@
 <script type="text/javascript">
 $(function() {
-  $('.flash_message').fadeIn(2000);
-  $('.flash_message').fadeOut(3000);
+  $('.flash_message').fadeIn(700);
+  $('.flash_message').fadeOut(4000);
 
+  // cssを適用させるためにフラッシュメッセージがあるか判定
   if ($('.flash_message').html() !== '') {
     $('.flash_message').css('display', 'block');
+  }else{
+    $('.flash_message').css('display', 'none');
   }
 });
 </script>
+
 
 <!-- フラッシュメッセージパーシャル -->
 <div class="row">

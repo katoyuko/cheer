@@ -22,7 +22,6 @@
 
 
 
-
 /* フォント */
 
 body {
@@ -214,8 +213,17 @@ h2, h4{
 
 /* ヘッダー */
 
-header{
+#header{
   height: 130px;
+  width: 100%;
+  background-color:rgba(255,255,255,0.8);
+  position: fixed;
+  transition: .3s;
+  z-index: 2;  /* 重なりの順序を整数で指定 */
+}
+
+#body-main{
+  margin-top: 130px;
 }
 
 .header-logo{

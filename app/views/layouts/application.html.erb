@@ -9,13 +9,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
 
-    <%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 
+  <div id="body-main">
     <%= yield %>
+  </div>
 
     <%= render 'layouts/footer' %>
 
