@@ -237,7 +237,8 @@ nav ul{
 nav li{
   text-align: center;
   display: table-cell;  /* 横並び */
-  padding-bottom: 5px;
+  padding: 0 5px 5px;
+  width: 115px;
 }
 
 nav li:hover{
