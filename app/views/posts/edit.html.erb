@@ -1,3 +1,4 @@
+<!-- 投稿内容文字数カウント -->
 <%= render "layouts/text_count" %>
 
 <%= render "layouts/flash" %>
@@ -15,7 +16,7 @@
               <label for="control-label">写真</label><br>
               <%= attachment_image_tag @post, :image, :fill, 380, 300, format: 'jpg', class: "img-responsive img-rounded" %>
               <%= f.attachment_field :image, class: "btn btn-default form-control edit-img" %>
-               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
+
             </div>
 
             <div class="form-group">
