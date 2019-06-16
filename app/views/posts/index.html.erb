@@ -1,6 +1,3 @@
-
-
-
 <!-- jscroll -->
 <%= render "layouts/scroll" %>
 
@@ -45,65 +42,40 @@
 
                   <p class="post-content">
                     <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
+
+
                       <!-- cheer機能 -->
+                  <% if user_signed_in? %>
+                      <% if post.post_cheered_by?(current_user) %>
+                        <li class="post_cheer">
+                          <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :delete, remote: true do %>
+                            <p class="post_cheer">
+                              <i class="fa fa-flag" id="<%= post.id %>"></i>
+                              <span class="cheer_count"><%= post.cheer_count %></span> cheer
+                            </p>
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li class="post_cheer">
+                          <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+                          <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :post, remote: true do %>
+                            <p class="post_cheer">
+                              <!-- idを指定することでjson形式で返される -->
+                              <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                              <span class="cheer_count"><%= post.cheer_count %></span> cheer
+                            </p>
+                          <% end %>
+                        </li>
+                      <% end %>
 
-<script type="text/javascript">
-$(function() {
-
-  // イベント名 ajax:success レスポンスが成功時、発火
-  $(document).on("ajax:success", "#cheer-button", function(event) {
-    let currentNo;
-    // fa-flagクラスをもっているか判定
-    // かつ、どのpost.idがclickされか判断
-    if($('p .post_cheer').hasClass('fa-flag')) && ($('#<%= post.id %>').on("click", function())){
-      var id =  $(this).attr("id");
-      $('p .post_cheer').removeClass('fa-flag').addClass('fa-flag-o');
-      currentNo = $('#cheer_count').html();
-      $('#cheer_count').html(Number(currentNo) - 1);
-      $("#cheer-button").attr("data-method", "post");
-    } else {
-      $('p .post_cheer').removeClass('fa-flag-o').addClass('fa-flag');
-      currentNo = $('#cheer_count').html();
-      $('#cheer_count').html(Number(currentNo) + 1);
-      $("#cheer-button").attr("data-method", "delete");
-    }
-  })
-})
-</script>
-
-<% if user_signed_in? %>
-
-    <% if post.post_cheered_by?(current_user) %>
-      <li class="post_cheer">
-        <%= link_to post_post_cheers_path(post), id: "cheer-button", method: :delete, remote: true do %>
-          <p class="post_cheer">
-            <i class="fa fa-flag" id="<%= post.id %>"></i>
-            <span id="cheer_count"><%= post.cheer_count %></span> cheer
-          </p>
-        <% end %>
-      </li>
-    <% else %>
-      <li class="post_cheer">
-        <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
-        <%= link_to post_post_cheers_path(post), id: "cheer-button", method: :post, remote: true do %>
-          <p class="post_cheer">
-            <!-- idを指定することでjson形式で返される -->
-            <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-            <span id="cheer_count"><%= post.cheer_count %></span> cheer
-          </p>
-        <% end %>
-      </li>
-    <% end %>
-
-<% else %>
-  <li class="post_cheer">
-    <p class="post_cheer">
-      <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-      <%= post.cheer_count %> cheer
-    </p>
-  </li>
-
-<% end %>
+                  <% else %>
+                    <li class="post_cheer">
+                      <p class="post_cheer">
+                        <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                        <%= post.cheer_count %> cheer
+                      </p>
+                    </li>
+                  <% end %>
 
                   </p>
                 </div>
@@ -121,3 +93,30 @@ $(function() {
     </div>
   </div>
 </div>
+
+
+
+<script type="text/javascript">
+$(function() {
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", ".cheer-button", function(event) {
+    let currentNo;
+    let $cheerFlag_i = $(this).children().children('i')
+    let $cheerFlag_span = $(this).children().children('span')
+
+    // fa-flagクラスをもっているか判定
+    // かつ、どのpost.idがclickされか判断
+    if ($cheerFlag_i.hasClass('fa-flag-o')){
+      $cheerFlag_i.removeClass('fa-flag-o').addClass('fa-flag');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) + 1);
+      $(this).attr("data-method", "delete");
+    } else {
+      $cheerFlag_i.removeClass('fa-flag').addClass('fa-flag-o');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) - 1);
+      $(this).attr("data-method", "post");
+    }
+  })
+});
+</script>

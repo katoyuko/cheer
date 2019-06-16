@@ -1,8 +1,10 @@
 <!-- 文字数カウント 投稿用 -->
 <script type="text/javascript">
 $(function(){
-  // キーボードのキーが押され、上がったときに発火
-  $("#input-text").on("keyup", function() {
+  let countNum = String($('#input-text').val().length);
+  $("#counter").text(countNum + "/140");
+
+  $("#input-text").on("change", function() {
     let countNum = String($(this).val().length);
     $("#counter").text(countNum + "/140");
   });
