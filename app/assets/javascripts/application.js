@@ -18,4 +18,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery.jscroll.min.js
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .

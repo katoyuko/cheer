@@ -78,3 +78,6 @@ gem 'font-awesome-rails'
 gem "jquery-turbolinks"
 
 gem "ransack"
+
+gem "chartkick"
+gem 'chartable'
