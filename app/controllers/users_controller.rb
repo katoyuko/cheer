@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order.per(8)
 
-    user = current_user
-    @user_posts = user.posts.analytics(:monthly)
-
     # お気に入りカテゴリ追加
     @favorite_category = FavoriteCategory.new
     # お気に入りカテゴリ一覧
