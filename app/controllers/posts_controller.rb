@@ -16,10 +16,14 @@ class PostsController < ApplicationController
     end
   end
 
-
   def about
   end
 
+  def chart
+    @posts = Post.all
+
+    @sample = {'2019-06-01' => 60, '2019-06-02' => 65, '2019-06-03' => 64}
+  end
 
   def new
     @post = Post.new
