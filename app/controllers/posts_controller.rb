@@ -13,6 +13,8 @@ class PostsController < ApplicationController
     if @user = current_user
       @favorite_categories = @user.favorite_categories.page(params[:page]).order(created_at: :desc).limit(4)
     end
+
+    @post_categories = PostCategory.all
   end
 
   def about
