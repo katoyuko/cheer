@@ -1,3 +1,6 @@
+<!-- 投稿内容文字数カウント -->
+<%= render "layouts/text_count" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -15,7 +18,7 @@
               <div class="form-group">
                 <label for="control-label">写真</label>
                 <%= f.attachment_field :image, class: "btn btn-default form-control" %>
-                 <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
+
               </div>
 
               <div class="form-group">
@@ -25,7 +28,8 @@
 
               <div class="form-group">
                 <label for="control-label">頑張りつぶやき</label>
-                <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control" %>
+                <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control", id: "input-text" %>
+                <p class="pull-right" id="counter">0/140</p>
               </div>
 
               <div class="row">

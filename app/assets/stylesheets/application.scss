@@ -22,7 +22,6 @@
 
 
 
-
 /* フォント */
 
 body {
@@ -182,6 +181,7 @@ h2, h4{
   margin-bottom: 20px;
   text-align: center;
   color: #76d9cd;
+  display: none;
 }
 
 .flash_message::before,  /* 選択した要素の直前に内容を挿入 */
@@ -213,8 +213,17 @@ h2, h4{
 
 /* ヘッダー */
 
-header{
+#header{
   height: 130px;
+  width: 100%;
+  background-color:rgba(255,255,255,0.8);
+  position: fixed;
+  transition: .3s;
+  z-index: 2;  /* 重なりの順序を整数で指定 */
+}
+
+#body-main{
+  margin-top: 130px;
 }
 
 .header-logo{
@@ -237,7 +246,8 @@ nav ul{
 nav li{
   text-align: center;
   display: table-cell;  /* 横並び */
-  padding-bottom: 5px;
+  padding: 0 5px 5px;
+  width: 115px;
 }
 
 nav li:hover{
@@ -329,4 +339,10 @@ footer{
 
 #index-scroll small{
   color: #76d9cd;
+}
+
+
+/* 文字数カウンター */
+#counter{
+  font-size: 13px;
 }

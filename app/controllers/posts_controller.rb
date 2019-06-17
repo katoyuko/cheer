@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def top
@@ -16,10 +15,21 @@ class PostsController < ApplicationController
     end
   end
 
-
   def about
   end
 
+  def chart
+    @chart_data = {}
+    posts = current_user.posts.all
+    posts.each do |post|
+      date = post.created_at.strftime('%Y/%m/%d')
+      if @chart_data.has_key?(date)
+        @chart_data[date] += 1
+      else
+        @chart_data[date] = 1
+      end
+    end
+  end
 
   def new
     @post = Post.new

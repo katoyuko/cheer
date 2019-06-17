@@ -1,17 +1,9 @@
 <%= render "layouts/flash" %>
 
 <div class="main">
-  <div class="main-visual">
-    <div id="mainimage">
-      <div style="background-image: url(/images/camera.jpeg)"></div>
-      <div style="background-image: url(/images/boulder.jpg)"></div>
-      <div style="background-image: url(/images/reading.jpg)"></div>
-      <div style="background-image: url(/images/learning.jpg)"></div>
-      <div style="background-image: url(/images/jog.jpeg)"></div>
-      <div style="background-image: url(/images/diy.jpeg)"></div>
-      <div style="background-image: url(/images/programing.jpeg)"></div>
-    </div>
-  </div>
+
+<!-- スライド -->
+<%= render "layouts/swiper" %>
 
   <div class="main-pickup">
     <h2>Pick up</h2>
@@ -82,7 +74,7 @@
           </div>
         <% end %>
         <div class="col-md-12 favorite-login">
-          <div class="col-md-6 col-md-offset-3 favorite-btn">
+          <div class="col-md-6 col-md-offset-3">
             <%= link_to "マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn btn-ellipse" %>
           </div>
         </div>
@@ -100,7 +92,6 @@
     </div>
   </div>
 
-  </div>
 </div>
 
 

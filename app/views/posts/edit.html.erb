@@ -1,3 +1,6 @@
+<!-- 投稿内容文字数カウント -->
+<%= render "layouts/text_count" %>
+
 <%= render "layouts/flash" %>
 
 <div class="container">
@@ -13,7 +16,7 @@
               <label for="control-label">写真</label><br>
               <%= attachment_image_tag @post, :image, :fill, 380, 300, format: 'jpg', class: "img-responsive img-rounded" %>
               <%= f.attachment_field :image, class: "btn btn-default form-control edit-img" %>
-               <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
+
             </div>
 
             <div class="form-group">
@@ -23,10 +26,11 @@
 
             <div class="form-group">
               <label for="control-label">頑張りつぶやき</label>
-              <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control" %>
+              <%= f.text_area :post_content, rows:7, maxlength:140, class: "form-control", id: "input-text" %>
+              <p class="pull-right" id="counter">0/140</p>
             </div>
 
-            <div class="row">
+            <div class="row post-show-btn">
               <div class="col-md-4 col-md-offset-2">
                 <%= link_to "キャンセル", post_path(@post), class: "btn btn-block btn-ellipse" %>
               </div>

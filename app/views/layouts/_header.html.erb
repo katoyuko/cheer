@@ -1,5 +1,36 @@
-<!-- ユーザー用ヘッダー -->
+<script type="">
+// ナビゲーションバー current pageにactive付与
+$(function(){
+  $('nav li a').each(function(){
+    var $href = $(this).attr('href');
+    if(location.pathname === $href) {
+      $(this).parent('li').addClass('active');
+    } else {
+      $(this).parent('li').removeClass('active');
+    }
+  });
+});
 
+// ヘッダー固定
+$(function() {
+  var headerHeight = $('header').height(),
+      top = 0;
+  $(window).on('load scroll', function() {
+    var scrollHeight = $(this).scrollTop();
+    if ( scrollHeight > top && scrollHeight > headerHeight ) {
+      $('header').css('top', '-130px');  // ヘッダー非表示
+    } else {
+      $('header').css('top', '0');  // ヘッダー表示
+    }
+    top = scrollHeight;
+  });
+});
+
+</script>
+
+
+
+<!-- ユーザー用ヘッダー -->
 <header id="header">
   <div class="header-logo">
     <%= image_tag "/images/logo.png", class: "logo" %>

@@ -1,3 +1,15 @@
+<!-- 自己紹介文字数カウント -->
+<script type="text/javascript">
+$(function(){
+  // キーボードのキーが押され、上がったときに発火
+  $("#input-text").on("keyup", function() {
+    let countNum = String($(this).val().length);
+    $("#counter").text(countNum + "/200");
+  });
+});
+</script>
+
+
 <div class="container">
   <div class="row">
     <h2>Mypage</h2>
@@ -24,8 +36,9 @@
               <%= f.text_field :email, value: current_user.email, class: "form-control" %>
             </p>
             <p>自己紹介
-              <%= f.text_area :introduction, rows: 10, maxlength: 200, value: current_user.introduction, class: "form-control" %>
+              <%= f.text_area :introduction, rows: 10, maxlength: 200, value: current_user.introduction, class: "form-control", id: "input-text" %>
             </p>
+            <p class="pull-right" id="counter">0/200</p>
           </div>
         </div>
 

@@ -10,9 +10,19 @@
       <div class="form-group sign-content">
         <div class="row">
           <div class="col-md-12">
+            <%= fa_icon("user") %>
+            <%= f.label :名前 %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group sign-content">
+        <div class="row">
+          <div class="col-md-12">
             <%= fa_icon("envelope") %>
             <%= f.label :メールアドレス %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例: abc@mail.com", class: "form-control" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: "abc@mail.com", class: "form-control" %>
           </div>
         </div>
       </div>

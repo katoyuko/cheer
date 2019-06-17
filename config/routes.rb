@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root "posts#top"
   get "/about" => "posts#about"
+  get "/chart" => "posts#chart"
 
   devise_for :users
 

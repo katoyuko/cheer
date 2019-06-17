@@ -12,7 +12,6 @@
           <section>
 
             <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
-              <!-- 非同期で画像を表示させるなら、写真とカテゴリ、つぶやきは横並びにする -->
 
             <label class="btn btn-ellipse post-category">
               <%= link_to post_category_path(@post.post_category.id) do %>
@@ -37,6 +36,7 @@
 
             <div class="post-show-content">
               <p>
+                <!-- cheer機能 -->
                 <%= render "posts/post_cheer" %>
 
                 <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
@@ -53,7 +53,7 @@
       <div class="row">
         <div class="col-md-2 col-md-offset-5 btn-link">
          <p class="btn btn-block btn-ellipse-green">
-           <%= link_to "戻る ", :back %>
+           <%= link_to "戻る ", posts_path %>
          </p>
        </div>
      </div>

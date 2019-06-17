@@ -3,12 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/* TOPページ aboutページ*/
 
-.main-visual{
+/* swiper */
+
+.swiper-container{
   height: 600px;
   width: 100%;
 }
+
+.swiper-slide{
+  padding: 500px 80px 0 0;
+  text-align: right;
+  color: #fff;
+  font-size: 30px;
+}
+
+
+/* TOPページ aboutページ*/
 
 .hot-category{
   margin-top: 30px;
@@ -32,6 +43,10 @@
   height: 570px;
   width: 100%;
   text-align: center;
+}
+
+.favorite-btn{
+margin-top: 30px;
 }
 
 .about{
@@ -180,6 +195,10 @@
   margin-top: 60px;
 }
 
+.post-show-btn{
+  margin-top: 40px;
+}
+
 
 /* link機能 */
 
@@ -202,3 +221,15 @@ a{
   color: #76d9cd;
 }
 
+
+/* チャート */
+
+.small-title-chart{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.chart{
+  text-align: center;
+  font-size: 13px;
+}
