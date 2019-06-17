@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @chart_data = {}
     posts = current_user.posts.all
     posts.each do |post|
-      date = post.created_at.strftime('%Y-%m')
+      date = post.created_at.strftime('%Y/%m/%d')
       if @chart_data.has_key?(date)
         @chart_data[date] += 1
       else
