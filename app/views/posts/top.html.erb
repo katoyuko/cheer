@@ -7,13 +7,14 @@
 
   <div class="col-md-12 main-favorite">
     <h2>Favorite</h2>
-    <p><%= fa_icon("heart") %> お気に入りカテゴリ</p>
+    <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
 
     <div class="col-md-10 col-md-offset-1 favorite">
       <% if user_signed_in? %>
+
         <% @favorite_categories.each do |favorite_category| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index-favorite">
+            <div class="col-md-12 post-index-fav">
               <section>
                 <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
                 <p class="btn btn-default btn-search btn-block">
@@ -23,8 +24,11 @@
                 </p>
               </section>
             </div>
+            <%= link_to "×", favorite_category_path(favorite_category.id), title: "お気に入りから削除する", "data-toggle": "tooltip", "data-placement": "bottom", method: :delete, class: "btn btn-ellipse-fav" %>
           </div>
         <% end %>
+
+
         <div class="col-md-12 favorite-login">
           <div class="col-md-6 col-md-offset-3">
             <%= link_to "マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn btn-ellipse" %>
@@ -95,5 +99,10 @@
 </div>
 
 
-
+<!-- ツールチップ -->
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 

@@ -56,7 +56,7 @@ h2, h4{
 /* swiper */
 
 .swiper-container{
-  height: 600px;
+  height: 550px;
   width: 100%;
 }
 
@@ -78,6 +78,7 @@ h2, h4{
   width: 20px;
   height: 20px;
   background: #76d9cd;
+  opacity: 1;
 }
 
 
@@ -202,9 +203,10 @@ h2, h4{
 }
 
 
-/* コメント削除ボタン */
+/* コメント・お気に入り削除ボタン */
 
-.btn-ellipse-comment{
+.btn-ellipse-comment,
+.btn-ellipse-fav{
   border-radius: 30px;
   color: #ff5752;
   transition: all 0.6s ease 0s;
@@ -212,7 +214,8 @@ h2, h4{
   margin-right: 5px;
 }
 
-.btn-ellipse-comment:hover{
+.btn-ellipse-comment:hover,
+.btn-ellipse-fav:hover{
   color: #fff;
   background-color: #ff5752;
   margin-right: 5px;
@@ -221,7 +224,6 @@ h2, h4{
 .tooltip .tooltip-inner{
   background-color: #fff;
   color: #ff5752;
-  border: 1px solid #ff5752;
 }
 
 .tooltip-arrow{

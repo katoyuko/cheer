@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
     # お気に入りカテゴリ一覧
     if @user = current_user
-      @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+      @favorite_categories = @user.favorite_categories.page(params[:page]).order(created_at: :desc).limit(4)
     end
   end
 
