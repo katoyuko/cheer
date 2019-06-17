@@ -409,12 +409,13 @@ footer{
 }
 
 
-/* その他 */
+/* リンク機能 */
 
 #postimage{
   height: 192px;
 }
 
-#postimage:hover{
+#postimage:hover,
+.postuser-image:hover{
   opacity: 0.5;
 }

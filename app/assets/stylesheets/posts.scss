@@ -85,6 +85,14 @@
   margin: 20px 0;
 }
 
+.post-user-link{
+  border-bottom: solid 1px #4a4a4a;
+}
+
+.post-user-link:hover{
+  border-bottom: solid 1px #76d9cd;
+}
+
 
 /* 投稿一覧 */
 
@@ -137,14 +145,6 @@
   border-bottom: solid 1px #ddd;
   padding: 10px 0;
   font-size: 12px;
-}
-
-.post-user-link{
-  border-bottom: solid 1px #4a4a4a;
-}
-
-.post-user-link:hover{
-  border-bottom: solid 1px #76d9cd;
 }
 
 
@@ -210,7 +210,7 @@
 }
 
 
-/* link機能 */
+/* リンク機能 */
 
 a{
   text-decoration: none !important;
