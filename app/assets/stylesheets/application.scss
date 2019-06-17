@@ -78,7 +78,6 @@ h2, h4{
   width: 20px;
   height: 20px;
   background: #76d9cd;
-  opacity: 1;
 }
 
 
@@ -121,6 +120,28 @@ h2, h4{
   cursor: pointer;
 }
 
+.btn-hot-top{
+  margin-top: 30px;
+  padding: 10px 0;
+  border: solid 1px #ff5752;
+  background: #ff5752;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.btn-hot-top:hover{
+  color: #fff;
+  background-color: #ff5752;
+  border: solid 1px #ff5752;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.btn-hot-top a{
+  color: #fff;
+}
+
 
 /* 緑色ボタン */
 
@@ -158,12 +179,19 @@ h2, h4{
   border: solid 1px #76d9cd;
 }
 
-.btn-search a, .btn-ellipse-green a{
+.btn-search a,
+.btn-ellipse-green a{
   color: #76d9cd;
 }
 
-.btn-search:hover a, .btn-ellipse-green:hover a{
+.btn-search:hover a,
+.btn-ellipse-green:hover a,
+.btn-search-top:hover a{
   color: #ffffff;
+}
+
+.btn-default{
+  color: #4a4a4a;
 }
 
 

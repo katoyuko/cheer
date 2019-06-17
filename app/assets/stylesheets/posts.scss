@@ -7,6 +7,25 @@
 
 /* TOPページ aboutページ*/
 
+.main-favorite{
+  height: 570px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-pickup{
+  height: 530px;
+  width: 100%;
+  text-align: center;
+  background: #f4efe5;
+}
+
+.main-search{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
 .hot-category{
   margin-top: 30px;
 }
@@ -16,36 +35,31 @@
 }
 
 .favorite-login{
-  margin-top: 50px;
-}
-
-.main-pickup{
-  height: 500px;
-  width: 100%;
-  text-align: center;
-}
-
-.main-favorite{
-  height: 570px;
-  width: 100%;
-  text-align: center;
+  margin-top: 20px;
 }
 
 .favorite-btn{
-margin-top: 30px;
+  margin-top: 30px;
+}
+
+.post-index-favorite{
+  border: 1px solid #76d9cd;
+  padding: 15px;
+  margin: 30px 0;
+  height: 270px;
+}
+
+.post-index-hot{
+  border: 1px solid #ff5752;
+  padding: 15px;
+  margin: 30px 0;
+  height: 270px;
 }
 
 .about{
   height: 600px;
   width: 100%;
   text-align: center;
-}
-
-.main-search{
-  height: 420px;
-  width: 100%;
-  text-align: center;
-  background: #f4efe5;
 }
 
 .how{
@@ -60,7 +74,6 @@ margin-top: 30px;
   height: 230px;
   width:  180px;
 }
-
 
 
 /* 新規投稿 投稿一覧 詳細 */
