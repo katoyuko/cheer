@@ -144,22 +144,24 @@ h2, h4{
 .btn-hot-top{
   margin-top: 30px;
   padding: 10px 0;
-  border: solid 1px #ff5752;
-  background: #ff5752;
+  background: #fff;
+  border: solid 1px #fff;
   transition: all 0.4s ease 0s;
   cursor: pointer;
 }
 
 .btn-hot-top:hover{
-  color: #fff;
   background-color: #ff5752;
   border: solid 1px #ff5752;
   transition: all 0.6s ease 0s;
   cursor: pointer;
-  opacity: 0.6;
 }
 
 .btn-hot-top a{
+  color: #ff5752;
+}
+
+.btn-hot-top:hover a{
   color: #fff;
 }
 

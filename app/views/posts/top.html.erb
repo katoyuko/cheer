@@ -17,7 +17,7 @@
             <div class="col-md-12 post-index-fav">
               <section>
                 <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
-                <p class="btn btn-default btn-search btn-block">
+                <p class="btn btn-default btn-fav btn-block">
                   <%= link_to post_category_path(favorite_category.post_category.id) do %>
                     # <%= favorite_category.post_category.category %>
                   <% end %>
