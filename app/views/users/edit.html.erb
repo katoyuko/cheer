@@ -2,7 +2,7 @@
 <script type="text/javascript">
 $(function(){
   // キーボードのキーが押され、上がったときに発火
-  $("#input-text").on("keyup", function() {
+  $("#input-text").on("keyup change", function() {
     let countNum = String($(this).val().length);
     $("#counter").text(countNum + "/200");
   });

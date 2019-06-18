@@ -2,39 +2,46 @@
 
 <div class="container">
   <div class="row">
+    <h2>Mypage</h2>
+    <p class="small-title">マイページ</p>
 
-      <div class="col-md-10 col-md-offset-1">
-        <p class="mypage">基本情報</p>
+      <div class="col-md-4">
+        <p class="mypage">新規登録</p>
+        <%= render "posts/new_post" %>
       </div>
-      <div class="mypage-data">
-        <div class="col-md-4 col-md-offset-2">
-          <label>写真</label>
-          <div class="user-image-box">
-            <%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: "jpg", class: "img-responsive user-image" %>
+
+      <div class="col-md-8">
+        <p class="mypage">登録情報</p>
+        <div class="mypage-data">
+          <div class="col-md-4 col-md-offset-1">
+            <label>写真</label>
+            <div class="user-image-box">
+              <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", class: "img-responsive user-image" %>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <section>
+              <div>
+                <label>名前</label>
+                <p><%= @user.name %></p>
+                <label>メールアドレス</label>
+                <p><%= @user.email %></p>
+                <label>自己紹介</label>
+                <p><%= @user.introduction %></p>
+              </div>
+            </section>
           </div>
         </div>
-        <div class="col-md-4">
-          <section>
-            <div>
-              <label>名前</label>
-              <p><%= @user.name %></p>
-              <label>メールアドレス</label>
-              <p><%= @user.email %></p>
-              <label>自己紹介</label>
-              <p><%= @user.introduction %></p>
-            </div>
-          </section>
-        </div>
+
+        <% if current_user == @user %>
+          <div class="col-md-4 col-md-offset-4 mypage-data-btn">
+            <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
+          </div>
+        <% end %>
       </div>
 
-      <% if current_user == @user %>
-        <div class="col-md-4 col-md-offset-4 mypage-data-btn">
-          <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-        </div>
-      <% end %>
-
       <div class="col-md-10 col-md-offset-1">
-        <p class="mypage">投稿</p>
+        <p class="mypage">All post</p>
         <% @posts.each do |post| %>
           <div class="col-md-3">
             <div class="col-md-12 thumbnail post-index-maypage">
@@ -81,7 +88,7 @@
 
       <% if current_user == @user %>
         <div class="col-md-10 col-md-offset-1">
-          <p class="mypage">お気に入りカテゴリ</p>
+          <p class="mypage">Favorite category</p>
 
           <% @favorite_categories.each do |favorite_category| %>
             <div class="col-md-3">
