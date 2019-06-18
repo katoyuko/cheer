@@ -194,6 +194,18 @@
   border-radius: 120px;
 }
 
+/* 新規投稿 */
+
+.new-post{
+  width: 100%;
+  background-image: url("/images/post.jpg");
+  background-size: cover;
+}
+
+.new-post-body{
+  margin: 130px 0 270px;
+}
+
 
 /* 投稿編集 */
 

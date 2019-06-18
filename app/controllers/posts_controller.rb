@@ -20,9 +20,12 @@ class PostsController < ApplicationController
   def about
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = Post.new(post_params)
-
     @post_category = PostCategory.find(params[:post_category_id])
     @post.post_category_id = @post_category.id
     @post.user_id = current_user.id
