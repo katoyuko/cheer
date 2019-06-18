@@ -20,19 +20,6 @@ class PostsController < ApplicationController
   def about
   end
 
-  def chart
-    @chart_data = {}
-    posts = current_user.posts.all
-    posts.each do |post|
-      date = post.created_at.strftime('%Y/%m/%d')
-      if @chart_data.has_key?(date)
-        @chart_data[date] += 1
-      else
-        @chart_data[date] = 1
-      end
-    end
-  end
-
   def create
     @post = Post.new(post_params)
 
