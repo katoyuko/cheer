@@ -9,52 +9,61 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 tab-content">
-    <!-- タブメニュー -->
-    <ul class="nav nav-tabs nav-justified">
-      <li role="mypage" class="active">
-        <a href="#all-post" data-toggle="tab">
-          <h3>All posts</h3><br><p class="small-title">投稿一覧</p>
-        </a>
-      </li>
-      <li role="mypage">
-        <a href="#fav-category" data-toggle="tab">
-          <h3>Favorite category</h3><br><p class="small-title">お気に入りカテゴリ</p>
-        </a>
-      </li>
-      <li role="mypage">
-        <a href="#chart" data-toggle="tab">
-          <h3>My chart</h3><br><p class="small-title">頑張りチャート</p>
-        </a>
-      </li>
-    </ul>
+<% if current_user == @user %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 tab-content">
+      <!-- タブメニュー -->
+      <ul class="nav nav-tabs nav-justified">
+        <li role="mypage" class="active">
+          <a href="#all-post" data-toggle="tab">
+            <h3>All posts</h3><br><p class="small-title">投稿一覧</p>
+          </a>
+        </li>
+        <li role="mypage">
+          <a href="#fav-category" data-toggle="tab">
+            <h3>Favorite category</h3><br><p class="small-title">お気に入りカテゴリ</p>
+          </a>
+        </li>
+        <li role="mypage">
+          <a href="#chart" data-toggle="tab">
+            <h3>My chart</h3><br><p class="small-title">頑張りチャート</p>
+          </a>
+        </li>
+      </ul>
 
-    <!-- タブコンテンツ -->
-    <div class="tab-content">
-      <div class="tab-pane active" id="all-post">
-        <%= render "users/user_posts" %>
+      <!-- タブコンテンツ -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="all-post">
+          <%= render "users/user_posts" %>
+        </div>
+
+        <div class="tab-pane" id="fav-category">
+          <%= render "users/user_fav" %>
+        </div>
+
+        <div class="tab-pane" id="chart">
+            <p class="chart"><label>
+              [ 月別投稿件数 <%= fa_icon("pencil") %> ]
+            </label></p>
+          <%= column_chart @chart_data,
+            colors: ["#76d9cd"],
+            suffix: "件",
+            messages: {empty: "投稿がありません。New postから投稿ができます！"}
+           %>
+        </div>
       </div>
 
-      <div class="tab-pane" id="fav-category">
-        <%= render "users/user_fav" %>
-      </div>
-
-      <div class="tab-pane" id="chart">
-          <p class="chart"><label>
-            [ 月別投稿件数 <%= fa_icon("pencil") %> ]
-          </label></p>
-        <%= column_chart @chart_data,
-          colors: ["#76d9cd"],
-          suffix: "件",
-          messages: {empty: "投稿がありません"}
-         %>
-      </div>
     </div>
-
   </div>
-</div>
-
+<% else %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>All posts</h2>
+      <p class="small-title">投稿一覧</p>
+      <%= render "users/user_posts" %>
+    </div>
+  </div>
+<% end %>
 
 
 <script type="text/javascript">
