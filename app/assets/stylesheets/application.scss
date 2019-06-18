@@ -82,6 +82,26 @@ h2, h4{
 }
 
 
+/* 黒ボタン */
+
+.btn-ellipse-black{
+  border-radius: 25px;
+  border: solid 2px #4a4a4a;
+  background-color: #4a4a4a;
+  padding: 9px 16px;
+  color: #fff;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+}
+
+.btn-ellipse-black:hover{
+  color: #fff;
+  border: solid 2px #4a4a4a;
+  background-color: #4a4a4a;
+  opacity: 0.7;
+}
+
+
 /* 黄色ボタン */
 
 .btn-ellipse, .ellipse{
