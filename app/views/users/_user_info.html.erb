@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <div class="info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <div class="mypage-data">
+            <div class="col-md-4">
+              <div class="user-image-box">
+                <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", class: "img-responsive user-image" %>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <section>
+                <div>
+                  <label>名前</label>
+                  <p><%= @user.name %></p>
+                  <label>メールアドレス</label>
+                  <p><%= @user.email %></p>
+                  <label>自己紹介</label>
+                  <p><%= @user.introduction %></p>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <% if current_user == @user %>
+            <div class="col-md-4 col-md-offset-4 mypage-data-btn">
+              <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn btn-ellipse" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
