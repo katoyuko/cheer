@@ -194,20 +194,31 @@ h2, h4{
   cursor: pointer;
 }
 
-.btn-search:hover{
+.btn-fav{
+  margin-top: 30px;
+  padding: 10px 0;
+  border: solid 1px #fff;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.btn-search:hover,
+.btn-fav:hover{
   color: #ffffff;
   background-color: #76d9cd;
   border: solid 1px #76d9cd;
 }
 
 .btn-search a,
-.btn-ellipse-green a{
+.btn-ellipse-green a,
+.btn-fav a{
   color: #76d9cd;
 }
 
 .btn-search:hover a,
 .btn-ellipse-green:hover a,
-.btn-search-top:hover a{
+.btn-search-top:hover a,
+.btn-fav:hover a{
   color: #ffffff;
 }
 

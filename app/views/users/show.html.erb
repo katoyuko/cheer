@@ -1,15 +1,19 @@
+<!-- jscroll -->
+<%= render "layouts/scroll" %>
+
 <%= render "layouts/flash" %>
+
+<div class="container">
+  <div class="row">
+    <%= render "users/user_info" %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1 tab-content">
     <!-- タブメニュー -->
     <ul class="nav nav-tabs nav-justified">
       <li role="mypage" class="active">
-        <a href="#user-info" data-toggle="tab">
-          <h3>My info</h3><br><p class="small-title">登録情報</p>
-        </a>
-      </li>
-      <li role="mypage">
         <a href="#all-post" data-toggle="tab">
           <h3>All posts</h3><br><p class="small-title">投稿一覧</p>
         </a>
@@ -28,11 +32,7 @@
 
     <!-- タブコンテンツ -->
     <div class="tab-content">
-      <div class="tab-pane active" id="user-info">
-        <%= render "users/user_info" %>
-      </div>
-
-      <div class="tab-pane" id="all-post">
+      <div class="tab-pane active" id="all-post">
         <%= render "users/user_posts" %>
       </div>
 
@@ -41,7 +41,9 @@
       </div>
 
       <div class="tab-pane" id="chart">
-        <p class="chart">[ 月別投稿件数 <%= fa_icon("pencil") %> ]</p>
+          <p class="chart"><label>
+            [ 月別投稿件数 <%= fa_icon("pencil") %> ]
+          </label></p>
         <%= column_chart @chart_data,
           colors: ["#76d9cd"],
           suffix: "件",
@@ -56,6 +58,8 @@
 
 
 <script type="text/javascript">
+
+// いいね機能
 $(function() {
   // イベント名 ajax:success レスポンスが成功時、発火
   $(document).on("ajax:success", ".cheer-button", function(event) {
