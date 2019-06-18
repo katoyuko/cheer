@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   def show
     @post = Post.new
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order.per(8)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(12)
 
     # お気に入りカテゴリ
     @favorite_category = FavoriteCategory.new
-    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order
 
     # チャート
     @chart_data = {}

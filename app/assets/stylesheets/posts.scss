@@ -31,6 +31,7 @@
 
 .favorite{
   margin: 15px 0 30px;
+  text-align: center;
 }
 
 .favorite-login{
@@ -194,6 +195,7 @@
   border-radius: 120px;
 }
 
+
 /* 新規投稿 */
 
 .new-post{
@@ -237,7 +239,8 @@ a{
 
 .post-show-user a,
 .post-user a,
-.comment-user a{
+.comment-user a,
+.nav-tabs a{
   color: #4a4a4a;
 }
 
@@ -252,12 +255,8 @@ a{
 
 /* チャート */
 
-.small-title-chart{
-  text-align: center;
-  margin-bottom: 60px;
-}
-
 .chart{
+  margin: 30px;
   text-align: center;
   font-size: 13px;
 }

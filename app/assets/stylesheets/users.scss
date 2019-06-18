@@ -6,16 +6,19 @@
 
 /* マイページ */
 
-.mypage {
-  padding: 8px 16px;
-  margin: 30px 0;
-  color: #4a4a4a;
-  background: #f4efe5;
+.info{
+  margin: 20px 0 100px;
+  padding: 60px 0 80px;
+  width: 100%;
+  background-image: url("/images/desk.jpeg");
+  background-size: cover;
+  background-position: center center;
 }
 
 .mypage-data{
   width: 100%;
   margin-bottom: 50px;
+  font-size: 13px;
 }
 
 .user-image-box{
@@ -34,7 +37,7 @@
   border-radius: 120px;
 }
 
-.user-image-btn{
+.user-image-btn, .tab-content{
   margin-top: 20px;
 }
 
@@ -59,14 +62,11 @@
   margin-bottom: 10px;
 }
 
-
-.post-index-favorite-mypage{
-  border: 1px solid #76d9cd;
-  padding: 15px;
-  margin: 30px 0;
-  height: 245px;
-}
-
 .mypage-form{
   margin-top: 50px;
 }
+
+.mypage-tab{
+  margin: 40px;
+}
+

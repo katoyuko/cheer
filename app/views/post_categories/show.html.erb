@@ -28,41 +28,41 @@
                   </p>
 
                   <p class="post-content">
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>&nbsp;&nbsp;
 
-                      <!-- cheer機能 -->
-                  <% if user_signed_in? %>
-                      <% if category_post.post_cheered_by?(current_user) %>
-                        <li class="post_cheer">
-                          <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :delete, remote: true do %>
-                            <p class="post_cheer">
-                              <i class="fa fa-flag" id="<%= category_post.id %>"></i>
-                              <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
-                            </p>
-                          <% end %>
-                        </li>
-                      <% else %>
-                        <li class="post_cheer">
-                          <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
-                          <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :post, remote: true do %>
-                            <p class="post_cheer">
-                              <!-- idを指定することでjson形式で返される -->
-                              <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
-                              <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
-                            </p>
-                          <% end %>
-                        </li>
-                      <% end %>
+                    <!-- cheer機能 -->
+                    <% if user_signed_in? %>
+                        <% if category_post.post_cheered_by?(current_user) %>
+                          <li class="post_cheer">
+                            <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :delete, remote: true do %>
+                              <p class="post_cheer">
+                                <i class="fa fa-flag" id="<%= category_post.id %>"></i>
+                                <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                              </p>
+                            <% end %>
+                          </li>
+                        <% else %>
+                          <li class="post_cheer">
+                            <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+                            <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :post, remote: true do %>
+                              <p class="post_cheer">
+                                <!-- idを指定することでjson形式で返される -->
+                                <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                                <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                              </p>
+                            <% end %>
+                          </li>
+                        <% end %>
 
-                  <% else %>
-                    <li class="post_cheer">
-                      <p class="post_cheer">
-                        <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
-                        <%= category_post.cheer_count %> cheer
-                      </p>
-                    </li>
-                  <% end %>
+                    <% else %>
+                      <li class="post_cheer">
+                        <p class="post_cheer">
+                          <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                          <%= category_post.cheer_count %> cheer
+                        </p>
+                      </li>
+                    <% end %>
 
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>
                   </p>
                 </div>
 
