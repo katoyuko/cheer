@@ -10,6 +10,9 @@ class Admins::UsersController < ApplicationController
     @search = User.ransack(params[:q])
     # 検索結果を表示
     @results = @search.result.page(params[:page]).reverse_order.per(30)
+
+    # 検索フォームで入力されたキーワードがparamsの中に入る
+    @users = User.search(params[:search]).page(params[:page]).reverse_order.per(30)
   end
 
   def show

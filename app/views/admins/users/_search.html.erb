@@ -1,0 +1,12 @@
+<div class="row search">
+  <div class="col-md-10 col-md-offset-1">
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <%= form_tag(admins_users_path, method: "get") do %>
+          <%= text_field_tag :search, "", class: "form-control", placeholder: "名前を入力" %>
+          <%= submit_tag "検索", :name => nil, class: "btn-green" %>
+        <% end %>
+      </div>
+    </form>
+  </div>
+</div>
