@@ -1,0 +1,46 @@
+<div class="col-md-12 tab-content">
+  <% @posts.each do |post| %>
+    <div class="col-md-3">
+      <div class="col-md-12 thumbnail post-index-maypage">
+        <section>
+
+          <%= link_to admins_post_path(post.id), class: "image-link" do %>
+            <%= attachment_image_tag post, :image, :fill, 290, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+          <% end %>
+
+          <div class= "caption">
+            <div class="post-content-body-mypage">
+              <div class="post-content-body-mypage-top">
+
+                <label class="btn btn-ellipse">
+                  <%= link_to admins_post_category_path(post.post_category.id) do %>
+                    # <%= post.post_category.category %>
+                  <% end %>
+                </label>
+
+                <p class="post-content"><%= post.post_content.truncate(70) %></p>
+              </div>
+              <div class="post-content-body-mypage-bottom">
+                <p class="pull-right post-arrow"><%= link_to "more ▶︎", admins_post_path(post.id) %></p>
+              </div>
+            </div>
+
+            <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+
+            <p class="post-content">
+              <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                <%= post.cheer_count %> cheer &nbsp;&nbsp;
+              <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
+            </p>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="post_index_paginate">
+    <%= paginate @posts %>
+  </div>
+
+</div>

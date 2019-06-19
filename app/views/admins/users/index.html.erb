@@ -16,7 +16,6 @@
                 <th>ユーザーID</th>
                 <th>画像</th>
                 <th>名前</th>
-                <th>メールアドレス</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -28,9 +27,8 @@
                 <td><%= user.id %></td>
                 <td><%= attachment_image_tag user, :user_image, :fill, 50, 50, format: 'jpeg'%></td>
                 <td><%= user.name %></td>
-                <td><%= user.email %></td>
                 <td><%= link_to "詳細", admins_user_path(user.id), class: "btn btn-ellipse" %></td>
-                <td><%= link_to "削除", admins_user_path(user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %></td>
+                <td><%= link_to "×", admins_user_path(user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-delete" %></td>
               </tr>
            </tbody>
 
