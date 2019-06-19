@@ -15,11 +15,12 @@ ja:
       post:
         image_id: 写真
         post_content: 頑張りつぶやき
+        post_category: カテゴリ
       post_category:
         category: カテゴリ
         category_image: 写真
 
-  errors:
+    errors:
       messages:
         invalid: "が不正な値です。"
         confirmation: "が一致しません。"
@@ -31,3 +32,4 @@ ja:
         wrong_length: "は%{count}文字で記入してください。"
         taken: "はすでに使用されています。"
         not_a_number: "は数値で入力してください。"
+        required: を選択してください。

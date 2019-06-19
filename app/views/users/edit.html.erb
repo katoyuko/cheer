@@ -1,8 +1,11 @@
 <!-- 自己紹介文字数カウント -->
 <script type="text/javascript">
 $(function(){
+  let countNum = String($('#input-text').val().length);
+  $("#counter").text(countNum + "/200")
+
   // キーボードのキーが押され、上がったときに発火
-  $("#input-text").on("keyup", function() {
+  $("#input-text").on("keyup change", function() {
     let countNum = String($(this).val().length);
     $("#counter").text(countNum + "/200");
   });
@@ -43,22 +46,9 @@ $(function(){
         </div>
 
         <div class="col-md-4 col-md-offset-4 mypage-data-btn">
-          <%= f.submit "更新", class: "btn col-md-6 col-md-offset-3 btn-ellipse" %>
+          <%= f.submit "更新", class: "btn col-md-4 col-md-offset-4 btn-ellipse" %>
         </div>
       <% end %>
-
-      <div class="col-md-10 col-md-offset-1">
-        <p class="mypage">投稿</p>
-      </div>
-
-      <div class="col-md-12 main-favorite">
-        <h2>Favorite</h2>
-        <p><%= fa_icon("heart") %> お気に入りしたカテゴリ</p>
-
-        <div class="col-md-4">
-          <%= link_to "お気に入りから削除", "#", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn col-md-6 col-md-offset-3 btn-ellipse-red" %>
-        </div>
-      </div>
 
       <div class="col-md-10 col-md-offset-1">
         <p class="mypage">その他設定</p>

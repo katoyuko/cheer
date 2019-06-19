@@ -22,6 +22,8 @@
 
 
 
+
+
 /* フォント */
 
 body {
@@ -48,6 +50,55 @@ h2, h4{
 
 .small-title{
   text-align: center;
+}
+
+
+/* swiper */
+
+.swiper-container{
+  height: 550px;
+  width: 100%;
+}
+
+.swiper-slide{
+  padding: 450px 80px 0 0;
+  text-align: right;
+  color: #fff;
+  font-size: 30px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #76d9cd;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  width: 20px;
+  height: 20px;
+  background: #76d9cd;
+  opacity: 1;
+}
+
+
+/* 黒ボタン */
+
+.btn-ellipse-black{
+  border-radius: 25px;
+  border: solid 2px #4a4a4a;
+  background-color: #4a4a4a;
+  padding: 9px 16px;
+  color: #fff;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+}
+
+.btn-ellipse-black:hover{
+  color: #fff;
+  border: solid 2px #4a4a4a;
+  background-color: #4a4a4a;
+  opacity: 0.7;
 }
 
 
@@ -90,6 +141,30 @@ h2, h4{
   cursor: pointer;
 }
 
+.btn-hot-top{
+  margin-top: 30px;
+  padding: 10px 0;
+  background: #fff;
+  border: solid 1px #fff;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.btn-hot-top:hover{
+  background-color: #ff5752;
+  border: solid 1px #ff5752;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+}
+
+.btn-hot-top a{
+  color: #ff5752;
+}
+
+.btn-hot-top:hover a{
+  color: #fff;
+}
+
 
 /* 緑色ボタン */
 
@@ -117,22 +192,47 @@ h2, h4{
   margin-top: 30px;
   padding: 10px 0;
   border: solid 1px #76d9cd;
+  background-color: #76d9cd;
   transition: all 0.4s ease 0s;
   cursor: pointer;
+}
+
+.btn-fav{
+  margin-top: 30px;
+  padding: 10px 0;
+  border: solid 1px #fff;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.btn-fav:hover{
+  color: #ffffff;
+  background-color: #76d9cd;
+  border: solid 1px #76d9cd;
 }
 
 .btn-search:hover{
   color: #ffffff;
   background-color: #76d9cd;
   border: solid 1px #76d9cd;
+  opacity: 0.6d;
 }
 
-.btn-search a, .btn-ellipse-green a{
+.btn-ellipse-green a,
+.btn-fav a{
   color: #76d9cd;
 }
 
-.btn-search:hover a, .btn-ellipse-green:hover a{
+.btn-search a,
+.btn-search:hover a,
+.btn-ellipse-green:hover a,
+.btn-search-top:hover a,
+.btn-fav:hover a{
   color: #ffffff;
+}
+
+.btn-default{
+  color: #4a4a4a;
 }
 
 
@@ -143,9 +243,10 @@ h2, h4{
 }
 
 
-/* コメント削除ボタン */
+/* コメント・お気に入り削除ボタン */
 
-.btn-ellipse-comment{
+.btn-ellipse-comment,
+.btn-ellipse-fav{
   border-radius: 30px;
   color: #ff5752;
   transition: all 0.6s ease 0s;
@@ -153,7 +254,8 @@ h2, h4{
   margin-right: 5px;
 }
 
-.btn-ellipse-comment:hover{
+.btn-ellipse-comment:hover,
+.btn-ellipse-fav:hover{
   color: #fff;
   background-color: #ff5752;
   margin-right: 5px;
@@ -162,7 +264,6 @@ h2, h4{
 .tooltip .tooltip-inner{
   background-color: #fff;
   color: #ff5752;
-  border: 1px solid #ff5752;
 }
 
 .tooltip-arrow{
@@ -275,6 +376,7 @@ nav li.active{
 
 .sign{
   margin-top: 60px;
+  padding-top: 60px;
 }
 
 .sign-content{
@@ -284,6 +386,11 @@ nav li.active{
 .sign_up a, .login a{
   color: #4a4a4a;
   font-size: 12px;
+}
+
+.signin-img, .login-img{
+  width: 100%;
+  opacity: 0.6;
 }
 
 
@@ -301,14 +408,14 @@ nav li.active{
 }
 
 footer{
-  height: 70px;
+  height: 40px;
   width: 100%;
   color: #ffffff;
   background: #4a4a4a;
 }
 
 .footer-copyright{
-  padding-top: 22px;
+  padding-top: 8px;
   text-align: center;
   font-size: 12px;
 }
@@ -345,4 +452,16 @@ footer{
 /* 文字数カウンター */
 #counter{
   font-size: 13px;
+}
+
+
+/* リンク機能 */
+
+#postimage{
+  height: 192px;
+}
+
+#postimage:hover,
+.postuser-image:hover{
+  opacity: 0.5;
 }

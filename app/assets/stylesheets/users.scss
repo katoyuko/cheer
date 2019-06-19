@@ -4,27 +4,20 @@
 
 
 
-/* マイページ */
 
-.mypage {
-  padding: 8px 16px;
-  margin: 30px 0;
-  color: #4a4a4a;
-  background: #f4efe5;
-}
 
-.mypage-data{
-  width: 100%;
-  height: 490px;
-  margin-bottom: 20px;
+/* マイページ ユーザー情報 */
+
+.user-info{
+  margin-top: 20px;
 }
 
 .user-image-box{
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: relative;
   overflow: hidden;   /* 300×300以上は切り取り */
-  border-radius: 300px;
+  border-radius: 200px;
 }
 
 .user-image{
@@ -35,17 +28,47 @@
   border-radius: 120px;
 }
 
+.info-username{
+  padding-top: 20px;
+}
+
+.introduction{
+  padding: 20px;
+  font-size: 13px;
+  background: #f4efe5;
+}
+
+.mypage-data-btn{
+  margin: 20px 0;
+}
+
+
+/* ユーザー編集 */
+
+.mypage {
+  padding: 8px 16px;
+  margin: 30px 0;
+  color: #4a4a4a;
+  background: #f4efe5;
+}
+
 .user-image-btn{
   margin-top: 20px;
 }
 
-.mypage-data-btn{
-  margin-bottom: 20px;
+
+/* タブコンテンツ */
+
+.tab-content{
+  margin-top: 60px;
 }
 
-.search{
-  margin: 20px 0;
+.mypage-tab{
+  margin: 40px;
 }
+
+
+/* マイページ 投稿一覧 */
 
 .post-index-maypage{
   margin: 30px 0;
@@ -60,20 +83,13 @@
   margin-bottom: 10px;
 }
 
-.post-index-favorite{
-  border: 1px solid #76d9cd;
-  padding: 15px;
-  margin: 30px 0;
-  height: 270px;
-}
 
-.post-index-favorite-mypage{
-  border: 1px solid #76d9cd;
-  padding: 15px;
-  margin: 30px 0;
-  height: 245px;
-}
+/* マイページ fav カテゴリ */
 
 .mypage-form{
-  margin-top: 50px;
+  margin-top: 20px;
+  padding: 60px;
+  border-radius: 150px;
+  background: #f4efe5;
 }
+

@@ -3,68 +3,21 @@
 <div class="main">
 
 <!-- スライド -->
-<%= render "layouts/swiper" %>
-
-  <div class="main-pickup">
-    <h2>Pick up</h2>
-    <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
-
-    <div class="col-md-10 col-md-offset-1 hot-category">
-      <%= render "layouts/hot_category" %>
-    </div>
-  </div>
-
-  <div class="main-search">
-    <h2>Search</h2>
-    <p><%= fa_icon("search") %> カテゴリ別にみる</p>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul style= "list-style:none;" >
-            <div class="row">
-              <div class="col-md-3">
-                <li><%= link_to "# 読書", "/post_categories/1", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# ボルダリング", "/post_categories/2", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# 登山", "/post_categories/3", class:"btn btn-default btn-search btn-block" %></li>
-              </div>
-
-              <div class="col-md-3">
-                <li><%= link_to "# 語学", "/post_categories/4", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# マラソン", "/post_categories/5", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# 家計簿", "/post_categories/6", class:"btn btn-default btn-search btn-block" %></li>
-              </div>
-
-              <div class="col-md-3">
-                <li><%= link_to "# プログラミング", "/post_categories/7", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# ダイエット", "/post_categories/8", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# 料理", "/post_categories/9", class:"btn btn-default btn-search btn-block" %></li>
-              </div>
-
-              <div class="col-md-3">
-                <li><%= link_to "# DIY", "/post_categories/10", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# カメラ", "/post_categories/11", class:"btn btn-default btn-search btn-block" %></li>
-                <li><%= link_to "# ハンドメイド", "/post_categories/12", class:"btn btn-default btn-search btn-block" %></li>
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<%= render "posts/swiper" %>
 
   <div class="col-md-12 main-favorite">
     <h2>Favorite</h2>
-    <p><%= fa_icon("heart") %> お気に入りカテゴリ</p>
+    <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
 
     <div class="col-md-10 col-md-offset-1 favorite">
       <% if user_signed_in? %>
+
         <% @favorite_categories.each do |favorite_category| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index-favorite">
+            <div class="col-md-12 post-index-fav">
               <section>
                 <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
-                <p class="btn btn-default btn-search btn-block">
+                <p class="btn btn-default btn-fav btn-block">
                   <%= link_to post_category_path(favorite_category.post_category.id) do %>
                     # <%= favorite_category.post_category.category %>
                   <% end %>
@@ -73,6 +26,8 @@
             </div>
           </div>
         <% end %>
+
+
         <div class="col-md-12 favorite-login">
           <div class="col-md-6 col-md-offset-3">
             <%= link_to "マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn btn-ellipse" %>
@@ -92,8 +47,28 @@
     </div>
   </div>
 
+  <div class="col-md-12 main-pickup">
+    <h2>Pick up</h2>
+    <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
+
+    <div class="col-md-10 col-md-offset-1 hot-category">
+      <%= render "post_categories/hot_category" %>
+    </div>
+  </div>
+
+  <div class="col-md-12 main-search">
+    <h2>Search</h2>
+    <p><%= fa_icon("search") %> カテゴリ別にみる</p>
+    <%= render "post_categories/category_index" %>
+  </div>
+
 </div>
 
 
-
+<!-- ツールチップ -->
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 

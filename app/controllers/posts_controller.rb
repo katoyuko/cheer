@@ -11,36 +11,24 @@ class PostsController < ApplicationController
 
     # お気に入りカテゴリ一覧
     if @user = current_user
-      @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+      @favorite_categories = @user.favorite_categories.page(params[:page]).order(created_at: :desc).limit(4)
     end
+
+    @post_categories = PostCategory.all
   end
 
   def about
-  end
-
-  def chart
-    @chart_data = {}
-    posts = current_user.posts.all
-    posts.each do |post|
-      date = post.created_at.strftime('%Y/%m/%d')
-      if @chart_data.has_key?(date)
-        @chart_data[date] += 1
-      else
-        @chart_data[date] = 1
-      end
-    end
   end
 
   def new
     @post = Post.new
   end
 
-
   def create
     @post = Post.new(post_params)
-
-    @post_category = PostCategory.find(params[:post_category_id])
-    @post.post_category_id = @post_category.id
+    # @post_category = PostCategory.find_by(id: params[:post_category_id])
+    # @post.post_category_id = @post_category.id
+    @post.post_category_id = params[:post_category_id]
     @post.user_id = current_user.id
 
     if @post.save

@@ -32,7 +32,7 @@ $(function () {
     <% @post.post_comments.each do |post_comment| %>
       <li>
         <div class="comment-user">
-          <%= link_to user_path(@post.user.id) do %>
+          <%= link_to user_path(@post.user.id), class: "post-user-link" do %>
             <div class="col-md-1 postuser-image-box">
               <%= attachment_image_tag post_comment.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
             </div>
@@ -53,7 +53,7 @@ $(function () {
             <p class="commented pull-right">
               <%= post_comment.created_at.strftime("%Y/%m/%d") %>&nbsp;&nbsp;
               <% if post_comment.user == current_user %>
-              <%= link_to "×", post_post_comments_path(post_comment.post.id), title: "コメントを削除", "data-toggle": "tooltip", "data-placement": "bottom", method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-comment" %>
+              <%= link_to "×", post_post_comments_path(post_comment.post.id), title: "コメントを削除", "data-toggle": "tooltip", "data-placement": "bottom", method: :delete, class: "btn btn-ellipse-comment" %>
               <% end %>
             </p>
           </div>

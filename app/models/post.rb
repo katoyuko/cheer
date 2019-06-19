@@ -7,7 +7,6 @@ class Post < ApplicationRecord
 
   attachment :image
 
-  validates :post_category_id, presence: true
   validates :post_content, presence: true
 
   # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す 投稿にcheerしているか確認
