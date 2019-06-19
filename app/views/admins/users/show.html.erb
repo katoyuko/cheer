@@ -6,19 +6,17 @@
     <div class="col-md-8 col-md-offset-2 user-info">
         <div class="col-md-5">
           <div class="user-image-box">
-            <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", class: "img-responsive user-image" %>
+            <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive user-image" %>
           </div>
-          <label class="info-username"><%= @user.name %></label>
+          <label class="info-username">名前: <%= @user.name %></label>
         </div>
         <div class="col-md-7 introduction">
-          <p><%= @user.introduction %></p>
+          <p>自己紹介: <%= @user.introduction %></p>
         </div>
 
-      <% if current_user == @user %>
         <div class="pull-right mypage-data-btn">
-          <%= link_to "編集 / その他設定", admins_edit_user_path(@user), class: "btn btn-ellipse" %>
+          <%= link_to "削除", admins_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
         </div>
-      <% end %>
     </div>
   </div>
 </div>
