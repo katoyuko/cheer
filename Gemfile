@@ -81,3 +81,5 @@ gem "ransack"
 
 gem "chartkick"
 gem 'chartable'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
