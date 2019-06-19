@@ -1,3 +1,7 @@
+<!-- jscroll -->
+<%= render "layouts/scroll" %>
+
+<!-- flash message -->
 <%= render "layouts/flash" %>
 
 <div class="container">
@@ -6,33 +10,84 @@
       <h2>All posts</h2>
       <p class="small-title">投稿一覧</p>
 
+      <div class="posts-list jscroll" id="index-scroll">
         <% @posts.each do |post| %>
           <div class="col-md-3">
-            <div class="col-md-12 post-index">
+            <div class="col-md-12 thumbnail post-index">
               <section>
 
-                <%= attachment_image_tag post, :image, size: "220x190", format: "png" %>
-                <label class="post-category"><span># </span><%= post.post_category.category %></label>
-                <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                <p class="post-arrow"><%= link_to "→", admins_post_path(post.id) %></p>
+                <%= link_to admins_post_path(post.id), class: "image-link" do %>
+                  <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+                <% end %>
 
-                <p class="post-user">
-                  <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= post.user.name %>
-                </p>
+                <div class= "caption">
+                  <div class="post-content-body">
+                    <div class="post-content-body-top">
 
-                <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
-                </p>
+                      <p class="btn btn-ellipse">
+                        <%= link_to admins_post_category_path(post.post_category.id) do %>
+                          # <%= post.post_category.category %>
+                        <% end %>
+                      </p>
 
-                <p class="post_cheer">
-                  <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
-                </p>
+                      <!-- 投稿内容 70文字以上は省略 -->
+                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    </div>
+                    <div class="row post-content-body-bottom">
+                      <p class="pull-right post-arrow"><%= link_to "more ▶︎", admins_post_path(post.id) %></p>
+                    </div>
+                  </div>
+
+                  <p class="post-user">
+                    <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), admins_user_path(post.user.id), class: "post-user-link" %>
+                  </p>
+
+                  <p class="post-content">
+                    <p class="post_cheer">
+                      <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                      <%= post.cheer_count %> cheer
+                    </p>
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
+                  </p>
+                </div>
 
               </section>
             </div>
           </div>
         <% end %>
+        <!-- 無限スクロール -->
+        <div id="post_index_paginate">
+          <%= paginate @posts %>
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
+
+
+
+<script type="text/javascript">
+$(function() {
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", ".cheer-button", function(event) {
+    let currentNo;
+    let $cheerFlag_i = $(this).children().children('i')
+    let $cheerFlag_span = $(this).children().children('span')
+
+    // fa-flagクラスをもっているか判定
+    // かつ、どのpost.idがclickされか判断
+    if ($cheerFlag_i.hasClass('fa-flag-o')){
+      $cheerFlag_i.removeClass('fa-flag-o').addClass('fa-flag');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) + 1);
+      $(this).attr("data-method", "delete");
+    } else {
+      $cheerFlag_i.removeClass('fa-flag').addClass('fa-flag-o');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) - 1);
+      $(this).attr("data-method", "post");
+    }
+  })
+});
+</script>
