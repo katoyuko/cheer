@@ -1,18 +1,17 @@
-<!-- jscroll -->
-<%= render "layouts/scroll" %>
-
+<!-- カテゴリ別投稿一覧ページ -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h2># <%= @post_category.category %></h2>
 
-      <div class="posts-list jscroll">
         <% @posts.each do |category_post| %>
           <div class="col-md-3">
             <div class="col-md-12 thumbnail post-index">
               <section>
 
-                <%= attachment_image_tag category_post, :image, :fill, 280, 220, format: "png", class: "img-responsive" %>
+                <%= link_to post_path(category_post.id), class: "image-link" do %>
+                  <%= attachment_image_tag category_post, :image, :fill, 280, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+                <% end %>
 
                 <div class= "caption">
                   <div class="post-content-body-category">
@@ -20,17 +19,50 @@
                       <p class="post-content"><%= category_post.post_content.truncate(70) %></p>
                     </div>
                     <div class="post-content-body-cate-bottom">
-                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(category_post.id) %></p>
+                      <p class="pull-right post-arrow"><%= link_to "more ▶︎", post_path(category_post.id) %></p>
                     </div>
                   </div>
 
                   <p class="post-user">
-                    <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= category_post.user.name %>
+                    <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to category_post.user.name.truncate(15), user_path(category_post.user.id), class: "post-user-link" %>
                   </p>
 
                   <p class="post-content">
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>&nbsp;&nbsp;
-                    <i class="fa fa-flag"></i> <%= category_post.post_cheers.count %> cheer
+
+                    <!-- cheer機能 -->
+                    <% if user_signed_in? %>
+                        <% if category_post.post_cheered_by?(current_user) %>
+                          <li class="post_cheer">
+                            <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :delete, remote: true do %>
+                              <p class="post_cheer">
+                                <i class="fa fa-flag" id="<%= category_post.id %>"></i>
+                                <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                              </p>
+                            <% end %>
+                          </li>
+                        <% else %>
+                          <li class="post_cheer">
+                            <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+                            <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :post, remote: true do %>
+                              <p class="post_cheer">
+                                <!-- idを指定することでjson形式で返される -->
+                                <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                                <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                              </p>
+                            <% end %>
+                          </li>
+                        <% end %>
+
+                    <% else %>
+                      <li class="post_cheer">
+                        <p class="post_cheer">
+                          <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                          <%= category_post.cheer_count %> cheer
+                        </p>
+                      </li>
+                    <% end %>
+
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>
                   </p>
                 </div>
 
@@ -38,9 +70,50 @@
             </div>
           </div>
         <% end %>
-        <%= paginate @posts %>
+
+      <!-- ページャー per20 -->
+      <div class="row paginate">
+        <div class="col-md-4 col-md-offset-4" id="current_page">
+          <%= paginate @posts, class: "paginate" %>
+        </div>
+      </div>
+
+      <div class="row category-btn">
+        <div class="col-md-3 col-md-offset-3">
+          <%= link_to "他のカテゴリを見る", root_path, class: "btn btn-block btn-ellipse" %>
+        </div>
+
+        <div class="col-md-3">
+          <%= link_to "すべての投稿を見る", posts_path, class: "btn btn-block btn-ellipse" %>
+        </div>
       </div>
 
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+$(function() {
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", ".cheer-button", function(event) {
+    let currentNo;
+    let $cheerFlag_i = $(this).children().children('i')
+    let $cheerFlag_span = $(this).children().children('span')
+
+    // fa-flagクラスをもっているか判定
+    // かつ、どのpost.idがclickされか判断
+    if ($cheerFlag_i.hasClass('fa-flag-o')){
+      $cheerFlag_i.removeClass('fa-flag-o').addClass('fa-flag');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) + 1);
+      $(this).attr("data-method", "delete");
+    } else {
+      $cheerFlag_i.removeClass('fa-flag').addClass('fa-flag-o');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) - 1);
+      $(this).attr("data-method", "post");
+    }
+  })
+});
+</script>

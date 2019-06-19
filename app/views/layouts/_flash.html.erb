@@ -1,5 +1,19 @@
-<!-- フラッシュメッセージパーシャル -->
+<script type="text/javascript">
+$(function() {
+  $('.flash_message').fadeIn(700);
+  $('.flash_message').fadeOut(4000);
 
+  // cssを適用させるためにフラッシュメッセージがあるか判定
+  if ($('.flash_message').html() !== '') {
+    $('.flash_message').css('display', 'block');
+  }else{
+    $('.flash_message').css('display', 'none');
+  }
+});
+</script>
+
+
+<!-- フラッシュメッセージパーシャル -->
 <div class="row">
   <div class="col-md-2 col-md-offset-1">
     <p class="flash_message"><%= flash[:notice] %></p>

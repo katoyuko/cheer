@@ -1,123 +1,102 @@
+<!-- jscroll -->
+<%= render "layouts/scroll" %>
+
 <%= render "layouts/flash" %>
 
 <div class="container">
   <div class="row">
-
-      <div class="col-md-10 col-md-offset-1">
-        <p class="mypage">基本情報</p>
-      </div>
-      <div class="mypage-data">
-        <div class="col-md-4 col-md-offset-2">
-          <label>写真</label>
-          <div class="user-image-box">
-            <%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: "jpg", class: "img-responsive user-image" %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <section>
-            <div>
-              <label>名前</label>
-              <p><%= @user.name %></p>
-              <label>メールアドレス</label>
-              <p><%= @user.email %></p>
-              <label>自己紹介</label>
-              <p><%= @user.introduction %></p>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      <% if current_user == @user %>
-        <div class="col-md-4 col-md-offset-4 mypage-data-btn">
-          <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-        </div>
-      <% end %>
-
-      <div class="col-md-10 col-md-offset-1">
-        <p class="mypage">投稿</p>
-        <% @posts.each do |post| %>
-          <div class="col-md-3">
-            <div class="col-md-12 thumbnail post-index-maypage">
-              <section>
-
-                <%= attachment_image_tag post, :image, :fill, 1000, 1000, format: "png", class: "img-responsive" %>
-
-                <div class= "caption">
-                  <div class="post-content-body-mypage">
-                    <div class="post-content-body-mypage-top">
-
-                      <label class="btn btn-ellipse">
-                        <%= link_to post_category_path(post.post_category.id) do %>
-                          # <%= post.post_category.category %>
-                        <% end %>
-                      </label>
-
-                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                    </div>
-                    <div class="post-content-body-mypage-bottom">
-                      <p class="pull-right post-arrow"><%= link_to "▶︎", post_path(post.id) %></p>
-                    </div>
-                  </div>
-
-                  <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-
-                  <p class="post-content">
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>&nbsp;&nbsp;
-                    <i class="fa fa-flag"></i> <%= post.post_cheers.count %> cheer
-                  </p>
-                </div>
-
-              </section>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="row paginate">
-        <div class="col-md-4 col-md-offset-4">
-          <%= paginate @posts, class: "paginate" %>
-        </div>
-      </div>
-
-      <% if current_user == @user %>
-        <div class="col-md-10 col-md-offset-1">
-          <p class="mypage">お気に入りしたカテゴリ</p>
-
-          <% @favorite_categories.each do |favorite_category| %>
-            <div class="col-md-3">
-              <div class="col-md-12 post-index-favorite-mypage">
-                <section>
-                  <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 180, 140, format: "png", class: "img-responsive" %>
-                  <p class="btn btn-default btn-search btn-block">
-                    <%= link_to post_category_path(favorite_category.post_category.id) do %>
-                      # <%= favorite_category.post_category.category %>
-                    <% end %>
-                  </p>
-                </section>
-              </div>
-
-              <%= link_to "削除", favorite_category_path(favorite_category.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn col-md-6 col-md-offset-3 btn-ellipse-red" %>
-
-            </div>
-          <% end %>
-        </div>
-
-        <div class="form col-md-4 col-md-offset-4 mypage-form">
-          <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
-            <div class="form-group">
-              <label for="control-label">お気に入りを追加</label>
-              <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "form-control", name: "post_category_id"} %>
-            </div>
-
-            <div class="row">
-              <div class="col-md-4 col-md-offset-4">
-                <%= f.submit "追加", class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-              </div>
-            </div>
-
-          <% end %>
-        </div>
-
-      <% end %>
+    <%= render "users/user_info" %>
   </div>
 </div>
+
+<% if current_user == @user %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 tab-content">
+      <!-- タブメニュー -->
+      <ul class="nav nav-tabs nav-justified">
+        <li role="mypage" class="active">
+          <a href="#all-post" data-toggle="tab">
+            <h3>All posts</h3><br><p class="small-title">投稿一覧</p>
+          </a>
+        </li>
+        <li role="mypage">
+          <a href="#fav-category" data-toggle="tab">
+            <h3>Favorite category</h3><br><p class="small-title">お気に入りカテゴリ</p>
+          </a>
+        </li>
+        <li role="mypage">
+          <a href="#chart" data-toggle="tab">
+            <h3>My chart</h3><br><p class="small-title">頑張りチャート</p>
+          </a>
+        </li>
+      </ul>
+
+      <!-- タブコンテンツ -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="all-post">
+          <%= render "users/user_posts" %>
+        </div>
+
+        <div class="tab-pane" id="fav-category">
+          <%= render "users/user_fav" %>
+        </div>
+
+        <div class="tab-pane" id="chart">
+            <p class="chart"><label>
+              [ 月別投稿件数 <%= fa_icon("pencil") %> ]
+            </label></p>
+          <%= column_chart @chart_data,
+            colors: ["#76d9cd"],
+            suffix: "件",
+            messages: {empty: "投稿がありません。New postから投稿ができます！"}
+           %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>All posts</h2>
+      <p class="small-title">投稿一覧</p>
+      <%= render "users/user_posts" %>
+    </div>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+// いいね機能
+$(function() {
+  // イベント名 ajax:success レスポンスが成功時、発火
+  $(document).on("ajax:success", ".cheer-button", function(event) {
+    let currentNo;
+    let $cheerFlag_i = $(this).children().children('i')
+    let $cheerFlag_span = $(this).children().children('span')
+
+    // fa-flagクラスをもっているか判定
+    // かつ、どのpost.idがclickされか判断
+    if ($cheerFlag_i.hasClass('fa-flag-o')){
+      $cheerFlag_i.removeClass('fa-flag-o').addClass('fa-flag');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) + 1);
+      $(this).attr("data-method", "delete");
+    } else {
+      $cheerFlag_i.removeClass('fa-flag').addClass('fa-flag-o');
+      currentNo = $cheerFlag_span.html();
+      $cheerFlag_span.html(Number(currentNo) - 1);
+      $(this).attr("data-method", "post");
+    }
+  })
+});
+
+
+// <!-- ツールチップ
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+</script>
+

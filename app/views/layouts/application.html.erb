@@ -7,16 +7,21 @@
 
     <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
   </head>
 
   <body>
 
-    <%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 
+  <div id="body-main">
     <%= yield %>
+  </div>
 
-    <%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' %>
 
   </body>
 </html>

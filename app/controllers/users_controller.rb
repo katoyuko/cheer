@@ -3,13 +3,26 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   def show
+    @post = Post.new
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order.per(8)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(12)
 
-    # お気に入りカテゴリ追加
+    # お気に入りカテゴリ
     @favorite_category = FavoriteCategory.new
-    # お気に入りカテゴリ一覧
-    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+    @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order
+
+    # チャート
+    @chart_data = {}
+    posts = current_user.posts.all
+    posts.each do |post|
+      date = post.created_at.strftime('%Y/%m/%d')
+      if @chart_data.has_key?(date)
+        @chart_data[date] += 1
+      else
+        @chart_data[date] = 1
+      end
+    end
+
   end
 
   def edit

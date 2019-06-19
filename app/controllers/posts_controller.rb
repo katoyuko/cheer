@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def top
@@ -12,25 +11,24 @@ class PostsController < ApplicationController
 
     # お気に入りカテゴリ一覧
     if @user = current_user
-      @favorite_categories = @user.favorite_categories.page(params[:page]).reverse_order.per(4)
+      @favorite_categories = @user.favorite_categories.page(params[:page]).order(created_at: :desc).limit(4)
     end
-  end
 
+    @post_categories = PostCategory.all
+  end
 
   def about
   end
-
 
   def new
     @post = Post.new
   end
 
-
   def create
     @post = Post.new(post_params)
-
-    @post_category = PostCategory.find(params[:post_category_id])
-    @post.post_category_id = @post_category.id
+    # @post_category = PostCategory.find_by(id: params[:post_category_id])
+    # @post.post_category_id = @post_category.id
+    @post.post_category_id = params[:post_category_id]
     @post.user_id = current_user.id
 
     if @post.save
@@ -42,7 +40,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.page(params[:page]).reverse_order.per(12)
+    @posts = Post.page(params[:page]).reverse_order.per(16)
   end
 
 
