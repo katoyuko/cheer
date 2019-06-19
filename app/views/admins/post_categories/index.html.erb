@@ -25,7 +25,7 @@
                 <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
 
                 <div class="col-md-6 col-md-offset-3 category-btn">
-                  <%= f.submit "登録", class: "btn btn-block btn-ellipse" %>
+                  <%= f.submit "登録", class: "btn btn-block btn-ellipse-black" %>
                 </div>
               <% end %>
             </div>
@@ -49,7 +49,7 @@
                     <td><%= attachment_image_tag post_category, :category_image, :fill, 70, 70, format: 'jpeg'%></td>
                     <td><%= post_category.category %></td>
                     <td><%= link_to "編集", edit_admins_post_category_path(post_category.id), class: "btn btn-ellipse" %></td>
-                    <td><%= link_to "削除", admins_post_category_path(post_category.id), class: "btn btn-ellipse-red", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
+                    <td><%= link_to "×", admins_post_category_path(post_category.id), class: "btn btn-ellipse-delete", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
                   </tr>
                 <% end %>
               </tbody>

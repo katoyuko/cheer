@@ -10,40 +10,10 @@
     <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
 
     <div class="col-md-10 col-md-offset-1 favorite">
-      <% if user_signed_in? %>
 
-        <% @favorite_categories.each do |favorite_category| %>
-          <div class="col-md-3">
-            <div class="col-md-12 post-index-fav">
-              <section>
-                <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
-                <p class="btn btn-default btn-fav btn-block">
-                  <%= link_to post_category_path(favorite_category.post_category.id) do %>
-                    # <%= favorite_category.post_category.category %>
-                  <% end %>
-                </p>
-              </section>
-            </div>
-          </div>
-        <% end %>
-
-
-        <div class="col-md-12 favorite-login">
-          <div class="col-md-6 col-md-offset-3">
-            <%= link_to "マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn btn-ellipse" %>
-          </div>
-        </div>
-      <% else %>
         <div class="favorite-login">
           <p>＼ ログインするとお気に入りしたカテゴリを閲覧できます ／</p>
-          <div class="col-md-4 col-md-offset-4 favorite-btn">
-            <%= link_to "新規登録する", new_user_registration_path, class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-          </div>
-          <div class="col-md-4 col-md-offset-4 favorite-btn">
-            <%= link_to "ログインする", new_user_session_path, class: "btn col-md-8 col-md-offset-2 btn-ellipse" %>
-          </div>
         </div>
-      <% end %>
     </div>
   </div>
 
@@ -52,14 +22,45 @@
     <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
 
     <div class="col-md-10 col-md-offset-1 hot-category">
-      <%= render "post_categories/hot_category" %>
+      <% @post_category_ranks.each do |post_category| %>
+        <div class="col-md-3">
+          <div class="col-md-12 post-index-hot">
+            <section>
+              <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
+              <p class="btn btn-default btn-hot-top btn-block">
+                <%= link_to admins_post_category_path(post_category.id) do %>
+                  # <%= post_category.category %>
+                <% end %>
+              </p>
+            </section>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <div class="col-md-12 main-search">
     <h2>Search</h2>
     <p><%= fa_icon("search") %> カテゴリ別にみる</p>
-    <%= render "post_categories/category_index" %>
+      <div class="container">
+        <div class="row">
+          <div class="category_index">
+            <% @post_categories.each do |post_category| %>
+              <div class="col-md-3">
+                <div class="col-md-12">
+                  <section>
+                    <p class="btn btn-default btn-search btn-block">
+                      <%= link_to admins_post_category_path(post_category.id) do %>
+                        # <%= post_category.category %>
+                      <% end %>
+                    </p>
+                  </section>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
   </div>
 
 </div>
