@@ -215,7 +215,7 @@ h2, h4{
   color: #ffffff;
   background-color: #76d9cd;
   border: solid 1px #76d9cd;
-  opacity: 0.6;
+  opacity: 0.6d;
 }
 
 .btn-ellipse-green a,
@@ -376,6 +376,7 @@ nav li.active{
 
 .sign{
   margin-top: 60px;
+  padding-top: 60px;
 }
 
 .sign-content{
@@ -385,6 +386,11 @@ nav li.active{
 .sign_up a, .login a{
   color: #4a4a4a;
   font-size: 12px;
+}
+
+.signin-img, .login-img{
+  width: 100%;
+  opacity: 0.6;
 }
 
 
