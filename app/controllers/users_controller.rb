@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order.per(12)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(32)
 
     # お気に入りカテゴリ
     @favorite_category = FavoriteCategory.new
