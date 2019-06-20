@@ -28,7 +28,7 @@
 
             <%= link_to user_path(@post.user.id), class: "post-user-link" do %>
               <div class="col-md-1 postuser-image-box">
-                <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+                <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive postuser-image" %>
               </div>
               <%= @post.user.name %>
             <% end %>

@@ -24,7 +24,7 @@
                   <div class="post-content-body">
                     <div class="post-content-body-top">
 
-                      <p class="btn btn-ellipse">
+                      <p class="btn btn-ellipse-index">
                         <%= link_to post_category_path(post.post_category.id) do %>
                           # <%= post.post_category.category %>
                         <% end %>
@@ -38,46 +38,48 @@
                     </div>
                   </div>
 
-                  <p class="post-user">
-                    <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), user_path(post.user.id), class: "post-user-link" %>
-                  </p>
+                  <div class="post-user">
+                    <p><%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), user_path(post.user.id), class: "post-user-link" %></p>
+                  </div>
 
-                  <p class="post-content">
+                  <div>
                         <!-- cheer機能 -->
                     <% if user_signed_in? %>
                         <% if post.post_cheered_by?(current_user) %>
                           <li class="post_cheer">
                             <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :delete, remote: true do %>
-                              <p class="post_cheer">
+                              <div class="post_cheer">
                                 <i class="fa fa-flag" id="<%= post.id %>"></i>
                                 <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                              </p>
+                              </div>
                             <% end %>
                           </li>
                         <% else %>
                           <li class="post_cheer">
                             <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
                             <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :post, remote: true do %>
-                              <p class="post_cheer">
+                              <div class="post_cheer">
                                 <!-- idを指定することでjson形式で返される -->
                                 <i class="fa fa-flag-o" id="<%= post.id %>"></i>
                                 <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                              </p>
+                              </div>
                             <% end %>
                           </li>
                         <% end %>
 
                     <% else %>
                       <li class="post_cheer">
-                        <p class="post_cheer">
+                        <div class="post_cheer">
                           <i class="fa fa-flag-o" id="<%= post.id %>"></i>
                           <%= post.cheer_count %> cheer
-                        </p>
+                        </div>
                       </li>
                     <% end %>
-
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
-                  </p>
+                    &nbsp;&nbsp;
+                    <div class="comment-link">
+                      <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "index-comment" %>
+                    </div>
+                  </div>
                 </div>
 
               </section>

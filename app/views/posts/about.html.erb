@@ -29,9 +29,9 @@
           また、目標達成までの過程や頑張った結果を発信することができます。
         </p>
         <% if user_signed_in? %>
-          <%= link_to "> Mypage", user_path(current_user), class: "btn btn-block btn-ellipse" %>
+          <%= link_to "> New post", new_post_path(current_user), class: "btn btn-block btn-ellipse" %>
         <% else %>
-          <%= link_to "> Mypage", new_user_session_path, class: "btn btn-block btn-ellipse" %>
+          <%= link_to "> New post", new_user_session_path, class: "btn btn-block btn-ellipse" %>
         <% end %>
       </div>
 
@@ -40,7 +40,7 @@
         <%= image_tag "/images/search.png", class: "how-img" %>
         <p>
           これから何かに挑戦したいと思っていたら...
-          Homeページの「ホットなカテゴリ」から今話題のものを閲覧することができます。
+          'ホットなカテゴリ'から今話題のものを閲覧することができます。
           やりたいことがみつかったら、チャレンジしてみましょう！
         </p>
         <div class="button">
