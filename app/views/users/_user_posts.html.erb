@@ -1,78 +1,82 @@
 <div class="col-md-12 tab-content">
-  <% @posts.each do |post| %>
-    <div class="col-md-3">
-      <div class="col-md-12 thumbnail post-index-maypage">
-        <section>
+  <% if @posts.present? %>
+    <% @posts.each do |post| %>
+      <div class="col-md-3">
+        <div class="col-md-12 thumbnail post-index">
+          <section>
+            <%= link_to post_path(post.id), class: "image-link" do %>
+              <%= attachment_image_tag post, :image, :fill, 290, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+            <% end %>
 
-          <%= link_to post_path(post.id), class: "image-link" do %>
-            <%= attachment_image_tag post, :image, :fill, 290, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
-          <% end %>
+            <div class= "caption">
+              <div class="post-content-body">
+                <div class="post-content-body-top">
 
-          <div class= "caption">
-            <div class="post-content-body-mypage">
-              <div class="post-content-body-mypage-top">
+                  <label class="btn btn-ellipse-index">
+                    <%= link_to post_category_path(post.post_category.id) do %>
+                      # <%= post.post_category.category %>
+                    <% end %>
+                  </label>
 
-                <label class="btn btn-ellipse">
-                  <%= link_to post_category_path(post.post_category.id) do %>
-                    # <%= post.post_category.category %>
-                  <% end %>
-                </label>
-
-                <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                  <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                </div>
+                <div class="post-content-body-bottom-mypage">
+                  <div class="pull-right post-arrow"><%= link_to "more ▶︎", post_path(post.id) %>
+                  </div>
+                </div>
               </div>
-              <div class="post-content-body-mypage-bottom">
-                <p class="pull-right post-arrow"><%= link_to "more ▶︎", post_path(post.id) %></p>
+
+              <div class="post-user-myoage">
+                <%= post.created_at.strftime('%Y/%m/%d') %>
               </div>
-            </div>
-
-            <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-
-            <p class="post-content">
 
               <!-- cheer機能 -->
               <% if user_signed_in? %>
                   <% if post.post_cheered_by?(current_user) %>
                     <li class="post_cheer">
                       <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :delete, remote: true do %>
-                        <p class="post_cheer">
+                        <div class="post_cheer">
                           <i class="fa fa-flag" id="<%= post.id %>"></i>
                           <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                        </p>
+                        </div>
                       <% end %>
                     </li>
                   <% else %>
                     <li class="post_cheer">
                       <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
                       <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :post, remote: true do %>
-                        <p class="post_cheer">
+                        <div class="post_cheer">
                           <!-- idを指定することでjson形式で返される -->
                           <i class="fa fa-flag-o" id="<%= post.id %>"></i>
                           <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                        </p>
+                        </div>
                       <% end %>
                     </li>
                   <% end %>
 
               <% else %>
                 <li class="post_cheer">
-                  <p class="post_cheer">
+                  <div class="post_cheer">
                     <i class="fa fa-flag-o" id="<%= post.id %>"></i>
                     <%= post.cheer_count %> cheer
-                  </p>
+                  </div>
                 </li>
               <% end %>
-
+              &nbsp;&nbsp;
               <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
-            </p>
-          </div>
+            </div>
 
-        </section>
+          </section>
+        </div>
       </div>
+    <% end %>
+    <div class="post_index_paginate">
+      <%= paginate @posts %>
+    </div>
+
+  <% else %>
+    <div class="col-md-4 col-md-offset-4 no-post">
+      <p>投稿がありません</p>
     </div>
   <% end %>
-
-  <div class="post_index_paginate">
-    <%= paginate @posts %>
-  </div>
-
 </div>
