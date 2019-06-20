@@ -9,7 +9,7 @@
 
       <div class="col-md-10 col-md-offset-1 post-show-body">
         <div class="col-md-6">
-            <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
+            <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", fallback: "/images/no-image.png", class: "img-responsive img-rounded" %>
         </div>
         <div class="col-md-6">
           <label class="btn btn-ellipse post-category">

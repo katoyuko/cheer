@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'rspec-rails'
+  gem 'rubocop'
 end
 
 group :development do
@@ -81,3 +82,4 @@ gem "chartkick"
 gem 'chartable'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+

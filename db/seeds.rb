@@ -18,7 +18,7 @@ CSV.foreach('db/category.csv', headers: true) do |row|
 end
 
 
-100.times do
+50.times do
   Post.create(
     post_category_id: Faker::Number.within(1..12),
     post_content: '頑張ります',
@@ -29,7 +29,7 @@ end
 end
 
 
-50.times do |n|
+50.times do
   name = Faker::Name.name
   email = Faker::Internet.email
   password = "password"

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post_category_ranks = PostCategory.where(id: post_category_ids).sort_by{|o| post_category_ids.index(o.id)}[0..3]
 
     # お気に入りカテゴリ一覧
-    if @user = current_user
+    if @user == current_user
       @favorite_categories = @user.favorite_categories.page(params[:page]).order(created_at: :desc).limit(4)
     end
 
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update_attributes(post_params)
+    if @post.update(post_params)
       redirect_to posts_path, notice: "更新しました！"
     else
       render :edit
