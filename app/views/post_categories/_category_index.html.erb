@@ -1,19 +1,65 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 category_index">
-      <% @post_categories.each do |post_category| %>
-        <div class="col-md-3">
-          <div class="col-md-12">
-            <section>
-              <p class="btn btn-default btn-search btn-block">
-                <%= link_to post_category_path(post_category.id) do %>
-                  # <%= post_category.category %>
-                <% end %>
-              </p>
-            </section>
+<% @posts.each do |category_post| %>
+  <div class="col-md-3">
+    <div class="col-md-12 thumbnail post-index">
+      <section>
+
+        <%= link_to post_path(category_post.id), class: "image-link" do %>
+          <%= attachment_image_tag category_post, :image, :fill, 280, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+        <% end %>
+
+        <div class= "caption">
+          <div class="category-content">
+            <div class="category-content-top">
+              <%= category_post.post_content.truncate(70) %>
+            </div>
+            <div class="category-content-bottom">
+              <p class="pull-right post-arrow"><%= link_to "more ▶︎", post_path(category_post.id) %></p>
+            </div>
+          </div>
+
+          <div class="post-user">
+            <p><%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to category_post.user.name.truncate(15), user_path(category_post.user.id), class: "post-user-link" %></p>
+          </div>
+
+          <!-- cheer機能 -->
+          <% if user_signed_in? %>
+              <% if category_post.post_cheered_by?(current_user) %>
+                <li class="post_cheer">
+                  <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :delete, remote: true do %>
+                    <div class="post_cheer">
+                      <i class="fa fa-flag" id="<%= category_post.id %>"></i>
+                      <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                    </div>
+                  <% end %>
+                </li>
+              <% else %>
+                <li class="post_cheer">
+                  <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+                  <%= link_to post_post_cheers_path(category_post), class: "cheer-button", method: :post, remote: true do %>
+                    <div class="post_cheer">
+                      <!-- idを指定することでjson形式で返される -->
+                      <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                      <span class="cheer_count"><%= category_post.cheer_count %></span> cheer
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+
+          <% else %>
+            <li class="post_cheer">
+              <div class="post_cheer">
+                <i class="fa fa-flag-o" id="<%= category_post.id %>"></i>
+                <%= category_post.cheer_count %> cheer
+              </div>
+            </li>
+          <% end %>
+          &nbsp;&nbsp;
+          <div class="comment-link">
+            <i class="fa fa-comment-o"></i> <%= link_to "#{category_post.post_comments.count} comment", post_path(category_post), class: "post-content" %>
           </div>
         </div>
-      <% end %>
+
+      </section>
     </div>
   </div>
-</div>
+<% end %>
