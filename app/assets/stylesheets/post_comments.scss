@@ -16,7 +16,6 @@
 
 .comment{
   list-style: none;
-
 }
 
 #comment-box{
@@ -28,11 +27,42 @@
   margin: 20px 0;
 }
 
+#comment-form-text{
+  border-radius: 30px;
+}
+
 .comment-text{
-  border-radius: 10px;
+  position: relative;
+  border-radius: 30px;
   background: #f4efe5;
   padding: 10px;
   font-size: 14px;
+}
+
+.comment-text::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: 32px;
+  top: -8px;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f4efe5;
+  border-left: 10px solid transparent;
+}
+
+.comment-text::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: 32px;
+  top: -8px;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f4efe5;
+  border-left: 10px solid transparent;
 }
 
 .commented{
@@ -42,6 +72,6 @@
 
 .comment-user{
   font-size: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 

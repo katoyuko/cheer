@@ -17,7 +17,7 @@
       <div class="col-md-3 col-md-offset-1 how">
         <%= image_tag "/images/cheer.png", class: "how-img" %>
         <p>
-          投稿の‘cheer’ ボタンを押して<br>応援することができます。
+          投稿の <%= fa_icon("flag") %> 'cheer’ ボタンを押して<br>応援することができます。
         </p>
         <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-ellipse" %></p>
       </div>
@@ -39,8 +39,7 @@
       <div class="col-md-3 how">
         <%= image_tag "/images/search.png", class: "how-img" %>
         <p>
-          これから何かに挑戦したいと思っていたら...
-          'ホットなカテゴリ'から今話題のものを閲覧することができます。
+          これから何かに挑戦したいと思っていたら... 'ホットなカテゴリ' から今話題のものを閲覧することができます。
           やりたいことがみつかったら、チャレンジしてみましょう！
         </p>
         <div class="button">
