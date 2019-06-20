@@ -29,7 +29,7 @@ end
 end
 
 
-50.times do |n|
+50.times do
   name = Faker::Name.name
   email = Faker::Internet.email
   password = "password"
