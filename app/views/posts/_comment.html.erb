@@ -9,7 +9,7 @@ $(function () {
 <!-- コメント入力フォーム -->
 <div class="col-md-6 col-md-offset-3 comment-form">
   <%= form_for [@post, @post_comment] do |f| %>
-    <%= f.text_area :comment, rows: "2", class: "form-control", placeholder: "コメント入力" %>
+    <%= f.text_area :comment, rows: "2", class: "form-control", id: "comment-form-text", placeholder: "コメント入力" %>
     <p class="pull-right" id="sending">
       <%= f.submit "送信", class: "btn" %>
       <%= fa_icon("paper-plane") %>

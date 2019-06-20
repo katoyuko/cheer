@@ -24,7 +24,7 @@
                   <div class="post-content-body">
                     <div class="post-content-body-top">
 
-                      <p class="btn btn-ellipse">
+                      <p class="btn btn-ellipse-index">
                         <%= link_to admins_post_category_path(post.post_category.id) do %>
                           # <%= post.post_category.category %>
                         <% end %>
@@ -38,17 +38,19 @@
                     </div>
                   </div>
 
-                  <p class="post-user">
-                    <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), admins_user_path(post.user.id), class: "post-user-link" %>
-                  </p>
-
-                  <p class="post-content">
-                    <p class="post_cheer">
-                      <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-                      <%= post.cheer_count %> cheer
+                  <div class="post-user">
+                    <p>
+                      <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), admins_user_path(post.user.id), class: "post-user-link" %>
                     </p>
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
-                  </p>
+                  </div>
+
+
+                  <div class="post_cheer">
+                    <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                    <%= post.cheer_count %> cheer
+                  </div>
+                  &nbsp;&nbsp;
+                  <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
                 </div>
 
               </section>
