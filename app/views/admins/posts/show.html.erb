@@ -7,19 +7,18 @@
       <h2>Post</h2>
       <p class="small-title">投稿</p>
 
-      <div class="col-md-6 col-md-offset-3 post-show-body">
-        <div class="col-md-12">
-          <section>
-
+      <div class="col-md-10 col-md-offset-1 post-show-body">
+        <div class="col-md-6">
             <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
+        </div>
+        <div class="col-md-6">
+          <label class="btn btn-ellipse post-category">
+            <%= link_to admins_post_category_path(@post.post_category.id) do %>
+              # <%= @post.post_category.category %>
+            <% end %>
+          </label>
 
-            <label class="btn btn-ellipse post-category">
-              <%= link_to admins_post_category_path(@post.post_category.id) do %>
-                # <%= @post.post_category.category %>
-              <% end %>
-            </label>
-
-            <p class="post-show-content-text"><%= @post.post_content%></p>
+          <p class="post-show-content-text"><%= @post.post_content%></p>
 
           <div class="post-show-user">
             <p>
@@ -34,17 +33,17 @@
             <% end %>
           </div>
 
-            <div class="post-show-content">
-              <p>
-                <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
-                <%= @post.cheer_count %> cheer &nbsp;&nbsp;
-                <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
-              </p>
-            </div>
-
-          </section>
+          <div class="post-show-content">
+            <p>
+              <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+              <%= @post.cheer_count %> cheer &nbsp;&nbsp;
+              <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
+            </p>
+          </div>
         </div>
+
       </div>
+    </div>
 
 
       <!-- コメント -->

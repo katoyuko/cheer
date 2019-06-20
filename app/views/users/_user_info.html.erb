@@ -1,17 +1,23 @@
 <div class="col-md-8 col-md-offset-2 user-info">
     <div class="col-md-5">
       <div class="user-image-box">
-        <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", class: "img-responsive user-image" %>
+        <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive user-image" %>
       </div>
       <label class="info-username"><%= @user.name %></label>
     </div>
     <div class="col-md-7 introduction">
-      <p><%= @user.introduction %></p>
+      <% if @user.introduction.present? %>
+        <p><%= @user.introduction %></p>
+      <% else %>
+        <% if @user = current_user %>
+          <p>自己紹介文が登録されていません。</p>
+        <% end %>
+      <% end %>
     </div>
 
   <% if current_user == @user %>
     <div class="pull-right mypage-data-btn">
-      <%= link_to "編集 / その他設定", edit_user_path(@user), class: "btn btn-ellipse" %>
+      <%= link_to "ユーザー情報編集 / その他設定", edit_user_path(@user), class: "btn btn-ellipse" %>
     </div>
   <% end %>
 </div>

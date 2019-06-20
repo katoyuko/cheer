@@ -23,7 +23,6 @@
 
 
 
-
 /* フォント */
 
 body {
@@ -50,6 +49,7 @@ h2, h4{
 
 .small-title{
   text-align: center;
+  margin-bottom: 40px;
 }
 
 
@@ -123,6 +123,35 @@ h2, h4{
   border: solid 2px #ffd600;
 }
 
+.btn-ellipse a,
+.btn-ellipse-index a{
+  color: #ffd600;
+}
+
+.btn-ellipse:hover a,
+.btn-ellipse-index:hover a{
+  color: #ffffff;
+}
+
+
+/* 黄色ボタン for 投稿一覧 */
+
+.btn-ellipse-index{
+  font-size: 13px;
+  border-radius: 25px;
+  border: solid 1px #ffd600;
+  padding: 2px 7px;
+  color: #ffd600;
+  transition: all 0.6s ease 0s;
+  cursor: pointer;
+}
+
+.btn-ellipse-index:hover{
+  border: solid 1px #ffd600;
+  color: #fff;
+  background-color: #ffd600;
+}
+
 
 /* 赤色ボタン */
 
@@ -163,6 +192,20 @@ h2, h4{
 
 .btn-hot-top:hover a{
   color: #fff;
+}
+
+.btn-circle{
+  color: #fff;
+  background-color: #ff5752;
+  margin-right: 5px;
+  border-radius: 30px;
+}
+
+.btn-circle:hover{
+  color: #fff;
+  background-color: #ff5752;
+  margin-right: 5px;
+  opacity: 0.7;
 }
 
 
@@ -272,7 +315,6 @@ h2, h4{
   border: #fff;
   }
 
-
 /* フラッシュメッセージ */
 
 .flash_message{
@@ -370,7 +412,7 @@ nav li.active{
 
 .admin{
   color: #76d9cd;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 
@@ -457,7 +499,7 @@ footer{
 }
 
 
-/* リンク機能 */
+/* imageリンク機能 */
 
 #postimage{
   height: 192px;

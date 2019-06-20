@@ -7,19 +7,20 @@
       <h2>Post</h2>
       <p class="small-title">投稿</p>
 
-      <div class="col-md-6 col-md-offset-3 post-show-body">
-        <div class="col-md-12">
-          <section>
+      <div class="col-md-10 col-md-offset-1 post-show-body">
+        <div class="col-md-6">
+          <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", fallback: "/images/no-image.png", class: "img-responsive img-rounded" %>
+        </div>
+        <div class="col-md-6">
+          <label class="btn btn-ellipse post-category">
+            <%= link_to post_category_path(@post.post_category.id) do %>
+              # <%= @post.post_category.category %>
+            <% end %>
+          </label>
 
-            <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", class: "img-responsive img-rounded" %>
-
-            <label class="btn btn-ellipse post-category">
-              <%= link_to post_category_path(@post.post_category.id) do %>
-                # <%= @post.post_category.category %>
-              <% end %>
-            </label>
-
-            <p class="post-show-content-text"><%= @post.post_content%></p>
+          <p class="post-show-content-text">
+            <%= @post.post_content%>
+          </p>
 
           <div class="post-show-user">
             <p>
@@ -28,22 +29,20 @@
 
             <%= link_to user_path(@post.user.id), class: "post-user-link" do %>
               <div class="col-md-1 postuser-image-box">
-                <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
+                <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive postuser-image" %>
               </div>
               <%= @post.user.name %>
             <% end %>
           </div>
 
-            <div class="post-show-content">
-              <p>
-                <!-- cheer機能 -->
-                <%= render "posts/post_cheer" %>
-
-                <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
-              </p>
-            </div>
-
-          </section>
+          <div class="post-show-content">
+            <p>
+              <!-- cheer機能 -->
+              <%= render "posts/post_cheer" %>
+              &nbsp;&nbsp;
+              <i class="fa fa-comment-o"></i> <%= @post.post_comments.count %> comment
+            </p>
+          </div>
         </div>
       </div>
 
@@ -53,7 +52,7 @@
       <div class="row">
         <div class="col-md-2 col-md-offset-5 btn-link">
          <p class="btn btn-block btn-ellipse-green">
-           <%= link_to "戻る ", posts_path %>
+           <%= link_to "> 戻る ", posts_path %>
          </p>
        </div>
      </div>
@@ -62,7 +61,7 @@
         <div class="row">
           <div class="col-md-2 col-md-offset-5 btn-link">
            <p class="btn btn-block btn-ellipse">
-             <%= link_to "編集 ", edit_post_path(@post.id) %>
+             <%= link_to "> 投稿編集 ", edit_post_path(@post.id) %>
            </p>
          </div>
        </div>
