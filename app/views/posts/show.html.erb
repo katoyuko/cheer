@@ -12,7 +12,6 @@
           <%= attachment_image_tag @post, :image, :fill, 520, 430, format: "jpg", fallback: "/images/no-image.png", class: "img-responsive img-rounded" %>
         </div>
         <div class="col-md-6">
-
           <label class="btn btn-ellipse post-category">
             <%= link_to post_category_path(@post.post_category.id) do %>
               # <%= @post.post_category.category %>

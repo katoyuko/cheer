@@ -46,7 +46,7 @@ $(function() {
         <li><%= link_to "New admin", new_admin_registration_path, class: "link" %></li>
         <li><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "link" %></li>
       <% else %>
-        <p class="admin"><%= fa_icon("circle") %> For admins <%= fa_icon("circle") %></p>
+        <p class="admin"> For admins <%= fa_icon("exclamation") %><%= fa_icon("exclamation") %></p>
         <li><%= link_to "Home", admins_root_path, class: "link" %></li>
         <li><%= link_to "About", admins_about_path, class: "link" %></li>
         <li><%= link_to "Log in", new_admin_session_path, class: "link" %></li>
