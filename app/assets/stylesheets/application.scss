@@ -194,6 +194,20 @@ h2, h4{
   color: #fff;
 }
 
+.btn-circle{
+  color: #fff;
+  background-color: #ff5752;
+  margin-right: 5px;
+  border-radius: 30px;
+}
+
+.btn-circle:hover{
+  color: #fff;
+  background-color: #ff5752;
+  margin-right: 5px;
+  opacity: 0.7;
+}
+
 
 /* 緑色ボタン */
 
@@ -300,7 +314,6 @@ h2, h4{
 .tooltip-arrow{
   border: #fff;
   }
-
 
 /* フラッシュメッセージ */
 

@@ -228,12 +228,15 @@
 
 /* 投稿編集 */
 
-.edit-body, .edit-img{
+.edit-img{
   margin-top: 25px;
 }
 
 .edit-delete-btn{
+  border-top: solid 1px #ddd;
   margin-top: 60px;
+  padding-top: 15px;
+  text-align: center;
 }
 
 .post-show-btn{
