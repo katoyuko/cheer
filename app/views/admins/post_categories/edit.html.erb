@@ -21,7 +21,7 @@
                 <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
 
                 <label class="category-label">写真</label>
-                <%= attachment_image_tag @post_category, :category_image, size: "380x300", format: 'jpg' %>
+                <%= attachment_image_tag @post_category, :category_image, size: "380x300", format: 'jpg', class: "img-responsive" %>
                 <div class="category-image-form">
                   <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
                 </div>
