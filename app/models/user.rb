@@ -13,4 +13,13 @@ class User < ApplicationRecord
 
   attachment :user_image
 
+  def self.search(search)
+    if search
+      User.where(['name LIKE ?', "%#{search}%"])
+    else
+      # 空欄で検索かけたら
+      User.all
+    end
+  end
+
 end

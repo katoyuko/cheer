@@ -3,9 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   def show
-    @post = Post.new
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order.per(12)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(32)
 
     # お気に入りカテゴリ
     @favorite_category = FavoriteCategory.new
@@ -13,16 +12,19 @@ class UsersController < ApplicationController
 
     # チャート
     @chart_data = {}
-    posts = current_user.posts.all
+    cnt = 0
+    posts = current_user.posts.where(created_at: (Time.now.midnight - 1.year)..Time.now.midnight).order(:created_at)
     posts.each do |post|
-      date = post.created_at.strftime('%Y/%m/%d')
+      date = post.created_at.strftime('%Y/%m')
       if @chart_data.has_key?(date)
         @chart_data[date] += 1
       else
-        @chart_data[date] = 1
+        if cnt < 12
+          cnt += 1
+          @chart_data[date] = 1
+        end
       end
     end
-
   end
 
   def edit
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "更新しました！"
     else
       render :edit
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "退会が完了しました"
   end
 
   private

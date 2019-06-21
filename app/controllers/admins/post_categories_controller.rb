@@ -7,7 +7,7 @@ class Admins::PostCategoriesController < ApplicationController
 
   def show
     @post_category = PostCategory.find(params[:id])
-    @posts = @post_category.posts.all
+    @posts = @post_category.posts.page(params[:page]).reverse_order.per(20)
   end
 
   def index
@@ -31,7 +31,7 @@ class Admins::PostCategoriesController < ApplicationController
 
   def update
     @post_category = PostCategory.find(params[:id])
-    if @post_category.update_attributes(post_category_params)
+    if @post_category.update(post_category_params)
       redirect_to admins_post_categories_path, notice: "更新しました！"
     else
       render :edit

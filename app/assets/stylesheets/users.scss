@@ -16,7 +16,7 @@
   width: 200px;
   height: 200px;
   position: relative;
-  overflow: hidden;   /* 300×300以上は切り取り */
+  overflow: hidden;   /* 200×200以上は切り取り */
   border-radius: 200px;
 }
 
@@ -60,7 +60,7 @@
 /* タブコンテンツ */
 
 .tab-content{
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .mypage-tab{
@@ -70,26 +70,40 @@
 
 /* マイページ 投稿一覧 */
 
-.post-index-maypage{
+.post-index-maypage,
+.back-btn{
   margin: 30px 0;
 }
 
-.post-content-body-mypage{
-  height: 190px;
+.post-user-myoage{
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+  margin-bottom:9px;
+  font-size: 12px;
+  padding: 5px 0;
 }
 
-.post-content-body-mypage-top{
-  height: 150px;
-  margin-bottom: 10px;
+.no-post p{
+  text-align: center;
+  font-size: 14px;
+  color: #999999;
+  padding: 40px;
 }
 
 
 /* マイページ fav カテゴリ */
 
 .mypage-form{
-  margin-top: 20px;
   padding: 60px;
   border-radius: 150px;
   background: #f4efe5;
 }
 
+
+/* チャート */
+
+.chart{
+  margin: 80px;
+  text-align: center;
+  font-size: 13px;
+}

@@ -1,40 +1,29 @@
+<!-- カテゴリ別投稿一覧ページ -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h2># <%= @post_category.category %></h2>
 
-        <% @posts.each do |category_post| %>
-          <div class="col-md-3">
-            <div class="col-md-12 post-index">
-              <section>
+      <div class="category-body">
+        <%= render "admins/post_categories/category_body" %>
+      </div>
 
-                <%= attachment_image_tag category_post, :image, size: "220x190", format: "png" %>
-
-                <p class="post-content"><%= category_post.post_content.truncate(70) %></p>
-                <p class="post-arrow"><%= link_to "→", admins_post_path(category_post.id) %></p>
-
-                <p class="post-content">
-                  <i class="fa fa-comment"></i> <%= link_to "#{category_post.post_comments.count} comment", admins_post_path(category_post), class: "post-content" %>
-                </p>
-
-                <p class="post_cheer">
-                  <i class="fa fa-flag"></i> <%= category_post.post_cheers.count %> cheer
-                </p>
-
-                <p class="post-user">
-                  <%= category_post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= category_post.user.name %>
-                </p>
-
-              </section>
-            </div>
-          </div>
-        <% end %>
-
-        <div class="col-md-12">
-          <div class="col-md-2 col-md-offset-5 category-btn">
-            <%= link_to "戻る", admins_root_path, class: "btn btn-block btn-ellipse" %>
-          </div>
+      <!-- ページャー per20 -->
+      <div class="row paginate">
+        <div class="col-md-4 col-md-offset-4" id="current_page">
+          <%= paginate @posts, class: "paginate" %>
         </div>
+      </div>
+
+      <div class="row category-btn">
+        <div class="col-md-3 col-md-offset-3">
+          <%= link_to "> 他のカテゴリを見る", admins_root_path, class: "btn btn-ellipse" %>
+        </div>
+
+        <div class="col-md-3">
+          <%= link_to "> すべての投稿を見る", admins_posts_path, class: "btn btn-ellipse" %>
+        </div>
+      </div>
 
     </div>
   </div>
