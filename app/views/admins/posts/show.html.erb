@@ -46,41 +46,10 @@
     </div>
 
 
-      <!-- コメント -->
+      <!-- コメント表示欄 -->
       <div class="col-md-6 col-md-offset-3 comment-form">
       </div>
-      <div class="col-md-6 col-md-offset-3">
-        <ul id="comment-box">
-          <% @post.post_comments.each do |post_comment| %>
-            <li>
-              <div class="comment-user">
-                <%= link_to admins_user_path(@post.user.id), class: "post-user-link" do %>
-                  <div class="col-md-1 postuser-image-box">
-                    <%= attachment_image_tag post_comment.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>
-                  </div>
-                  <%= post_comment.user.name %>
-                <% end %>
-              </div>
-            </li>
-
-            <li>
-              <div class="comment-text">
-                <%= post_comment.comment %>
-              </div>
-            </li>
-
-            <li>
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="commented pull-right">
-                    <%= post_comment.created_at.strftime("%Y/%m/%d") %>
-                  </p>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <%= render "admins/posts/show" %>
 
       <div class="row">
         <div class="col-md-2 col-md-offset-4 btn-link">

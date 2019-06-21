@@ -38,22 +38,18 @@ class PostsController < ApplicationController
     end
   end
 
-
   def index
     @posts = Post.page(params[:page]).reverse_order.per(16)
   end
-
 
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
 
-
   def edit
     @post = Post.find(params[:id])
   end
-
 
   def update
     @post = Post.find(params[:id])
@@ -64,7 +60,6 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @post = Post.find(params[:id])

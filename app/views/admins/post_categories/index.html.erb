@@ -16,6 +16,7 @@
               </ul>
             <% end %>
 
+            <!-- カテゴリ新規登録フォーム -->
             <div class="category">
               <%= form_for(@post_category, url: admins_post_categories_path) do |f| %>
                 <label class="category-label">カテゴリ登録</label>
@@ -31,6 +32,7 @@
             </div>
           </div>
 
+          <!-- カテゴリ一覧表示 -->
           <div class="col-xs-5 col-md-offset-1">
             <table class="table table-hover" table-inverse">
               <thead>

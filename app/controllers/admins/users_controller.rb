@@ -11,7 +11,6 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-    @post = Post.new
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order.per(32)
 
@@ -38,4 +37,9 @@ class Admins::UsersController < ApplicationController
     redirect_to admins_users_path, notice: "削除しました"
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :introduction, :user_image)
+  end
 end

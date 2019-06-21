@@ -1,16 +1,5 @@
 <!-- 自己紹介文字数カウント -->
-<script type="text/javascript">
-$(function(){
-  let countNum = String($('#input-text').val().length);
-  $("#counter").text(countNum + "/200")
-
-  // キーボードのキーが押され、上がったときに発火
-  $("#input-text").on("keyup change", function() {
-    let countNum = String($(this).val().length);
-    $("#counter").text(countNum + "/200");
-  });
-});
-</script>
+<%= render "users/text_count" %>
 
 
 <div class="container">

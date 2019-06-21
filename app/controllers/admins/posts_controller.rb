@@ -1,6 +1,6 @@
 class Admins::PostsController < ApplicationController
 
-  before_action :authenticate_admin!, only: [:show, :destroy]
+  before_action :authenticate_admin!, only: [:index, :show, :destroy]
 
   # 管理者用レイアウトをviewに返す
   layout "admin"
@@ -31,7 +31,6 @@ class Admins::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @post_comment = PostComment.new
   end
 
   def destroy
