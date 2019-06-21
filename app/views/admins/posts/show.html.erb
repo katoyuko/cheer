@@ -85,12 +85,12 @@
       <div class="row">
         <div class="col-md-2 col-md-offset-4 btn-link">
           <p class="btn btn-block btn-ellipse-green">
-            <%= link_to "<< 戻る ", admins_posts_path %>
+            <%= link_to "<< 一覧へ ", admins_posts_path %>
           </p>
         </div>
 
         <div class="col-md-2">
-            <%= link_to "× 削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-block btn-ellipse-red" %>
+            <%= link_to "× 投稿削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-block btn-ellipse-red" %>
         </div>
       </div>
 

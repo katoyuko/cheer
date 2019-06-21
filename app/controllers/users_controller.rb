@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     # チャート
     @chart_data = {}
     cnt = 0
+    # 直近一年分の投稿データを投稿された順に取得
     posts = current_user.posts.where(created_at: (Time.now.midnight - 1.year)..Time.now.midnight).order(:created_at)
     posts.each do |post|
       date = post.created_at.strftime('%Y/%m')

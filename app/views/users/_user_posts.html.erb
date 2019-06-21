@@ -64,7 +64,9 @@
                   </li>
                 <% end %>
                 &nbsp;&nbsp;
-                <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
+                <div class="comment-link">
+                  <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "post-content" %>
+                </div>
               </div>
 
             </section>

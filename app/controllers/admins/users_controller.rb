@@ -21,9 +21,9 @@ class Admins::UsersController < ApplicationController
 
     # チャート
     @chart_data = {}
-    posts = @user.posts.all
+    posts = @user.posts.where(created_at: (Time.now.midnight - 1.year)..Time.now.midnight).order(:created_at)
     posts.each do |post|
-      date = post.created_at.strftime('%Y/%m/%d')
+      date = post.created_at.strftime('%Y/%m')
       if @chart_data.has_key?(date)
         @chart_data[date] += 1
       else

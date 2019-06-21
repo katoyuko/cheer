@@ -28,14 +28,17 @@
                   </div>
                 </div>
 
-                <div class="post-user-mypage"><%= post.created_at.strftime('%Y/%m/%d') %>
+                <div class="post-user-mypage">
+                  <%= post.created_at.strftime('%Y/%m/%d') %>
                 </div>
 
                 <div class="post_cheer">
                   <i class="fa fa-flag-o" id="<%= post.id %>"></i>
                     <%= post.cheer_count %> cheer
                     &nbsp;&nbsp;
-                  <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
+                  <div class="comment-link">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "index-comment" %>
+                  </div>
                 </div>
               </div>
 
