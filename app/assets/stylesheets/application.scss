@@ -81,6 +81,20 @@ h2, h4{
   opacity: 1;
 }
 
+#how-to-container{
+  margin-top: 30px;
+  width: 70%;
+
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}
+
+#swiper-text{
+  text-align: left;
+  color: #4a4a4a;
+  font-size: 13px;
+  cursor: pointer;
+}
+
 
 /* 黒ボタン */
 
@@ -256,7 +270,7 @@ h2, h4{
 }
 
 .btn-fav:hover{
-  color: #ffffff;
+  color: #fff;
   background-color: #76d9cd;
   border: solid 1px #76d9cd;
 }
@@ -266,12 +280,13 @@ h2, h4{
   color: #76d9cd;
 }
 
+.button a,
 .btn-search a,
 .btn-search:hover a,
 .btn-ellipse-green:hover a,
 .btn-search-top:hover a,
 .btn-fav:hover a{
-  color: #ffffff;
+  color: #fff;
 }
 
 .btn-default{

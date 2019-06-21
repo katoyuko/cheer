@@ -1,0 +1,100 @@
+<script type="text/javascript">
+  var swiper;
+  $(window).load(function() {
+    swiper = new Swiper('#how-to-container', {
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+
+    loop: true,
+
+    });
+  });
+</script>
+
+
+<div class="row">
+  <div class="col-md-12 how-to-cheer">
+    <h2>How to</h2>
+    <p class="small-title">Cheerの使い方</p>
+  </div>
+</div>
+
+<div class="swiper-container" id="how-to-container">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/top-favo.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        1. 最近お気に入りに追加したカテゴリをHOMEで閲覧できます。<br>
+        2. マイページからお気に入りの追加や削除ができます。<br>
+        3. ＃カテゴリをクリックとカテゴリ別の投稿を閲覧できます。
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/top-hotcategory.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        1. ここ最近、投稿数が多いカテゴリを閲覧できます。<br>
+        2. ＃カテゴリをクリックとカテゴリ別の投稿を閲覧できます。
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/posts-index.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        1. 写真やmore▶︎をクリックと投稿の詳細を閲覧できます<br>
+        2. 投稿者をクリックすると投稿者の詳細ページを閲覧できます<br>
+        3. 旗のアイコン 'cheer' をクリックして応援しよう！<br>
+        4. コメントをクリックすると内容を確認できます
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/newpost.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        New postから自分の頑張りを投稿しましょう！
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/mypage-info.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        ユーザー情報を確認できます<br>
+        ユーザー情報の編集や退会は、'ユーザー情報編集/その他設定' から行うことができます
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/chart.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        マイページで自分の頑張りをグラフで確認することができます<br>
+        たくさん頑張りを発信して、モチベーションもアップ！
+      </div>
+    </div>
+
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination" ></div>
+</div>

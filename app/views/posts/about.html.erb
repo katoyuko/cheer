@@ -1,25 +1,25 @@
 <%= render "layouts/flash" %>
 
-<!-- スライド -->
-<%= render "posts/swiper" %>
 
 <div class="about">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-12" >
-        <h2>About</h2>
-        <p>Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
-      </div>
+  <div class="row">
+    <div class="col-md-12" >
+      <h2>What's Cheer</h2>
+      <p class="sub-title">Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
     </div>
+  </div>
 
-    <div class="row">
+  <div class="row about-body">
+    <div class="col-md-10 col-md-offset-1">
       <div class="col-md-3 col-md-offset-1 how">
         <%= image_tag "/images/cheer.png", class: "how-img" %>
         <p>
           投稿の <%= fa_icon("flag") %> 'cheer’ ボタンを押して<br>応援することができます。
         </p>
-        <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-ellipse" %></p>
+        <div class="button">
+          <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-search" %>
+          </p>
+        </div>
       </div>
 
       <div class="col-md-3 how">
@@ -28,11 +28,13 @@
           小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
           また、目標達成までの過程や頑張った結果を発信することができます。
         </p>
-        <% if user_signed_in? %>
-          <%= link_to "> New post", new_post_path(current_user), class: "btn btn-block btn-ellipse" %>
-        <% else %>
-          <%= link_to "> New post", new_user_session_path, class: "btn btn-block btn-ellipse" %>
-        <% end %>
+        <div class="button">
+          <% if user_signed_in? %>
+            <%= link_to "> New post", new_post_path(current_user), class: "btn btn-block btn-search" %>
+          <% else %>
+            <%= link_to "> New post", new_user_session_path, class: "btn btn-block btn-search" %>
+          <% end %>
+        </div>
       </div>
 
 
@@ -43,11 +45,13 @@
           やりたいことがみつかったら、チャレンジしてみましょう！
         </p>
         <div class="button">
-          <div class="eff"></div>
-            <%= link_to "> Home", root_path, class: "btn btn-block btn-ellipse" %>
+            <%= link_to "> Home", root_path, class: "btn btn-block btn-search"%>
         </div>
-
       </div>
     </div>
   </div>
 </div>
+
+<!-- 使用方法説明 -->
+<%= render "posts/how_to" %>
+
