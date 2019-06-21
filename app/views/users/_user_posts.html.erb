@@ -27,7 +27,7 @@
                   </div>
                 </div>
 
-                <div class="post-user-myoage">
+                <div class="post-user-mypage">
                   <%= post.created_at.strftime('%Y/%m/%d') %>
                 </div>
 
@@ -72,18 +72,17 @@
         </div>
       <% end %>
   </div>
-    <!-- ページャー per20 -->
-    <div class="row">
-      <div class="paginate">
-        <div class="col-md-4 col-md-offset-4" id="current_page">
-          <%= paginate @posts, class: "paginate" %>
-        </div>
+  <div class="row">
+    <div class="paginate">
+      <div class="col-md-4 col-md-offset-4" id="current_page">
+        <%= paginate @posts, class: "paginate" %>
       </div>
     </div>
+  </div>
 
     <% else %>
       <div class="col-md-4 col-md-offset-4 no-post">
-        <p>投稿がありません</p>
+        <p>投稿がありません。</p>
       </div>
     <% end %>
 </div>
