@@ -530,7 +530,7 @@ footer{
 }
 
 
-/* imageリンク機能 */
+/* image機能 */
 
 #postimage{
   height: 192px;
@@ -539,4 +539,9 @@ footer{
 #postimage:hover,
 .postuser-image:hover{
   opacity: 0.5;
+}
+
+.preview{
+  margin: 5px 0 10px 0;
+  border-radius: 7px;
 }
