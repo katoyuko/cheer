@@ -49,17 +49,21 @@
       <!-- コメント表示欄 -->
       <div class="col-md-6 col-md-offset-3 comment-form">
       </div>
-      <%= render "admins/posts/show" %>
+      <%= render "admins/posts/comment" %>
 
       <div class="row">
-        <div class="col-md-2 col-md-offset-4 btn-link">
-          <p class="btn btn-block btn-ellipse-green">
-            <%= link_to "<< 一覧へ ", admins_posts_path %>
-          </p>
-        </div>
+        <div class="btn-post-show">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-2 col-md-offset-4 btn-link">
+              <p class="btn btn-ellipse-green">
+                <%= link_to "<< 一覧へ ", admins_posts_path %>
+              </p>
+            </div>
 
-        <div class="col-md-2">
-            <%= link_to "× 投稿削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-block btn-ellipse-red" %>
+            <div class="col-md-2">
+                <%= link_to "× 投稿削除", admins_post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
+            </div>
+          </div>
         </div>
       </div>
 
