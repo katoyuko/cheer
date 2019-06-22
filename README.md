@@ -9,15 +9,13 @@ Cheer
 小さなことでも大きなことでも今頑張っていること、目標達成までの過程や工夫、頑張った結果（作品や試験合格等）をつぶやくことができ、互いに応援し合えるスペースです。また、やりたいことや頑張りたいことを見つけることができる場所です。
 
 * screenshot
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/top-fav.png)
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/top-hot.png)
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/post-index.png)
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/post-new.png)
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/mypage.png)
+![Home](https://github.com/katoyuko/cheer/blob/master/public/images/readme/chart.png)
 
-
-
-
-
-
-## Requirement
-* ruby '2.5.5'
-* rails '5.2.3'
 
 ## Usage
 1. 投稿一覧ページや投稿詳細ページにある'旗'のアイコン‘cheer’ ボタンを押して、投稿者の頑張りを応援することができます。投稿はカテゴリ別に閲覧することもできます。
@@ -30,6 +28,3 @@ Cheer
 3. これから何かに挑戦したいと思っていたら...
 Homeページの'ホットなカテゴリ'から今話題のものを閲覧することができます。（投稿数が多いカテゴリ4件）
 やりたいことがみつかったら、チャレンジしてみましょう！
-
-## Installation
-* git clone
