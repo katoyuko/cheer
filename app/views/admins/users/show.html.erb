@@ -1,23 +1,9 @@
-<!-- jscroll -->
-<%= render "layouts/scroll" %>
-
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 user-info">
-        <div class="col-md-5">
-          <div class="user-image-box">
-            <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive user-image" %>
-          </div>
-          <label class="info-username">名前: <%= @user.name %></label>
-        </div>
-        <div class="col-md-7 introduction">
-          <p>自己紹介: <%= @user.introduction %></p>
-        </div>
 
-        <div class="pull-right mypage-data-btn">
-          <%= link_to "削除", admins_user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-ellipse-red" %>
-        </div>
-    </div>
+    <!-- ユーザー情報 -->
+    <%= render "admins/users/user_info" %>
+
   </div>
 </div>
 
@@ -45,35 +31,21 @@
     <!-- タブコンテンツ -->
     <div class="tab-content">
       <div class="tab-pane active" id="all-post">
+        <!-- 投稿一覧 -->
         <%= render "admins/users/user_posts" %>
       </div>
 
       <div class="tab-pane" id="fav-category">
-        <div class="col-md-12 tab-content favorite">
-          <% @favorite_categories.each do |favorite_category| %>
-            <div class="col-md-3">
-              <div class="col-md-12 2 post-index-fav">
-                <section>
-                  <%= link_to admins_post_path(favorite_category.id), class: "image-link" do %>
-                    <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive", id: "favimage" %>
-                  <% end %>
-
-                  <p class="btn btn-default btn-fav btn-block">
-                    <%= link_to admins_post_category_path(favorite_category.post_category.id) do %>
-                      # <%= favorite_category.post_category.category %>
-                    <% end %>
-                  </p>
-                </section>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <!-- お気に入りカテゴリ -->
+        <%= render "admins/users/user_fav" %>
       </div>
 
       <div class="tab-pane" id="chart">
-          <p class="chart"><label>
+        <p class="chart">
+          <label>
             [ 月別投稿件数 <%= fa_icon("pencil") %> ]
-          </label></p>
+          </label>
+        </p>
         <%= column_chart @chart_data,
           colors: ["#76d9cd"],
           suffix: "件",
@@ -82,8 +54,8 @@
       </div>
     </div>
 
-    <div class="col-md-2 col-md-offset-5 category-btn">
-      <%= link_to "戻る", admins_users_path, class: "btn btn-block btn-ellipse" %>
+    <div class="col-md-2 col-md-offset-5 admin-user-index-btn">
+      <%= link_to "ユーザー一覧へ", admins_users_path, class: "btn btn-block btn-ellipse" %>
     </div>
   </div>
 </div>

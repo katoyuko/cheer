@@ -1,5 +1,5 @@
 <!-- jscroll -->
-<%= render "layouts/scroll" %>
+<%= render "posts/scroll" %>
 
 <!-- flash message -->
 <%= render "layouts/flash" %>
@@ -11,79 +11,8 @@
       <p class="small-title">投稿一覧</p>
 
       <div class="posts-list jscroll" id="index-scroll">
-        <% @posts.each do |post| %>
-          <div class="col-md-3">
-            <div class="col-md-12 thumbnail post-index">
-              <section>
+        <%= render "posts/postindex_body" %>
 
-                <%= link_to post_path(post.id), class: "image-link" do %>
-                  <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
-                <% end %>
-
-                <div class= "caption">
-                  <div class="post-content-body">
-                    <div class="post-content-body-top">
-
-                      <p class="btn btn-ellipse-index">
-                        <%= link_to post_category_path(post.post_category.id) do %>
-                          # <%= post.post_category.category %>
-                        <% end %>
-                      </p>
-
-                      <!-- 投稿内容 70文字以上は省略 -->
-                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                    </div>
-                    <div class="row post-content-body-bottom">
-                      <p class="pull-right post-arrow"><%= link_to "more ▶︎", post_path(post.id) %></p>
-                    </div>
-                  </div>
-
-                  <div class="post-user">
-                    <p><%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), user_path(post.user.id), class: "post-user-link" %></p>
-                  </div>
-
-                  <!-- cheer機能 -->
-                  <% if user_signed_in? %>
-                      <% if post.post_cheered_by?(current_user) %>
-                        <li class="post_cheer">
-                          <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :delete, remote: true do %>
-                            <div class="post_cheer">
-                              <i class="fa fa-flag" id="<%= post.id %>"></i>
-                              <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                            </div>
-                          <% end %>
-                        </li>
-                      <% else %>
-                        <li class="post_cheer">
-                          <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
-                          <%= link_to post_post_cheers_path(post), class: "cheer-button", method: :post, remote: true do %>
-                            <div class="post_cheer">
-                              <!-- idを指定することでjson形式で返される -->
-                              <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-                              <span class="cheer_count"><%= post.cheer_count %></span> cheer
-                            </div>
-                          <% end %>
-                        </li>
-                      <% end %>
-
-                  <% else %>
-                    <li class="post_cheer">
-                      <div class="post_cheer">
-                        <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-                        <%= post.cheer_count %> cheer
-                      </div>
-                    </li>
-                  <% end %>
-                  &nbsp;&nbsp;
-                  <div class="comment-link">
-                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", post_path(post.id), class: "index-comment" %>
-                  </div>
-                </div>
-
-              </section>
-            </div>
-          </div>
-        <% end %>
         <!-- 無限スクロール -->
         <div id="post_index_paginate">
           <%= paginate @posts %>

@@ -11,9 +11,8 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-    @post = Post.new
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order.per(12)
+    @posts = @user.posts.page(params[:page]).reverse_order.per(32)
 
     # お気に入りカテゴリ
     @favorite_category = FavoriteCategory.new
@@ -21,9 +20,9 @@ class Admins::UsersController < ApplicationController
 
     # チャート
     @chart_data = {}
-    posts = @user.posts.all
+    posts = @user.posts.where(created_at: (Time.now.midnight - 1.year)..Time.now.midnight).order(:created_at)
     posts.each do |post|
-      date = post.created_at.strftime('%Y/%m/%d')
+      date = post.created_at.strftime('%Y/%m')
       if @chart_data.has_key?(date)
         @chart_data[date] += 1
       else
@@ -38,4 +37,9 @@ class Admins::UsersController < ApplicationController
     redirect_to admins_users_path, notice: "削除しました"
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :introduction, :user_image)
+  end
 end

@@ -1,0 +1,121 @@
+<script type="text/javascript">
+  var swiper;
+  $(window).load(function() {
+    swiper = new Swiper('#how-to-container', {
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+
+    loop: true,
+
+    });
+  });
+</script>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>How to</h2>
+    <p class="small-title">Cheerの使い方</p>
+  </div>
+</div>
+
+
+
+<div class="swiper-container" id="how-to-container">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/top-favo.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+        &nbsp;&nbsp;<%= fa_icon("check") %> Home <br>
+          1. 最近お気に入りに追加したカテゴリを閲覧できます<br>
+          2. お気に入りの追加や削除はマイページからできます<br>
+          3. ＃カテゴリをクリックとカテゴリ別に投稿を閲覧できます
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/top-hotcategory.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+          &nbsp;&nbsp;<%= fa_icon("check") %> Home <br>
+          1. ここ最近、投稿数が多いカテゴリを閲覧できます<br>
+          2. ＃カテゴリをクリックとカテゴリ別に投稿を閲覧できます
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/posts-index.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+          &nbsp;&nbsp;<%= fa_icon("check") %> All posts <br>
+          1. 写真やmore▶︎をクリックと投稿の詳細を閲覧できます<br>
+          2. 投稿者をクリックすると投稿者の詳細ページを閲覧できます<br>
+          3. 旗のアイコン<i class="fa fa-flag"></i> 'cheer' をクリックして応援しよう！<br>
+          4. コメントをクリックすると内容を確認できます
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/newpost.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+          &nbsp;&nbsp;<%= fa_icon("check") %> New posts <br>
+          自分の頑張りを投稿しましょう！
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/mypage-info.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+          &nbsp;&nbsp;<%= fa_icon("check") %> My page <br>
+          1. ユーザー情報を確認できます<br>
+          2. ユーザー情報の編集や退会は 'ユーザー情報編集/その他設定'<br>
+          &nbsp;&nbsp;から行うことができます
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" id="swiper-text" style="background-image: url(/images/chart.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;">
+      <div class="swiper-slide-content">
+        <div class="swiper-slide-content-text">
+          &nbsp;&nbsp;<%= fa_icon("check") %> My page <br>
+          自分の頑張りをグラフで確認できます<br>
+          たくさん頑張りを発信して、モチベーションもアップ！
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination" ></div>
+</div>

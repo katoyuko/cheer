@@ -12,7 +12,7 @@ class FavoriteCategoriesController < ApplicationController
   def destroy
     favorite_category = FavoriteCategory.find(params[:id])
     favorite_category.destroy
-    redirect_to root_path, notice: "削除しました！"
+    redirect_to user_path(current_user), notice: "削除しました！"
   end
 
   private

@@ -1,0 +1,27 @@
+<!-- マイページ お気に入りカテゴリ表示 -->
+
+<div class="col-md-12 tab-content favorite">
+  <% if @posts.present? %>
+    <% @favorite_categories.each do |favorite_category| %>
+      <div class="col-md-3">
+        <div class="col-md-12 2 post-index-fav">
+          <section>
+            <%= link_to admins_post_path(favorite_category.id), class: "image-link" do %>
+              <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive", id: "favimage" %>
+            <% end %>
+
+            <p class="btn btn-default btn-fav btn-block">
+              <%= link_to admins_post_category_path(favorite_category.post_category.id) do %>
+                # <%= favorite_category.post_category.category %>
+              <% end %>
+            </p>
+          </section>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-md-4 col-md-offset-4 no-post">
+      <p>登録がありません。</p>
+    </div>
+  <% end %>
+</div>
