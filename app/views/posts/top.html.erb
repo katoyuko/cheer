@@ -1,29 +1,47 @@
 <%= render "layouts/flash" %>
 
-<div class="main">
-
 <!-- スライド -->
 <%= render "posts/swiper" %>
 
-  <div class="col-md-12 main-favorite">
-    <h2>Favorite</h2>
-    <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
-    <%= render "post_categories/top_fav_category" %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-favorite">
+        <h2>Favorite</h2>
+        <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
 
-  <div class="col-md-12 main-pickup">
-    <h2>Pick up</h2>
-    <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
-
-    <div class="col-md-10 col-md-offset-1 hot-category">
-      <%= render "post_categories/hot_category" %>
+        <div class="favorite">
+          <%= render "post_categories/top_fav_category" %>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div class="main-pickup">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Pick up</h2>
+        <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
 
-  <div class="col-md-12 main-search">
-    <h2>Search</h2>
-    <p><%= fa_icon("search") %> カテゴリ別にみる</p>
-    <%= render "post_categories/category_index" %>
+        <div class="hot-category">
+          <%= render "post_categories/hot_category" %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-search">
+        <h2>Search</h2>
+        <p><%= fa_icon("search") %> カテゴリ別にみる</p>
 
+        <div class="category_index">
+          <%= render "post_categories/category_index" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

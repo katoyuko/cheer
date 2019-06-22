@@ -2,45 +2,53 @@
 
 <div class="about">
   <div class="container">
-
     <div class="row">
       <div class="col-md-12" >
-        <h2>About</h2>
-        <p>Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
+        <h2>What's Cheer</h2>
+        <p class="sub-title">Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-3 col-md-offset-1 how">
-        <%= image_tag "/images/cheer.png", class: "how-img" %>
-        <p>
-          投稿の‘cheer’ ボタンを押して<br>応援することができます。
-        </p>
-        <p class=how-cheer><%= link_to "> All posts",  admins_posts_path, class: "btn btn-block btn-ellipse" %></p>
-      </div>
+  <div class="about-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3 col-md-offset-1 how">
+            <%= image_tag "/images/cheer.png", class: "how-img" %>
+            <p>
+              投稿の <%= fa_icon("flag") %> 'cheer’ ボタンを押して<br>応援することができます。
+            </p>
+            <div class="button">
+              <p class=how-cheer><%= link_to "> All posts",  admins_posts_path, class: "btn btn-block btn-search" %>
+              </p>
+            </div>
+          </div>
 
-      <div class="col-md-3 how">
-        <%= image_tag "/images/post.png", class: "how-img" %>
-        <p>
-          小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
-          また、目標達成までの過程や頑張った結果を発信することができます。
-        </p>
-          <%= link_to "> Mypage", admins_users_path, class: "btn btn-block btn-ellipse" %>
-      </div>
+          <div class="col-md-3 how">
+            <%= image_tag "/images/post.png", class: "how-img" %>
+            <p>
+              小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
+              また、目標達成までの過程や頑張った結果を発信できます。
+            </p>
+            <div class="button">
+              <%= link_to "> Mypage", admins_users_path, class: "btn btn-block btn-search" %>
+            </div>
+          </div>
 
 
-      <div class="col-md-3 how">
-        <%= image_tag "/images/search.png", class: "how-img" %>
-        <p>
-          これから何かに挑戦したいと思っていたら...
-          Homeページの「ホットなカテゴリ」から今話題のものを閲覧することができます。
-          やりたいことがみつかったら、チャレンジしてみましょう！
-        </p>
-        <div class="button">
-          <div class="eff"></div>
-            <%= link_to "> Home", admins_root_path, class: "btn btn-block btn-ellipse" %>
+          <div class="col-md-3 how">
+            <%= image_tag "/images/search.png", class: "how-img" %>
+            <p>
+              これから何かに挑戦したいと思っていたら...
+              Homeページの「ホットなカテゴリ」から今話題のものを閲覧できます。
+              やりたいことがみつかったら、チャレンジしてみましょう！
+            </p>
+            <div class="button">
+              <%= link_to "> Home", admins_root_path, class: "btn btn-block btn-search" %>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </div>
