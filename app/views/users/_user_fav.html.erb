@@ -1,4 +1,5 @@
 <% if current_user == @user %>
+  <!-- お気に入りカテゴリ一覧 -->
   <div class="col-md-12 tab-content favorite">
     <% @favorite_categories.each do |favorite_category| %>
       <div class="col-md-3">
@@ -21,6 +22,7 @@
     <% end %>
   </div>
 
+  <!-- お気に入りカテゴリ追加フォーム -->
   <div class="row">
     <div class="col-md-6 col-md-offset-3 mypage-form">
       <div class="form col-md-6 col-md-offset-3">
@@ -41,3 +43,11 @@
     </div>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+// <!-- ツールチップ
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

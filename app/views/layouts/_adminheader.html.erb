@@ -31,26 +31,32 @@ $(function() {
 
 <!-- 管理者用ヘッダー -->
 <header id="header">
-  <div class="header-logo">
-    <%= image_tag "/images/logo.png", class: "logo" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="header-logo">
+          <%= image_tag "/images/logo.png", class: "logo" %>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <nav class="nav-admin">
+          <ul>
+            <% if admin_signed_in? %>
+              <li><%= link_to "Home", admins_root_path, class: "link" %></li>
+              <li><%= link_to "About", admins_about_path, class: "link" %></li>
+              <li><%= link_to "Posts", admins_posts_path, class: "link" %></li>
+              <li><%= link_to "Users", admins_users_path, class: "link" %></li>
+              <li><%= link_to "Category", admins_post_categories_path, class: "link" %></li>
+              <li><%= link_to "New admin", new_admin_registration_path, class: "link" %></li>
+              <li><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "link" %></li>
+            <% else %>
+              <li><%= link_to "Home", admins_root_path, class: "link" %></li>
+              <li><%= link_to "About", admins_about_path, class: "link" %></li>
+              <li><%= link_to "Log in", new_admin_session_path, class: "link" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
-
-  <nav>
-    <ul>
-      <% if admin_signed_in? %>
-        <li><%= link_to "Home", admins_root_path, class: "link" %></li>
-        <li><%= link_to "About", admins_about_path, class: "link" %></li>
-        <li><%= link_to "Posts", admins_posts_path, class: "link" %></li>
-        <li><%= link_to "Users", admins_users_path, class: "link" %></li>
-        <li><%= link_to "Category", admins_post_categories_path, class: "link" %></li>
-        <li><%= link_to "New admin", new_admin_registration_path, class: "link" %></li>
-        <li><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "link" %></li>
-      <% else %>
-        <p class="admin"> For admins <%= fa_icon("exclamation") %><%= fa_icon("exclamation") %></p>
-        <li><%= link_to "Home", admins_root_path, class: "link" %></li>
-        <li><%= link_to "About", admins_about_path, class: "link" %></li>
-        <li><%= link_to "Log in", new_admin_session_path, class: "link" %></li>
-      <% end %>
-    </ul>
-  </nav>
 </header>

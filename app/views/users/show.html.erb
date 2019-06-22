@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="row">
+    <!-- ユーザー情報 -->
     <%= render "users/user_info" %>
   </div>
 </div>
@@ -31,17 +32,21 @@
       <!-- タブコンテンツ -->
       <div class="tab-content">
         <div class="tab-pane active" id="all-post">
+          <!-- 投稿一覧 -->
           <%= render "users/user_posts" %>
         </div>
 
         <div class="tab-pane" id="fav-category">
+          <!-- お気に入りカテゴリ -->
           <%= render "users/user_fav" %>
         </div>
 
         <div class="tab-pane" id="chart">
-            <p class="chart"><label>
+          <p class="chart">
+            <label>
               [ 月別投稿件数 <%= fa_icon("pencil") %> ]
-            </label></p>
+            </label>
+          </p>
           <%= column_chart @chart_data,
             colors: ["#76d9cd"],
             suffix: "件",
@@ -53,6 +58,7 @@
     </div>
   </div>
 <% else %>
+  <!-- 他人のユーザーページには投稿一覧のみ表示させる -->
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <h2>All posts</h2>
@@ -92,12 +98,6 @@ $(function() {
       $(this).attr("data-method", "post");
     }
   })
-});
-
-
-// <!-- ツールチップ
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip();
 });
 
 </script>

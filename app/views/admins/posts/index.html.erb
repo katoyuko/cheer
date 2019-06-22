@@ -1,5 +1,5 @@
 <!-- jscroll -->
-<%= render "layouts/scroll" %>
+<%= render "posts/scroll" %>
 
 <!-- flash message -->
 <%= render "layouts/flash" %>
@@ -11,52 +11,9 @@
       <p class="small-title">投稿一覧</p>
 
       <div class="posts-list jscroll" id="index-scroll">
-        <% @posts.each do |post| %>
-          <div class="col-md-3">
-            <div class="col-md-12 thumbnail post-index">
-              <section>
 
-                <%= link_to admins_post_path(post.id), class: "image-link" do %>
-                  <%= attachment_image_tag post, :image, :fill, 280, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
-                <% end %>
+        <%= render "admins/posts/index_body" %>
 
-                <div class= "caption">
-                  <div class="post-content-body">
-                    <div class="post-content-body-top">
-
-                      <p class="btn btn-ellipse-index">
-                        <%= link_to admins_post_category_path(post.post_category.id) do %>
-                          # <%= post.post_category.category %>
-                        <% end %>
-                      </p>
-
-                      <!-- 投稿内容 70文字以上は省略 -->
-                      <p class="post-content"><%= post.post_content.truncate(70) %></p>
-                    </div>
-                    <div class="row post-content-body-bottom">
-                      <p class="pull-right post-arrow"><%= link_to "more ▶︎", admins_post_path(post.id) %></p>
-                    </div>
-                  </div>
-
-                  <div class="post-user">
-                    <p>
-                      <%= post.created_at.strftime('%Y/%m/%d') %><br>posted by <%= link_to post.user.name.truncate(15), admins_user_path(post.user.id), class: "post-user-link" %>
-                    </p>
-                  </div>
-
-
-                  <div class="post_cheer">
-                    <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-                    <%= post.cheer_count %> cheer
-                  </div>
-                  &nbsp;&nbsp;
-                  <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
-                </div>
-
-              </section>
-            </div>
-          </div>
-        <% end %>
         <!-- 無限スクロール -->
         <div id="post_index_paginate">
           <%= paginate @posts %>

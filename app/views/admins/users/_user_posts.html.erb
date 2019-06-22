@@ -1,46 +1,64 @@
-<div class="col-md-12 tab-content">
-  <% @posts.each do |post| %>
-    <div class="col-md-3">
-      <div class="col-md-12 thumbnail post-index-maypage">
-        <section>
+<!-- マイページ 投稿一覧 -->
 
-          <%= link_to admins_post_path(post.id), class: "image-link" do %>
-            <%= attachment_image_tag post, :image, :fill, 290, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
-          <% end %>
+<div class="tab-content">
+  <div class="col-md-12">
+    <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <div class="col-md-3">
+          <div class="col-md-12 thumbnail post-index-maypage">
+            <section>
 
-          <div class= "caption">
-            <div class="post-content-body-mypage">
-              <div class="post-content-body-mypage-top">
+              <%= link_to admins_post_path(post.id), class: "image-link" do %>
+                <%= attachment_image_tag post, :image, :fill, 290, 220, format: "png", fallback: "/images/no-image.png", class: "img-responsive", id: "postimage" %>
+              <% end %>
 
-                <label class="btn btn-ellipse">
-                  <%= link_to admins_post_category_path(post.post_category.id) do %>
-                    # <%= post.post_category.category %>
-                  <% end %>
-                </label>
+              <div class= "caption">
+                <div class="post-content-body">
+                  <div class="post-content-body-top">
 
-                <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                    <label class="btn btn-ellipse-index">
+                      <%= link_to admins_post_category_path(post.post_category.id) do %>
+                        # <%= post.post_category.category %>
+                      <% end %>
+                    </label>
+
+                    <p class="post-content"><%= post.post_content.truncate(70) %></p>
+                  </div>
+                  <div class="post-content-body-bottom-mypage">
+                    <div class="pull-right post-arrow"><%= link_to "more ▶︎", admins_post_path(post.id) %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="post-user-mypage">
+                  <%= post.created_at.strftime('%Y/%m/%d') %>
+                </div>
+
+                <div class="post_cheer">
+                  <i class="fa fa-flag-o" id="<%= post.id %>"></i>
+                    <%= post.cheer_count %> cheer
+                    &nbsp;&nbsp;
+                  <div class="comment-link">
+                    <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "index-comment" %>
+                  </div>
+                </div>
               </div>
-              <div class="post-content-body-mypage-bottom">
-                <p class="pull-right post-arrow"><%= link_to "more ▶︎", admins_post_path(post.id) %></p>
-              </div>
-            </div>
 
-            <p class="post-user"><%= post.created_at.strftime('%Y/%m/%d') %></p>
-
-            <p class="post-content">
-              <i class="fa fa-flag-o" id="<%= post.id %>"></i>
-                <%= post.cheer_count %> cheer &nbsp;&nbsp;
-              <i class="fa fa-comment-o"></i> <%= link_to "#{post.post_comments.count} comment", admins_post_path(post.id), class: "post-content" %>
-            </p>
+            </section>
           </div>
-
-        </section>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="paginate">
+          <div class="col-md-12" id="current_page">
+            <%= paginate @posts, class: "paginate" %>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
-
-  <div class="post_index_paginate">
-    <%= paginate @posts %>
+    <% else %>
+      <div class="col-md-4 col-md-offset-4 no-post">
+        <p>投稿がありません。</p>
+      </div>
+    <% end %>
   </div>
-
 </div>
