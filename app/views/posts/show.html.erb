@@ -26,7 +26,6 @@
             <p>
               <%= @post.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp; posted by
             </p>
-
             <%= link_to user_path(@post.user.id), class: "post-user-link" do %>
               <div class="col-md-1 postuser-image-box">
                 <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive postuser-image" %>
@@ -50,7 +49,7 @@
       <%= render "posts/comment" %>
 
       <div class="row">
-        <div class="col-md-2 col-md-offset-5 btn-link">
+        <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 btn-link">
          <p class="btn btn-block btn-ellipse-green">
            <%= link_to "> 戻る ", posts_path %>
          </p>
@@ -59,7 +58,7 @@
 
       <% if @post.user.id == current_user.id %>
         <div class="row">
-          <div class="col-md-2 col-md-offset-5 btn-link">
+          <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 btn-link">
            <p class="btn btn-block btn-ellipse">
              <%= link_to "> 投稿編集 ", edit_post_path(@post.id) %>
            </p>

@@ -6,7 +6,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-
           <div class="col-md-4 col-md-offset-6 new-post-body">
             <div class="form">
               <%= form_with model: @post, url: posts_path, local: true do |f| %>
@@ -58,12 +57,10 @@ $(function(){
         reader = new FileReader(),
         $preview = $(".preview");
         t = this;
-
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
     }
-
     // ファイル読み込みが完了した際のイベント
     reader.onload = (function(file) {
       return function(e) {
@@ -78,7 +75,6 @@ $(function(){
               }));
       };
     })(file);
-
     reader.readAsDataURL(file);
   });
 });

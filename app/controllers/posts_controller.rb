@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def top
-    # 投稿数多い順でカテゴリを表示
     # post_categoriesとpostsを内部統合 一週間単位でcount
     post_category_count = PostCategory.joins(:posts).where(created_at: 1.months.ago..Time.now).group(:post_category_id).count
     # 配列をハッシュに変換 要素の順番を並び替え ハッシュのキーを取得
     post_category_ids = Hash[post_category_count.sort_by{ |_, v| -v }].keys
+    # 投稿数多い順 4つのカテゴリを表示
     @post_category_ranks = PostCategory.where(id: post_category_ids).sort_by{|o| post_category_ids.index(o.id)}[0..3]
 
     # お気に入りカテゴリ一覧
@@ -26,8 +26,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post_category = PostCategory.find_by(id: params[:post_category_id])
-    # @post.post_category_id = @post_category.id
     @post.post_category_id = params[:post_category_id]
     @post.user_id = current_user.id
 
@@ -49,6 +47,9 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update

@@ -1,51 +1,56 @@
 <%= render "layouts/flash" %>
 
-
 <div class="about">
-  <div class="row">
-    <div class="col-md-12" >
-      <h2>What's Cheer</h2>
-      <p class="sub-title">Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" >
+        <h2>What's Cheer</h2>
+        <p class="sub-title">Cheerは、同じ志や目標を持ったひとたちが応援し合えるスペースです。</p>
+      </div>
     </div>
   </div>
 
-  <div class="row about-body">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="col-md-3 col-md-offset-1 how">
-        <%= image_tag "/images/cheer.png", class: "how-img" %>
-        <p>
-          投稿の <%= fa_icon("flag") %> 'cheer’ ボタンを押して<br>応援することができます。
-        </p>
-        <div class="button">
-          <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-search" %>
-          </p>
-        </div>
-      </div>
+  <div class="about-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3 col-md-offset-1 how">
+            <%= image_tag "/images/cheer.png", class: "how-img" %>
+            <p>
+              投稿の <%= fa_icon("flag") %> 'cheer’ ボタンを押して<br>応援することができます。
+            </p>
+            <div class="button">
+              <p class=how-cheer><%= link_to "> All posts", posts_path, class: "btn btn-block btn-search" %>
+              </p>
+            </div>
+          </div>
 
-      <div class="col-md-3 how">
-        <%= image_tag "/images/post.png", class: "how-img" %>
-        <p>
-          小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
-          また、目標達成までの過程や頑張った結果を発信することができます。
-        </p>
-        <div class="button">
-          <% if user_signed_in? %>
-            <%= link_to "> New post", new_post_path(current_user), class: "btn btn-block btn-search" %>
-          <% else %>
-            <%= link_to "> New post", new_user_session_path, class: "btn btn-block btn-search" %>
-          <% end %>
-        </div>
-      </div>
+          <div class="col-md-3 how">
+            <%= image_tag "/images/post.png", class: "how-img" %>
+            <p>
+              小さなことでも、大きなことでも今頑張っていることや熱中していることを発信することができます。
+              また、目標達成までの過程や頑張った結果を発信できます。
+            </p>
+            <div class="button">
+              <% if user_signed_in? %>
+                <%= link_to "> New post", new_post_path(current_user), class: "btn btn-block btn-search" %>
+              <% else %>
+                <%= link_to "> New post", new_user_session_path, class: "btn btn-block btn-search" %>
+              <% end %>
+            </div>
+          </div>
 
 
-      <div class="col-md-3 how">
-        <%= image_tag "/images/search.png", class: "how-img" %>
-        <p>
-          これから何かに挑戦したいと思っていたら... 'ホットなカテゴリ' から今話題のものを閲覧することができます。
-          やりたいことがみつかったら、チャレンジしてみましょう！
-        </p>
-        <div class="button">
-            <%= link_to "> Home", root_path, class: "btn btn-block btn-search"%>
+          <div class="col-md-3 how">
+            <%= image_tag "/images/search.png", class: "how-img" %>
+            <p>
+              これから何かに挑戦したいと思っていたら... 'ホットなカテゴリ' から今話題のものを閲覧できます。
+              やりたいことがみつかったら、チャレンジしてみましょう！
+            </p>
+            <div class="button">
+                <%= link_to "> Home", root_path, class: "btn btn-block btn-search"%>
+            </div>
+          </div>
         </div>
       </div>
     </div>

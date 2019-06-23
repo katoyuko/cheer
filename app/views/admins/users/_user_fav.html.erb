@@ -3,7 +3,7 @@
 <div class="col-md-12 tab-content favorite">
   <% if @posts.present? %>
     <% @favorite_categories.each do |favorite_category| %>
-      <div class="col-md-3">
+      <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
         <div class="col-md-12 2 post-index-fav">
           <section>
             <%= link_to admins_post_path(favorite_category.id), class: "image-link" do %>

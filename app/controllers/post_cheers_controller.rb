@@ -8,10 +8,6 @@ class PostCheersController < ApplicationController
     post_cheer.save
     # post.idが呼び出された際に、post.idの値をjson形式で返す (レスポンスを出力するrenderを使う)
     render :json => post.id
-
-    # cheerの合計数を表示
-    @post_cheers = PostCheer.where(post_id: params[:post_id])
-
   end
 
   def destroy
@@ -20,9 +16,6 @@ class PostCheersController < ApplicationController
     post_cheer.destroy
     # renderを使ってjson形式で返す
     render :json => post.id
-
-    # cheerの合計数を表示
-    @post_cheers = PostCheer.where(post_id: params[:post_id])
   end
 
 end

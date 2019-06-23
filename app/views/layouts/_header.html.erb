@@ -18,7 +18,7 @@ $(function() {
   $(window).on('load scroll', function() {
     var scrollHeight = $(this).scrollTop();
     if ( scrollHeight > top && scrollHeight > headerHeight ) {
-      $('header').css('top', '-130px');  // ヘッダー非表示
+      $('header').css('top', '-' + headerHeight + 'px');  // ヘッダー非表示
     } else {
       $('header').css('top', '0');  // ヘッダー表示
     }
