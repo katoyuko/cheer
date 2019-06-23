@@ -102,7 +102,6 @@ h2, h4{
   border-radius: 10px;
 }
 
-
 .swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%2376d9cd'%2F%3E%3C%2Fsvg%3E");
 }
@@ -345,6 +344,7 @@ h2, h4{
   border: #fff;
   }
 
+
 /* フラッシュメッセージ */
 
 .flash_message{
@@ -550,106 +550,102 @@ footer{
 
 
 /* タブレット横置き(1200px)程度の大きさ以下 */
-@media screen and (max-width:1200px) {
 
-.link{
-  font-size: 14px;
-}
-
+@media screen and (max-width:1200px){
+  .link{
+    font-size: 14px;
+  }
 }
 
 
 /* タブレット横置き(1024px)程度の大きさ以下 */
-@media screen and (max-width:1024px) {
 
-#header{
-  height: 180px;
-  position: fixed;
-}
+@media screen and (max-width:1024px){
+  #header{
+    height: 180px;
+    position: fixed;
+  }
 
-#body-main{
-  margin-top: 190px;
-}
+  #body-main{
+    margin-top: 190px;
+  }
 
-.logo{
-  width: 25%;
-}
+  .logo{
+    width: 25%;
+  }
 
-nav ul{
-  margin-left: 0;
-  padding-top: 5px;
-}
+  nav ul{
+    margin-left: 0;
+    padding-top: 5px;
+  }
 
-.link{
-  font-size: 13px;
-}
+  .link{
+    font-size: 13px;
+  }
 
-nav li{
-  padding: 0 0 5px;
-}
-
+  nav li{
+    padding: 0 0 5px;
+  }
 }
 
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ */
-@media screen and (max-width:768px) {
 
-#header{
-  height: 150px;
-  position: fixed;
-}
+@media screen and (max-width:768px){
+  #header{
+    height: 150px;
+    position: fixed;
+  }
 
-#body-main{
-  margin-top: 160px;
-}
+  #body-main{
+    margin-top: 160px;
+  }
 
-.logo{
-  width: 20%;
-}
+  .logo{
+    width: 20%;
+  }
 
-nav ul{
-  margin-left: 0;
-  padding-top: 5px;
-}
+  nav ul{
+    margin-left: 0;
+    padding-top: 5px;
+  }
 
-.link{
-  font-size: 12px;
-}
+  .link{
+    font-size: 12px;
+  }
 
-nav li{
-  padding: 0 0 5px;
-}
-
+  nav li{
+    padding: 0 0 5px;
+  }
 }
 
 
 /* スマートフォンサイズ(425px)程度の画面の大きさ */
+
 @media screen and (max-width:425px){
+  #header{
+    height: 110px;
+    position: fixed;
+  }
 
-#header{
-  height: 110px;
-  position: fixed;
-}
+  #body-main{
+    margin-top: 120px;
+  }
 
-#body-main{
-  margin-top: 120px;
-}
+  .logo{
+    width: 30%;
+  }
 
-.logo{
-  width: 30%;
-}
+  nav ul{
+    margin-left: 0;
+    padding-top: 5px;
+  }
 
-nav ul{
-  margin-left: 0;
-  padding-top: 5px;
-}
+  .link{
+    font-size: 10px;
+  }
 
-.link{
-  font-size: 10px;
-}
-
-nav li{
-  padding: 0 0 5px;
-}
-
+  nav li{
+    padding: 0 0 5px;
+  }
 }
