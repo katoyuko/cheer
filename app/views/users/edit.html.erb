@@ -6,7 +6,6 @@
   <div class="row">
     <h2>Mypage</h2>
     <p class="small-title">マイページ編集</p>
-
       <div class="col-md-10 col-md-offset-1">
         <p class="mypage">基本情報</p>
       </div>
@@ -35,7 +34,6 @@
             <p class="pull-right" id="counter">0/200</p>
           </div>
         </div>
-
         <div class="col-md-4 col-md-offset-4 mypage-data-btn">
           <%= f.submit "更新", class: "btn col-md-4 col-md-offset-4 btn-ellipse" %>
         </div>
@@ -43,15 +41,11 @@
 
       <div class="col-md-10 col-md-offset-1">
         <p class="mypage">その他設定</p>
-
         <p>退会の手続き</p>
         <%= link_to "退会する", user_path(@user), method: :delete, data: {confirm: "退会する場合、全てのデータが削除されます。本当によろしいですか？"}, class: "btn col-md-2 col-md-offset-5 btn-ellipse-red" %>
       </div>
-
   </div>
 </div>
-
-
 
 
 <!-- 画像ファイルプレビュー -->
