@@ -6,7 +6,6 @@ RSpec.describe Post, type: :model do
     # テスト用のデータを作成
     before do
       @post = Post.new
-      @post.post_category_id = 1
       @post.post_content = "今日もここまで頑張りました！"
       @post.save
     end

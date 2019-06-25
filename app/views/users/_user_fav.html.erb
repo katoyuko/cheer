@@ -28,13 +28,6 @@
       <div class="form col-md-6 col-md-offset-3">
         <%= form_with model: @favorite_category, url: favorite_categories_path, local: true do |f| %>
           <div class="form-group">
-            <% if @favorite_category.errors.any? %>
-              <ul id="error_explanation">
-                <% @favorite_category.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-              </ul>
-            <% end %>
             <label for="control-label">お気に入りを追加</label>
             <%= select_tag :post_category_id, options_from_collection_for_select(PostCategory.all, :id, :category, params[:post_category_id]), {prompt: "選択", class: "form-control", name: "post_category_id"} %>
           </div>

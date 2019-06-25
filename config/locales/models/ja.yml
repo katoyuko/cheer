@@ -13,7 +13,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         current_password: 現在のパスワード
-        favorite_category: カテゴリ
       post:
         image_id: 写真
         post_content: 頑張りつぶやき
@@ -22,7 +21,7 @@ ja:
         category: カテゴリ
         category_image: 写真
       favorite_category:
-        post_category_id: カテゴリ
+        post_category: カテゴリ
 
     errors:
       messages:
