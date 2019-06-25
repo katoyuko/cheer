@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     # チャート
     @chart_data = {}
     # 直近一年分の投稿データを投稿された順に取得
-    posts = current_user.posts.where(created_at: (Time.now.midnight - 1.year)..Time.now.midnight).order(:created_at)
+    posts = current_user.posts.where(created_at: (Time.now - 1.year)..Time.now).order(:created_at)
     posts.each do |post|
       date = post.created_at.strftime('%Y/%m')
       if @chart_data.has_key?(date)
@@ -28,6 +28,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to root_path
+    end
   end
 
   def update

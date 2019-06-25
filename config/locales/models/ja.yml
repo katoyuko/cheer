@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       post: 投稿
       post_category: カテゴリ
+      favorite_category: カテゴリ
 
     attributes:
       user:
@@ -12,6 +13,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
         current_password: 現在のパスワード
+        favorite_category: カテゴリ
       post:
         image_id: 写真
         post_content: 頑張りつぶやき
@@ -19,6 +21,8 @@ ja:
       post_category:
         category: カテゴリ
         category_image: 写真
+      favorite_category:
+        post_category_id: カテゴリ
 
     errors:
       messages:

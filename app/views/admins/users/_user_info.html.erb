@@ -5,11 +5,12 @@
     <div class="user-image-box">
       <%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: "jpg", fallback: "/images/user-img.png", class: "img-responsive user-image" %>
     </div>
-    <label class="info-username"><%= @user.name %></label>
+    <label class="info-username">名前: <%= @user.name %><br>
+    メールアドレス: <%= @user.email %></label>
   </div>
   <div class="col-md-7 introduction">
     <% if @user.introduction.present? %>
-      <p><%= @user.introduction %></p>
+      <p>自己紹介文: <%= @user.introduction %></p>
     <% else %>
       <p>自己紹介文が登録されていません。</p>
     <% end %>
