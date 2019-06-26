@@ -13,18 +13,17 @@
                 <% end %>
               </ul>
             <% end %>
-
             <%= form_for(@post_category, url: admins_post_category_path) do |f| %>
             <div class="category">
-                <label class="category-label">カテゴリ</label>
-                <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
-                <label class="category-label">写真</label>
-                <div class="preview">
-                  <%= attachment_image_tag @post_category, :category_image, :fill, 380, 250, format: 'jpg', class: "img-responsive img-rounded" %>
-                </div>
-                <div class="category-image-form">
-                  <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
-                </div>
+              <label class="category-label">カテゴリ</label>
+              <%= f.text_field :category, autofocus: true, class: "form-control", placeholder: "カテゴリを入力" %>
+              <label class="category-label">写真</label>
+              <div class="preview">
+                <%= attachment_image_tag @post_category, :category_image, :fill, 380, 250, format: 'jpg', class: "img-responsive img-rounded" %>
+              </div>
+              <div class="category-image-form">
+                <%= f.attachment_field :category_image, class: "btn btn-default form-control" %>
+              </div>
             </div>
           </div>
         </div>

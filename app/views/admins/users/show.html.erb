@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
-
     <!-- ユーザー情報 -->
     <%= render "admins/users/user_info" %>
-
   </div>
 </div>
 
@@ -27,19 +25,16 @@
         </a>
       </li>
     </ul>
-
     <!-- タブコンテンツ -->
     <div class="tab-content">
       <div class="tab-pane active" id="all-post">
         <!-- 投稿一覧 -->
         <%= render "admins/users/user_posts" %>
       </div>
-
       <div class="tab-pane" id="fav-category">
         <!-- お気に入りカテゴリ -->
         <%= render "admins/users/user_fav" %>
       </div>
-
       <div class="tab-pane" id="chart">
         <p class="chart">
           <label>

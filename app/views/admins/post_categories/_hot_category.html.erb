@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Pick up</h2>
+      <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
+      <div class="hot-category">
+        <% @post_category_ranks.each do |post_category| %>
+          <div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+            <div class="col-md-12 post-index-hot">
+              <section>
+                <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
+                <p class="btn btn-default btn-hot-top btn-block">
+                  <%= link_to admins_post_category_path(post_category.id) do %>
+                    # <%= post_category.category %>
+                  <% end %>
+                </p>
+              </section>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

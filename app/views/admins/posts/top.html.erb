@@ -1,80 +1,28 @@
 <%= render "layouts/flash" %>
 
 <div class="main">
-
-<!-- スライド -->
-<%= render "posts/swiper" %>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="main-favorite">
-        <h2>Favorite</h2>
-        <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
-
-        <div class="favorite">
-          <div class="favorite-login">
-            <p>＼ ログインするとお気に入りしたカテゴリを閲覧できます ／</p>
+  <!-- スライド -->
+  <%= render "posts/swiper" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="main-favorite">
+          <h2>Favorite</h2>
+          <p><%= fa_icon("heart") %> 最近のお気に入りカテゴリ</p>
+          <div class="favorite">
+            <div class="favorite-login">
+              <p>＼ ログインするとお気に入りしたカテゴリを閲覧できます ／</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="main-pickup">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Pick up</h2>
-        <p><%= fa_icon("fire") %> ホットなカテゴリ</p>
-        <div class="hot-category">
-          <% @post_category_ranks.each do |post_category| %>
-            <div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-8 col-xs-offset-2">
-              <div class="col-md-12 post-index-hot">
-                <section>
-                  <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
-                  <p class="btn btn-default btn-hot-top btn-block">
-                    <%= link_to admins_post_category_path(post_category.id) do %>
-                      # <%= post_category.category %>
-                    <% end %>
-                  </p>
-                </section>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="main-pickup">
+    <%= render "admins/post_categories/hot_category" %>
   </div>
+  <%= render "admins/post_categories/category_index" %>
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="main-search">
-        <h2>Search</h2>
-        <p><%= fa_icon("search") %> カテゴリ別にみる</p>
-        <div class="category_index">
-          <% @post_categories.each do |post_category| %>
-            <div class="col-md-3 col-sm-4 col-xs-6">
-              <div class="col-md-12">
-                <section>
-                  <p class="btn btn-default btn-search btn-block">
-                    <%= link_to admins_post_category_path(post_category.id) do %>
-                      # <%= post_category.category %>
-                    <% end %>
-                  </p>
-                </section>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <!-- ツールチップ -->
 <script type="text/javascript">
