@@ -44,6 +44,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -78,7 +80,7 @@ gem 'font-awesome-rails'
 
 gem "jquery-turbolinks"
 
-gem "chartkick"
+gem 'chartkick'
 gem 'chartable'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
