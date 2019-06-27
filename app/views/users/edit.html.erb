@@ -1,7 +1,6 @@
 <!-- 自己紹介文字数カウント -->
 <%= render "users/text_count" %>
 
-
 <div class="container">
   <div class="row">
     <h2>Mypage</h2>
@@ -13,6 +12,10 @@
       <%= form_for(@user) do |f| %>
         <div class="mypage-data">
           <div class="col-md-4 col-md-offset-2">
+
+            <!-- エラー文 -->
+            <%= render "users/user_error" %>
+
             <p>写真</p>
             <div class="preview-user">
               <div class="user-image-box">

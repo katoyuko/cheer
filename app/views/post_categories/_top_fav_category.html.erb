@@ -1,3 +1,4 @@
+<!-- TOPページ お気に入りカテゴリパーシャル -->
 <% if user_signed_in? %>
   <div class="row">
     <% @favorite_categories.each do |favorite_category| %>
@@ -18,7 +19,6 @@
       </div>
     <% end %>
   </div>
-
   <div class="row">
     <div class="col-md-4 col-md-offset-4 favorite-login">
       <%= link_to "> マイページからお気に入りカテゴリを追加", user_path(@user), class: "btn btn-ellipse" %>

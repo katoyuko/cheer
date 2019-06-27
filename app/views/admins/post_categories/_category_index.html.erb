@@ -1,0 +1,26 @@
+<!-- TOPページカテゴリ一覧表示パーシャル -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-search">
+        <h2>Search</h2>
+        <p><%= fa_icon("search") %> カテゴリ別にみる</p>
+        <div class="category_index">
+          <% @post_categories.each do |post_category| %>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+              <div class="col-md-12">
+                <section>
+                  <p class="btn btn-default btn-search btn-block">
+                    <%= link_to admins_post_category_path(post_category.id) do %>
+                      # <%= post_category.category %>
+                    <% end %>
+                  </p>
+                </section>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
