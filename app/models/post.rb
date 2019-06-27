@@ -7,7 +7,7 @@ class Post < ApplicationRecord
 
   attachment :image
 
-  validates :post_content, presence: true
+  validates :post_content, presence: true, length: { maximum: 140 }
 
   # メソッド作成 user_idがpost_cheersテーブルに存在していればtrueを返す 投稿にcheerしているか確認
   def post_cheered_by?(user)

@@ -476,6 +476,7 @@ nav li.active{
 .pagetop{
   height: 90px;
   width: 90px;
+  cursor: pointer; /*スマホでもjs発火させるため */
 }
 
 footer{
@@ -549,15 +550,6 @@ footer{
 }
 
 
-/* タブレット横置き(1200px)程度の大きさ以下 */
-
-@media screen and (max-width:1200px){
-  .link{
-    font-size: 14px;
-  }
-}
-
-
 /* タブレット横置き(1024px)程度の大きさ以下 */
 
 @media screen and (max-width:1024px){
@@ -586,6 +578,21 @@ footer{
   nav li{
     padding: 0 0 5px;
   }
+
+/* Aboutページ */
+
+  #how-to-container{
+    width: 90%;
+  }
+
+  #swiper-text{
+    font-size: 10px;
+  }
+
+  .swiper-slide-content-text{
+    width: 330px;
+  }
+
 }
 
 
@@ -617,6 +624,24 @@ footer{
   nav li{
     padding: 0 0 5px;
   }
+
+
+/* Aboutページ */
+
+  #how-to-container{
+    width: 100%;
+  }
+
+  #swiper-text{
+    font-size: 9px;
+    padding: 5px 0 0 5px;
+  }
+
+  .swiper-slide-content-text{
+    width: 310px;
+    padding: 5px 8px;
+  }
+
 }
 
 
@@ -633,7 +658,7 @@ footer{
   }
 
   .logo{
-    width: 30%;
+    width: 25%;
   }
 
   nav ul{
@@ -648,4 +673,22 @@ footer{
   nav li{
     padding: 0 0 5px;
   }
+
+
+/* Aboutページ */
+
+  #how-to-container{
+    width: 100%;
+  }
+
+  #swiper-text{
+    font-size: 9px;
+    padding: 5px 0 0 5px;
+  }
+
+  .swiper-slide-content-text{
+    width: 310px;
+    padding: 5px 8px;
+  }
+
 }

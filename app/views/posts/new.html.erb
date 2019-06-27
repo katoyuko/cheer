@@ -10,6 +10,7 @@
             <div class="form">
               <%= form_with model: @post, url: posts_path, local: true do |f| %>
 
+              <!-- エラー文 -->
               <%= render "layouts/error" %>
 
                 <div class="form-group">
@@ -34,7 +35,6 @@
                     <%= f.submit "投稿", class: "btn col-md-2 btn-block btn-ellipse-black" %>
                   </div>
                 </div>
-
               <% end %>
             </div>
           </div>

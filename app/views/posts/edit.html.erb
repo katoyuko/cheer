@@ -10,8 +10,9 @@
       <p class="small-title">投稿編集</p>
 
         <div class="form">
+          <!-- エラー文 -->
+          <%= render "layouts/error" %>
           <%= form_for(@post) do |f| %>
-
             <div class="col-md-5">
               <div class="form-group">
                 <label for="control-label">写真</label><br>

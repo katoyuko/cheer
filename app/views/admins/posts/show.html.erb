@@ -24,7 +24,6 @@
             <p>
               <%= @post.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp; posted by
             </p>
-
             <%= link_to admins_user_path(@post.user.id), class: "post-user-link" do %>
               <div class="col-md-1 postuser-image-box">
                 <%= attachment_image_tag @post.user, :user_image, :fill, 30, 30, format: "jpg", class: "img-responsive postuser-image" %>

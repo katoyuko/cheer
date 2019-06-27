@@ -1,3 +1,27 @@
+<!-- cheer機能 for posts/show -->
+<% if @post.post_cheered_by?(current_user) %>
+  <li class="post_cheer">
+    <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :delete, remote: true do %>
+      <p class="post_cheer">
+        <i class="fa fa-flag" id="<%= @post.id %>"></i>
+        <span id="cheer_count"><%= @post.cheer_count %></span> cheer
+      </p>
+    <% end %>
+  </li>
+<% else %>
+  <li class="post_cheer">
+    <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
+    <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :post, remote: true do %>
+      <p class="post_cheer">
+        <!-- idを指定することでjson形式で返される -->
+        <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
+        <span id="cheer_count"><%= @post.cheer_count %></span> cheer
+      </p>
+    <% end %>
+  </li>
+<% end %>
+
+
 <script type="text/javascript">
 $(function() {
 
@@ -20,25 +44,3 @@ $(function() {
 })
 </script>
 
-
-<% if @post.post_cheered_by?(current_user) %>
-  <li class="post_cheer">
-    <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :delete, remote: true do %>
-      <p class="post_cheer">
-        <i class="fa fa-flag" id="<%= @post.id %>"></i>
-        <span id="cheer_count"><%= @post.cheer_count %></span> cheer
-      </p>
-    <% end %>
-  </li>
-<% else %>
-  <li class="post_cheer">
-    <!-- link_toはmethodを指定しないとGETで返されるのでPOSTを定義 リクエストを送信 非同期なのでremote trueを定義 -->
-    <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :post, remote: true do %>
-      <p class="post_cheer">
-        <!-- idを指定することでjson形式で返される -->
-        <i class="fa fa-flag-o" id="<%= @post.id %>"></i>
-        <span id="cheer_count"><%= @post.cheer_count %></span> cheer
-      </p>
-    <% end %>
-  </li>
-<% end %>
