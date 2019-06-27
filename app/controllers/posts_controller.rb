@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     post_category_count = PostCategory.joins(:posts).where(created_at: 1.months.ago..Time.now).group(:post_category_id).count
     # 配列をハッシュに変換 要素の順番を並び替え ハッシュのキーを取得
     post_category_ids = Hash[post_category_count.sort_by{ |_, v| -v }].keys
-    # 投稿数多い順 4つのカテゴリを表示
+    # 投稿数多い順 4つのカテゴリをホットなカテゴリとして表示
     @post_category_ranks = PostCategory.where(id: post_category_ids).sort_by{|o| post_category_ids.index(o.id)}[0..3]
 
     # お気に入りカテゴリ一覧

@@ -1,3 +1,4 @@
+<!-- cheer機能 for posts/show -->
 <% if @post.post_cheered_by?(current_user) %>
   <li class="post_cheer">
     <%= link_to post_post_cheers_path(@post), id: "cheer-button", method: :delete, remote: true do %>
