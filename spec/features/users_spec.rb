@@ -1,9 +1,14 @@
 require 'rails_helper'
+require "refile/file_double"
 
 RSpec.feature "Userに関するテスト", type: :feature do
   before do
-    @user1 = FactoryBot.create(:user, :create_with_posts)
-    @user2 = FactoryBot.create(:user, :create_with_posts)
+    @user1 = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
+    category_image = Refile::FileDouble.new("dummy", "category.png", content_type: "image/png")
+    post_category = FactoryBot.create(:post_category, category_image: category_image)
+    expect(FactoryBot.create(:post, user: @user1, post_category: post_category)).to be_valid
+    expect(FactoryBot.create(:post, user: @user2, post_category: post_category)).to be_valid
   end
   feature "ログインしていない状態で" do
     feature "以下のページへアクセスした際のリダイレクト先の確認" do
@@ -46,7 +51,7 @@ RSpec.feature "Userに関するテスト", type: :feature do
         expect(page).to have_content @user2.name
         expect(page).to have_content @user2.introduction
 
-        @user2.books.each do |book|
+        @user2.posts.each do |post|
           expect(page).to have_link "more ▶︎", href: post_path(post)
           expect(page).to have_content post.post_content
         end
