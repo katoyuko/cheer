@@ -476,7 +476,7 @@ nav li.active{
 .pagetop{
   height: 90px;
   width: 90px;
-  cursor: pointer;
+  cursor: pointer; /*スマホでもjs発火させるため */
 }
 
 footer{
