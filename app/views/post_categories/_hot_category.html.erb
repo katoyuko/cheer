@@ -4,11 +4,11 @@
     <div class="col-md-12 post-index-hot">
       <section>
         <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
-        <p class="btn btn-default btn-hot-top btn-block">
-          <%= link_to post_category_path(post_category.id) do %>
+        <%= link_to post_category_path(post_category.id) do %>
+          <p class="btn btn-hot-top btn-block">
             # <%= post_category.category %>
-          <% end %>
-        </p>
+          </p>
+        <% end %>
       </section>
     </div>
   </div>
