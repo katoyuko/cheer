@@ -33,8 +33,11 @@ class Admins::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to admins_users_path, notice: "削除しました"
+    if @user.destroy
+      redirect_to admins_users_path, notice: "削除しました"
+    else
+      render :index
+    end
   end
 
 end
