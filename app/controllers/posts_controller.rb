@@ -60,8 +60,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to user_path(current_user), notice: "削除しました！"
+    if @post.destroy
+      redirect_to user_path(current_user), notice: "削除しました！"
+    else
+      renser :edit
+    end
   end
 
   private

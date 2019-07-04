@@ -39,8 +39,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to root_path, notice: "退会が完了しました"
+    if @user.destroy
+      redirect_to root_path, notice: "退会が完了しました"
+    else
+      render :edit
+    end
   end
 
   private
