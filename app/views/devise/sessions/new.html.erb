@@ -30,17 +30,6 @@
         </div>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class=" form-group sign-content">
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-            <%= f.check_box :remember_me %>
-            <%= f.label :メールアドレスとパスワードを記憶する %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <%= f.submit "ログイン", class:"btn col-md-4 col-md-offset-4 btn-ellipse" %>

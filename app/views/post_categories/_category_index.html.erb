@@ -3,11 +3,11 @@
   <div class="col-md-3 col-sm-4 col-xs-6">
     <div class="col-md-12">
       <section>
-        <p class="btn btn-search btn-block">
-          <%= link_to post_category_path(post_category.id) do %>
-            # <%= post_category.category %>
-          <% end %>
-        </p>
+        <%= link_to post_category_path(post_category.id) do %>
+          <p class="btn btn-search btn-block">
+          # <%= post_category.category %>
+          </p>
+        <% end %>
       </section>
     </div>
   </div>
