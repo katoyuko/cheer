@@ -20,10 +20,4 @@ class FavoriteCategoriesController < ApplicationController
     redirect_to user_path(current_user), notice: "削除しました！"
   end
 
-  private
-
-  def favorite_category_params
-    params.require(:favorite_category).permit(:post_category_id, :user_id)
-  end
-
 end

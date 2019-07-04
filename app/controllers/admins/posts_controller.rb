@@ -37,9 +37,4 @@ class Admins::PostsController < ApplicationController
     redirect_to posts_path, notice: "削除しました！"
   end
 
-  private
-    def post_params
-      params.require(:post).permit(:post_category_id, :image, :post_content, :user_id)
-    end
-
 end

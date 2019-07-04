@@ -37,9 +37,4 @@ class Admins::UsersController < ApplicationController
     redirect_to admins_users_path, notice: "削除しました"
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :introduction, :user_image)
-  end
 end
