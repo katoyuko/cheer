@@ -205,6 +205,7 @@ h2, h4{
   border: solid 1px #fff;
   transition: all 0.4s ease 0s;
   cursor: pointer;
+  color: #ff5752;
 }
 
 .btn-hot-top:hover{
@@ -214,11 +215,7 @@ h2, h4{
   cursor: pointer;
 }
 
-.btn-hot-top a{
-  color: #ff5752;
-}
-
-.btn-hot-top:hover a{
+.btn-hot-top:hover{
   color: #fff;
 }
 
@@ -266,6 +263,7 @@ h2, h4{
   background-color: #76d9cd;
   transition: all 0.4s ease 0s;
   cursor: pointer;
+  color: #fff;
 }
 
 .btn-search:hover{
@@ -281,6 +279,7 @@ h2, h4{
   border: solid 1px #fff;
   transition: all 0.4s ease 0s;
   cursor: pointer;
+  color: #76d9cd;
 }
 
 .btn-fav:hover{
@@ -289,8 +288,7 @@ h2, h4{
   border: solid 1px #76d9cd;
 }
 
-.btn-ellipse-green a,
-.btn-fav a{
+.btn-ellipse-green a{
   color: #76d9cd;
 }
 

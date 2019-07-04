@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def top
     # post_categoriesとpostsを内部統合 一週間単位でcount
@@ -41,20 +42,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
 
   def edit
-    @post = Post.find(params[:id])
     if @post.user_id != current_user.id
       redirect_to root_path
     end
   end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to posts_path, notice: "更新しました！"
     else
@@ -63,14 +60,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to user_path(current_user), notice: "削除しました！"
+    if @post.destroy
+      redirect_to user_path(current_user), notice: "削除しました！"
+    else
+      renser :edit
+    end
   end
 
   private
     def post_params
       params.require(:post).permit(:post_category_id, :image, :post_content, :user_id)
+    end
+
+    def set_post
+      @post = Post.find(params[:id])
     end
 
 end

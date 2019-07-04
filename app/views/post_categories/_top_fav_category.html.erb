@@ -9,11 +9,11 @@
               <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive", id: "favimage" %>
             <% end %>
 
-            <p class="btn btn-default btn-fav btn-block">
-              <%= link_to post_category_path(favorite_category.post_category.id) do %>
+            <%= link_to post_category_path(favorite_category.post_category.id) do %>
+              <p class="btn btn-fav btn-block">
                 # <%= favorite_category.post_category.category %>
-              <% end %>
-            </p>
+              </p>
+            <% end %>
           </section>
         </div>
       </div>

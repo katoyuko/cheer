@@ -33,13 +33,11 @@ class Admins::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path, notice: "削除しました！"
-  end
-
-  private
-    def post_params
-      params.require(:post).permit(:post_category_id, :image, :post_content, :user_id)
+    if @post.destroy
+      redirect_to admins_posts_path, notice: "削除しました！"
+    else
+      renser :show
     end
+  end
 
 end
