@@ -16,7 +16,7 @@ class PostCommentsController < ApplicationController
 
   def destroy
     post = Post.find(params[:post_id])
-    post_comment = PostComment.find_by(post_id: post.id)
+    post_comment = PostComment.find_by(post_id: post.id, user_id: current_user)
     if post_comment.destroy
       redirect_to post_path(post), notice: "削除しました！"
     else
