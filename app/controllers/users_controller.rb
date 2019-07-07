@@ -20,9 +20,7 @@ class UsersController < ApplicationController
       if @chart_data.has_key?(date)
         @chart_data[date] += 1
       else
-        if
-          @chart_data[date] = 1
-        end
+        @chart_data[date] = 1
       end
     end
   end
