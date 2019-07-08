@@ -3,7 +3,9 @@
   <div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-8 col-xs-offset-2">
     <div class="col-md-12 post-index-hot">
       <section>
-        <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive" %>
+        <%= link_to post_category_path(post_category.id), class: "image-link" do %>
+          <%= attachment_image_tag post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive", id: "favimage" %>
+        <% end %>
         <%= link_to post_category_path(post_category.id) do %>
           <p class="btn btn-hot-top btn-block">
             # <%= post_category.category %>
