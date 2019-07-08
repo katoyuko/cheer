@@ -6,7 +6,7 @@
       <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
         <div class="col-md-12 post-index-fav">
           <section>
-            <%= link_to post_path(favorite_category.id), class: "image-link" do %>
+            <%= link_to post_category_path(favorite_category.post_category.id), class: "image-link" do %>
               <%= attachment_image_tag favorite_category.post_category, :category_image, :fill, 230, 160, format: "png", class: "img-responsive", id: "favimage" %>
             <% end %>
 
