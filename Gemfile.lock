@@ -100,7 +100,7 @@ GEM
     chartable (0.0.0.3)
       activesupport (>= 3.0.0)
       chronic (~> 0.10)
-    chartkick (3.2.0)
+    chartkick (3.4.0)
     childprocess (1.0.1)
       rake (< 13.0)
     chromedriver-helper (2.1.1)
